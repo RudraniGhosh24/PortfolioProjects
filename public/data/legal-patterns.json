@@ -1,0 +1,77 @@
+{
+  "entities": [
+    {
+      "name": "act_name",
+      "patterns": [
+        "Indian Penal Code",
+        "Code of Criminal Procedure",
+        "Bharatiya Nyaya Sanhita",
+        "Bharatiya Nagarik Suraksha Sanhita",
+        "Constitution of India",
+        "Companies Act",
+        "Information Technology Act",
+        "Transfer of Property Act",
+        "Contract Act",
+        "Negotiable Instruments Act",
+        "Consumer Protection Act",
+        "Arbitration and Conciliation Act",
+        "Family Courts Act",
+        "Hindu Marriage Act",
+        "Special Marriage Act",
+        "Protection of Women from Domestic Violence Act"
+      ]
+    },
+    {
+      "name": "section_reference",
+      "regex": "(?:section|sec\\.?|s\\.?)\\s*(\\d+[A-Z]?(?:\\s*\\(\\d+\\))?(?:\\s*\\([a-z]\\))?)",
+      "flags": "gi"
+    },
+    {
+      "name": "case_number",
+      "regex": "(?:Crl\\.?|Civil|WP|Writ|PIL|SLP|CPA|FA|SA|RSA|CRR|CM|MA|MISC|OMP|CS|Company Petition|CMA)\\s*(?:No\\.?|Number)?\\s*\\.?\\s*(\\d+)\\s*of\\s*(\\d{4})",
+      "flags": "gi"
+    },
+    {
+      "name": "court_name",
+      "patterns": [
+        "Supreme Court of India",
+        "High Court",
+        "District Court",
+        "Sessions Court",
+        "Magistrate",
+        "Family Court",
+        "Tribunal",
+        "National Green Tribunal",
+        "Consumer Forum",
+        "Central Administrative Tribunal",
+        "State Administrative Tribunal",
+        "Arbitral Tribunal",
+        "Labour Court",
+        "Industrial Tribunal"
+      ]
+    },
+    {
+      "name": "party_name",
+      "regex": "(?:petitioner|appellant|plaintiff|complainant|applicant|defendant|respondent|accused)\\s*(?:is|was|name)?\\s*[:\\-]?\\s*([A-Z][A-Za-z\\s\\.]+?)(?=\\s*(?:aged|son|daughter|resident|r/o|s/o|d/o|w/o|through|represented|vs\\.|versus|$|\\n))",
+      "flags": "gi"
+    },
+    {
+      "name": "date",
+      "regex": "(\\d{1,2}[-/\\.]\\d{1,2}[-/\\.]\\d{2,4}|\\d{1,2}(?:st|nd|rd|th)?\\s+(?:January|February|March|April|May|June|July|August|September|October|November|December)\\s*,?\\s*\\d{4})",
+      "flags": "gi"
+    },
+    {
+      "name": "judge_name",
+      "regex": "(?:Hon'ble|Honourable|Mr\\.?|Mrs\\.?|Ms\\.?|Justice|Learned|Ld\\.?)\\s+([A-Z][A-Za-z\\s\\.]+?)(?=\\s*(?:J\\.|Judge|Bench|Court|$|\\n))",
+      "flags": "gi"
+    },
+    {
+      "name": "money_amount",
+      "regex": "(?:Rs\\.?|INR|₹|Rupees)\\s*\\.?\\s*(\\d+(?:,\\d+)*(?:\\.\\d+)?)\\s*(?:lakhs?|lacs?|crores?|million|billion)?",
+      "flags": "gi"
+    }
+  ],
+  "stopwords": [
+    "the", "and", "or", "of", "to", "in", "a", "is", "that", "for", "it", "with", "as", "was", "on", "be", "by", "this", "from", "at", "an", "has", "have", "had", "not", "are", "but", "were", "been", "their", "they", "we", "he", "she", "his", "her", "him", "them", "which", "who", "when", "where", "what", "how", "all", "any", "can", "shall", "may", "will", "would", "could", "should", "there", "than", "so", "if", "no", "yes", "up", "out", "down", "over", "under", "again", "further", "then", "once", "here", "why", "off", "also", "into", "through", "during", "before", "after", "above", "below", "between", "among", "until", "while", "about", "against", "under", "such", "only", "own", "same", "so", "than", "too", "very", "just", "now", "then"
+  ]
+}

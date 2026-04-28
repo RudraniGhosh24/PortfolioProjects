@@ -1,0 +1,3548 @@
+{
+  "provisions": [
+    {
+      "bnss_section": "49",
+      "offense": "Punishment of abetment if the act abetted is\ncommitted in consequence and where no express\nprovision is made for its punishment.",
+      "punishment": "Same as for\noffence abetted.",
+      "cognizable": "According as\noffence abetted is\ncognizable or noncognizable.",
+      "bailable": "According as\noffence abetted\nis bailable or\nnon- bailable.",
+      "court": "Court by\nwhich\noffence\nabetted is\ntriable."
+    },
+    {
+      "bnss_section": "50",
+      "offense": "Punishment of abetment if person abetted does\nact with different intention from that of abettor.",
+      "punishment": "Same as for\noffence abetted.",
+      "cognizable": "According as offence abetted is cognizable or noncognizable.",
+      "bailable": "According as\noffence abetted\nis bailable or\nnon- bailable.",
+      "court": "Court by\nwhich\noffence\nabetted is\ntriable."
+    },
+    {
+      "bnss_section": "51",
+      "offense": "Liability of abettor when one act abetted and\ndifferent act done",
+      "punishment": "Same as for\noffence intended to\nbe abetted.",
+      "cognizable": "According as offence abetted is cognizable or noncognizable.",
+      "bailable": "According as\noffence abetted\nis bailable or\nnon- bailable.",
+      "court": "Court by\nwhich\noffence\nabetted is\ntriable."
+    },
+    {
+      "bnss_section": "52",
+      "offense": "Abettor when liable to cumulative punishment\nfor act abetted and for act done.",
+      "punishment": "Same as for\noffence\ncommitted.",
+      "cognizable": "According as offence abetted is cognizable or noncognizable.",
+      "bailable": "According as\noffence abetted\nis bailable or\nnon- bailable.",
+      "court": "Court by\nwhich\noffence\nabetted is\ntriable."
+    },
+    {
+      "bnss_section": "53",
+      "offense": "Liability of abettor for an effect caused by the act\nabetted different from that intended by the\nabettor.",
+      "punishment": "Same as for\noffence\ncommitted",
+      "cognizable": "According as offence abetted is cognizable or noncognizable.",
+      "bailable": "According as\noffence abetted\nis bailable or\nnon- bailable.",
+      "court": "Court by\nwhich\noffence\nabetted is\ntriable."
+    },
+    {
+      "bnss_section": "54",
+      "offense": "Abettor present when offence is committed.",
+      "punishment": "Same as for\noffence\ncommitted",
+      "cognizable": "According as offence abetted is cognizable or noncognizable.",
+      "bailable": "According as\noffence abetted\nis bailable or\nnon- bailable.",
+      "court": "Court by\nwhich\noffence\nabetted is\ntriable."
+    },
+    {
+      "bnss_section": "55 (1)",
+      "offense": "Abetment of offence punishable with death\nor imprisonment for life.",
+      "punishment": "Imprisonment for\n7 years and fine.",
+      "cognizable": "According as offence abetted is cognizable or noncognizable.",
+      "bailable": "Non-bailable",
+      "court": "Court by\nwhich\noffence\nabetted is\ntriable."
+    },
+    {
+      "bnss_section": "55 (2)",
+      "offense": "If an act which causes harm be done in\nconsequence of the abetment.",
+      "punishment": "Imprisonment for\n14 years and fine.",
+      "cognizable": "According as offence abetted is cognizable or noncognizable.",
+      "bailable": "Non-bailable",
+      "court": "Court by\nwhich\noffence\nabetted is\ntriable."
+    },
+    {
+      "bnss_section": "56 (1)",
+      "offense": "Abetment of offence punishable with\nimprisonment.",
+      "punishment": "Imprisonment\nextending to a quarter\npart of the longest term\nprovided for the\noffence, or fine, or both.",
+      "cognizable": "According as offence abetted is cognizable or noncognizable.",
+      "bailable": "According as\noffence abetted\nis bailable or\nnon- bailable.",
+      "court": "Court by\nwhich\noffence\nabetted is\ntriable."
+    },
+    {
+      "bnss_section": "56 (2)",
+      "offense": "If the abettor or the person abetted be a\npublic servant whose duty it is to prevent the\noffence.",
+      "punishment": "one-half of the longest\nterm provided for that\noffence, or with such fine\nas is provided for the\noffence, or with both.",
+      "cognizable": "According as offence abetted is cognizable or noncognizable.",
+      "bailable": "According as\noffence abetted\nis bailable or\nnon- bailable.",
+      "court": "Court by\nwhich\noffence\nabetted is\ntriable."
+    },
+    {
+      "bnss_section": "57",
+      "offense": "Abetting commission of offence by the public\nor by more than ten persons.",
+      "punishment": "imprisonment of either\ndescription for a term which\nmay extend to seven years\nand with fine",
+      "cognizable": "According as offence\nabetted is cognizable\nor non-cognizable.",
+      "bailable": "According as\noffence abetted is\nbailable or nonbailable.",
+      "court": "Court by\nwhich\noffence\nabetted is\ntriable."
+    },
+    {
+      "bnss_section": "58",
+      "offense": "Concealing design to commit offence\npunishable with death or imprisonment for\nlife.",
+      "punishment": "(i) if that offence be\ncommitted, be punished\nwith imprisonment of either\ndescription for a term which\nmay extend to seven years;\nor (ii) if the offence be not\ncommitted, with\nimprisonment of either\ndescription, for a term\nwhich may extend to three\nyears,",
+      "cognizable": "According as offence\nabetted is cognizable\nor non-cognizable.",
+      "bailable": "non- bailable if that offence is\ncommitted, but bailable if not committed",
+      "court": "Court by\nwhich\noffence\nabetted is\ntriable."
+    },
+    {
+      "bnss_section": "59 (a)",
+      "offense": "A public servant concealing a design to\ncommit an offence which it is his duty to\nprevent, if the offence be committed.",
+      "punishment": "Imprisonment extending to\nhalf of the longest term\nprovided for the offence, or\nfine, or both.",
+      "cognizable": "According as offence\nabetted is cognizable\nor non-cognizable.",
+      "bailable": "According as\noffence abetted is\nbailable or nonbailable.",
+      "court": "Court by\nwhich\noffence\nabetted is\ntriable."
+    },
+    {
+      "bnss_section": "59 (b)",
+      "offense": "A public servant concealing a design to\ncommit an offence which it is his duty to\nprevent, if the offence be punishable with death or\nimprisonment for life.",
+      "punishment": "Imprisonment for 10 years.",
+      "cognizable": "According as offence\nabetted is cognizable\nor non-cognizable.",
+      "bailable": "Non-bailable.",
+      "court": "Court by\nwhich\noffence\nabetted is\ntriable."
+    },
+    {
+      "bnss_section": "59 (c)",
+      "offense": "A public servant concealing a design to\ncommit an offence which it is his duty to\nprevent, if the offence be not committed.",
+      "punishment": "Imprisonment extending to\na quarter part of the longest\nterm provided for the\noffence, or fine, or both.",
+      "cognizable": "According as offence\nabetted is cognizable\nor non-cognizable.",
+      "bailable": "Bailable.",
+      "court": "Court by\nwhich\noffence\nabetted is\ntriable."
+    },
+    {
+      "bnss_section": "60(a)",
+      "offense": "Concealing a design to commit an offence\npunishable with imprisonment, if offence be\ncommitted.",
+      "punishment": "Imprisonment extending to\na quarter part of the longest\nterm provided for the\noffence, or fine, or both.",
+      "cognizable": "According as offence\nabetted is cognizable\nor non-cognizable.",
+      "bailable": "According as\noffence abetted is\nbailable or nonbailable.",
+      "court": "Court by\nwhich\noffence\nabetted is\ntriable."
+    },
+    {
+      "bnss_section": "60(b)",
+      "offense": "Concealing a design to commit an offence\npunishable with imprisonment, if offence be not\ncommitted.",
+      "punishment": "Imprisonment extending to\none-eighth part of the\nlongest term provided for\nthe offence, or fine, or\nboth.",
+      "cognizable": "According as offence\nabetted is cognizable\nor non-cognizable.",
+      "bailable": "Bailable.",
+      "court": "Court by\nwhich\noffence\nabetted is\ntriable."
+    },
+    {
+      "bnss_section": "61(a)",
+      "offense": "Criminal conspiracy to commit\nan offence punishable with\ndeath, imprisonment for life or\nrigorous imprisonment for a\nterm of 2 years or upwards.",
+      "punishment": "Same as for abetment of the offence\nwhich is the object of the conspiracy.",
+      "cognizable": "According as the\noffence which is\nthe object of\nconspiracy is\ncognizable or\nnon- cognizable.",
+      "bailable": "According\nas offence\nwhich is\nobject of\nconspiracy\nis bailable\nor nonbailable.",
+      "court": "Court by which\nabetment of the\noffence which\nis the object of\nconspiracy is\ntriable"
+    },
+    {
+      "bnss_section": "61(b)",
+      "offense": "Any other criminal conspiracy.",
+      "punishment": "Imprisonment for 6 months, or fine, or\nboth.",
+      "cognizable": "Non-cognizable.",
+      "bailable": "Bailable.",
+      "court": "Magistrate of\nthe first\nclass."
+    },
+    {
+      "bnss_section": "62",
+      "offense": "Attempting to commit offences\npunishable with imprisonment for\nlife, or imprisonment, and in such\nattempt doing any act towards the\ncommission of the offence.",
+      "punishment": "Imprisonment for life, or imprisonment\nnot exceeding half.of the longest term,\nprovided for the offence, or fine, or both",
+      "cognizable": "According as the\noffence is\ncognizable or noncognizable.",
+      "bailable": "According as\nthe offence\nattempted by\nthe offender\nis bailable or\nnot.",
+      "court": "The court by\nwhich the\noffence\nattempted is\ntriable."
+    },
+    {
+      "bnss_section": "64(1)",
+      "offense": "Rape.",
+      "punishment": "Rigorous imprisonment of not less than\n10 years but which may extend to\nimprisonment for life and with fine.",
+      "cognizable": "Cognizable",
+      "bailable": "Nonbailable",
+      "court": "Court of\nSession."
+    },
+    {
+      "bnss_section": "64 (2)",
+      "offense": "Rape by a police officer or a public\nservant or member of armed forces\nor a person being on the\nmanagement or on the staff of a\njail, remand home or other place of\ncustody or women’s or children’s\ninstitution or by a person on the\nmanagement or on the staff of a\nhospital, and rape committed by a\nperson in a position of trust or\nauthority towards the person\nraped or by a near relative of the\nperson raped.",
+      "punishment": "Rigorous imprisonment of not less\nthan 10 years but which may extend\nto imprisonment for life which shall\nmean the remainder of that person’s\nnatural life and with fine.",
+      "cognizable": "Cognizable",
+      "bailable": "Nonbailable",
+      "court": "Court of\nSession."
+    },
+    {
+      "bnss_section": "65(1)",
+      "offense": "Persons committing offence of\nrape on a woman under sixteen\nyears of age.",
+      "punishment": "Rigorous imprisonment for a term\nwhich shall not be less than 20 years\nbut which may extend to imprisonment\nfor life, which shall mean\nimprisonment for the remainder of that\nperson’s natural life and\nwith fine.",
+      "cognizable": "Cognizable",
+      "bailable": "Nonbailable",
+      "court": "Court of\nSession."
+    },
+    {
+      "bnss_section": "65(2)",
+      "offense": "Punishment for rape in certain\ncases.",
+      "punishment": "Rigorous imprisonment for a term\nwhich shall not be less than twenty\nyears, but which may extend to\nimprisonment for life, which shall\nmean imprisonment for the remainder\nof that person's natural life, and shall\nalso be liable to fine.",
+      "cognizable": "Cognizable",
+      "bailable": "Nonbailable",
+      "court": "Court of\nSession."
+    },
+    {
+      "bnss_section": "66",
+      "offense": "Person committing an offence of\nrape and inflicting injury which\ncauses death or causes the woman\nto be in a persistent vegetative\nstate.",
+      "punishment": "Rigorous imprisonment of not less\nthan 20 years but which may extend\nto imprisonment for life which shall\nmean imprisonment for the remainder\nof that person’s natural life or\nwith death.",
+      "cognizable": "Cognizable",
+      "bailable": "Nonbailable",
+      "court": "Court of\nSession."
+    },
+    {
+      "bnss_section": "67",
+      "offense": "Sexual intercourse by husband upon\nhis wife during separation or by a\nperson in authority.",
+      "punishment": "Imprisonment for not less than 2 years\nbut which may extend to 7 years and\nwith fine.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Court of\nSession."
+    },
+    {
+      "bnss_section": "68",
+      "offense": "Sexual intercourse by a person in\nauthority.",
+      "punishment": "rigorous imprisonment of either\ndescription for a term which shall not\nbe less than five years, but which may\nextend to ten years, and shall also be\nliable to fine.",
+      "cognizable": "Cognizable",
+      "bailable": "Nonbailable",
+      "court": "Court of\nSession."
+    },
+    {
+      "bnss_section": "69",
+      "offense": "Sexual intercourse by employing\ndeceitful means etc.",
+      "punishment": "imprisonment of either description for a\nterm which may extend to ten years and\nshall also be liable to fine",
+      "cognizable": "Cognizable",
+      "bailable": "Nonbailable",
+      "court": "Court of\nSession."
+    },
+    {
+      "bnss_section": "70 (1)",
+      "offense": "Gang rape",
+      "punishment": "Rigorous imprisonment for not less\nthan 20 years but which may extend to\nimprisonment for life which shall mean\nimprisonment for the remainder of that\nperson’s natural life and with fine.",
+      "cognizable": "Cognizable",
+      "bailable": "Nonbailable",
+      "court": "Court of\nSession."
+    },
+    {
+      "bnss_section": "70 (2)",
+      "offense": "Gang rape on a woman under\neighteen years of age.",
+      "punishment": "Imprisonment for life which shall mean\nimprisonment for the remainder of that\nperson’s natural life and with fine or\nwith death.",
+      "cognizable": "Cognizable",
+      "bailable": "Nonbailable",
+      "court": "Court of\nSession."
+    },
+    {
+      "bnss_section": "71",
+      "offense": "Repeat offenders.",
+      "punishment": "Imprisonment for life which shall mean\nimprisonment for the remainder of that\nperson’s natural life or with death.",
+      "cognizable": "Cognizable",
+      "bailable": "Nonbailable",
+      "court": "Court of\nSession."
+    },
+    {
+      "bnss_section": "72 (1)",
+      "offense": "Disclosure of identity of the\nvictim of certain offences, etc.",
+      "punishment": "Imprisonment for two years and fine",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate."
+    },
+    {
+      "bnss_section": "73",
+      "offense": "Printing or publication of a\nproceeding without prior\npermission of court.",
+      "punishment": "Imprisonment for two years and fine",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate."
+    },
+    {
+      "bnss_section": "74",
+      "offense": "Assault or use of criminal force to\nwoman with intent to outrage her\nmodesty.",
+      "punishment": "Imprisonment of 1 year which may extend\nto 5 years, and with fine.",
+      "cognizable": "Cognizable",
+      "bailable": "Nonbailable",
+      "court": "Any Magistrate."
+    },
+    {
+      "bnss_section": "75(2)",
+      "offense": "Sexual harassment and\npunishment for sexual harassment specified in clause (i), (ii) or (iii) of\nsub-section (1).",
+      "punishment": "Rigorous imprisonment with three years,\nor with fine, or with both.",
+      "cognizable": "Cognizable",
+      "bailable": "Nonbailable",
+      "court": "Court of\nSession."
+    },
+    {
+      "bnss_section": "75(3)",
+      "offense": "Sexual harassment and\npunishment for sexual harassment specified in clause (iv) of\nsub-section (1).",
+      "punishment": "One year, or with fine, or with both.",
+      "cognizable": "Cognizable",
+      "bailable": "Nonbailable",
+      "court": "Court of\nSession."
+    },
+    {
+      "bnss_section": "76",
+      "offense": "Assault or use of criminal force to\nwoman with intent to disrobe.",
+      "punishment": "Imprisonment of not less than 3 years but\nwhich may extend to 7 years and with fine.",
+      "cognizable": "Cognizable",
+      "bailable": "Non-bailable",
+      "court": "Court of\nSession."
+    },
+    {
+      "bnss_section": "77",
+      "offense": "Voyeurism",
+      "punishment": "Imprisonment of not less than 1 year but\nwhich may extend to 3 years and with fine\nfor first conviction.  Imprisonment of not less than 3 years but\nwhich may extend 7 years and with fine\nfor second or subsequent conviction.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Court of\nSession."
+    },
+    {
+      "bnss_section": "78(2)",
+      "offense": "Stalking.",
+      "punishment": "Imprisonment up to 3 years and with\nfine for first conviction. Imprisonment up to 5 years and with fine\nfor second or subsequent conviction.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable but Non-bailable for second or subsequent conviction.",
+      "court": "Any Magistrate."
+    },
+    {
+      "bnss_section": "79",
+      "offense": "Uttering any word or making any\ngesture intended to insult the\nmodesty of a woman, etc",
+      "punishment": "Simple imprisonment for 3 years and with\nfine.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate."
+    },
+    {
+      "bnss_section": "80(2)",
+      "offense": "Dowry death.",
+      "punishment": "seven years but which may extend to\nimprisonment for life.",
+      "cognizable": "Cognizable",
+      "bailable": "Non-bailable",
+      "court": "Court of\nSession."
+    },
+    {
+      "bnss_section": "81",
+      "offense": "A man by deceit causing a woman\nnot lawfully married to him to\nbelieve, that she is lawfully\nmarried to him and to cohabit with\nhim in that belief.",
+      "punishment": "Imprisonment for 10 years and fine.",
+      "cognizable": "Noncognizable",
+      "bailable": "Non-bailable",
+      "court": "Magistrate\nof the first\nclass."
+    },
+    {
+      "bnss_section": "82(1)",
+      "offense": "Marrying again during the life\ntime of a husband or wife.",
+      "punishment": "Imprisonment for 7 years and\nfine.",
+      "cognizable": "Noncognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate\nof the first\nclass."
+    },
+    {
+      "bnss_section": "82(2)",
+      "offense": "Same offence with concealment of\nthe former marriage from the\nperson with whom subsequent\nmarriage is contracted",
+      "punishment": "Imprisonment for 10 years and fine.",
+      "cognizable": "Noncognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate\nof the first\nclass."
+    },
+    {
+      "bnss_section": "83",
+      "offense": "A person with fraudulent intention\ngoing through the ceremony of\nbeing married, knowing that he is\nnot thereby lawfully married",
+      "punishment": "Imprisonment for 7 years and fine.",
+      "cognizable": "Noncognizable",
+      "bailable": "NonBailable",
+      "court": "Magistrate\nof the first\nclass."
+    },
+    {
+      "bnss_section": "84",
+      "offense": "Enticing or taking away or\ndetaining with a criminal intent a\nmarried woman.",
+      "punishment": "Imprisonment for 2 years, or fine, or both.",
+      "cognizable": "Noncognizable",
+      "bailable": "Bailable",
+      "court": "Any\nMagistrate."
+    },
+    {
+      "bnss_section": "85",
+      "offense": "Punishment for subjecting a\nmarried woman to cruelty.",
+      "punishment": "Imprisonment for three years and fine.",
+      "cognizable": "Cognizable if\ninformation relating\nto the commission of\nthe offence is given\nto an officer in\ncharge of a police\nstation by the person\naggrieved by the\noffence or by any\nperson related to her\nby blood, marriage or\nadoption or if there is\nno such relative, by\nany public servant\nbelonging to such\nclass or category as\nmay be notified by\nthe State\nGovernment\nin this behalf.",
+      "bailable": "Non-bailable",
+      "court": "Magistrate\nof the first\nclass."
+    },
+    {
+      "bnss_section": "87",
+      "offense": "Kidnapping, abducting or\ninducing woman to compel her\nmarriage, etc.",
+      "punishment": "Imprisonment for 10 years and\nfine.",
+      "cognizable": "Cognizable",
+      "bailable": "Non-bailable",
+      "court": "Court of\nSession."
+    },
+    {
+      "bnss_section": "88",
+      "offense": "Causing miscarriage.",
+      "punishment": "Imprisonment for 3 years, or\nfine, or both.  But Imprisonment for 7 years and\nfine if the woman be quick with child.",
+      "cognizable": "Noncognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate\nof the first\nclass."
+    },
+    {
+      "bnss_section": "89",
+      "offense": "Causing miscarriage without\nwomen's consent",
+      "punishment": "Imprisonment for life, or imprisonment\nfor 10 years and fine.",
+      "cognizable": "Cognizable",
+      "bailable": "Non-bailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "90(1)",
+      "offense": "Death caused by an act done\nwith intent to cause miscarriage.",
+      "punishment": "Imprisonment for 10 years and fine.",
+      "cognizable": "Cognizable",
+      "bailable": "Non-bailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "90(2)",
+      "offense": "Death caused by an act done\nwith intent to cause miscarriage, if  act done without women’s consent.",
+      "punishment": "Imprisonment for life, or 10 years and fine, if  act done without women’s consent.",
+      "cognizable": "Cognizable",
+      "bailable": "Non-bailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "91",
+      "offense": "Act done with intent to prevent a\nchild being born alive, or to cause\nit to die after its birth.",
+      "punishment": "Imprisonment for 10 years, or fine, or both.",
+      "cognizable": "Cognizable",
+      "bailable": "Non-bailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "92",
+      "offense": "Causing death of a quick unborn\nchild by an act amounting to\nculpable homicide.",
+      "punishment": "Imprisonment for 10 years and fine",
+      "cognizable": "Cognizable",
+      "bailable": "Non-bailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "93",
+      "offense": "Exposure of a child under 12\nyears of age by parent or person\nhaving care of it with intention\nof wholly abandoning it.",
+      "punishment": "Imprisonment for 7 years, or fine, or\nboth.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of the first\nclass."
+    },
+    {
+      "bnss_section": "94",
+      "offense": "Concealment of birth by secret\ndisposal of dead body.",
+      "punishment": "Imprisonment for 2 years, or fine, or\nboth.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of the first\nclass."
+    },
+    {
+      "bnss_section": "95",
+      "offense": "Hiring, employing or engaging a\nchild to commit an offence.",
+      "punishment": "imprisonment of either description or\nfine provided for that offence as if the\noffence has been committed by such\nperson himself",
+      "cognizable": "Cognizable",
+      "bailable": "Nonbailable",
+      "court": "Court by which\noffence committed\nis triable."
+    },
+    {
+      "bnss_section": "96",
+      "offense": "Procuration of child.",
+      "punishment": "imprisonment of either description or\nfine provided for that offence as if the\noffence has been committed by such\nperson himself",
+      "cognizable": "Cognizable",
+      "bailable": "Nonbailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "97",
+      "offense": "Kidnapping or abducting child\nunder ten years with intent to steal\nfrom its person.",
+      "punishment": "Imprisonment for 7 years and fine.",
+      "cognizable": "Cognizable",
+      "bailable": "Nonbailable",
+      "court": "Magistrate of the\nfirst class."
+    },
+    {
+      "bnss_section": "98",
+      "offense": "Selling child for purposes of\nprostitution, etc.",
+      "punishment": "Imprisonment for 10 years and fine.",
+      "cognizable": "Cognizable",
+      "bailable": "Nonbailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "99",
+      "offense": "Buying child for purposes of\nprostitution, etc.",
+      "punishment": "Imprisonment for not less than 7 years but which may extend to 14 years and fine.",
+      "cognizable": "Cognizable",
+      "bailable": "Nonbailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "103(1)",
+      "offense": "Murder",
+      "punishment": "Death, or imprisonment for life, and\nfine.",
+      "cognizable": "Cognizable",
+      "bailable": "Nonbailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "103(2)",
+      "offense": "Murder by group of five or more persons",
+      "punishment": "death or with imprisonment for life and  fine.",
+      "cognizable": "Cognizable",
+      "bailable": "Nonbailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "104",
+      "offense": "Murder by life-convict.",
+      "punishment": "death or with imprisonment for life, which\nshall mean the remainder of that person’s\nnatural life.",
+      "cognizable": "Cognizable",
+      "bailable": "Nonbailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "105",
+      "offense": "Culpable homicide not amounting to murder, if the act by which the death is caused is done with the intention of causing death, or of causing such bodily injury as is likely to cause death; or, if the act is done with the knowledge that it is likely to cause death, but without any intention to cause death, or to cause such bodily injury as is likely to cause death.",
+      "punishment": "imprisonment for life, or imprisonment of either description for a term which shall not be\nless than five years but which may extend to ten years, and shall also be liable to fine,  or with imprisonment of either description for a term which may extend to ten years and with fine, if the act is done with the knowledge that it is likely to cause death,",
+      "cognizable": "Cognizable",
+      "bailable": "Nonbailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "106(1)",
+      "offense": "Causing death by negligence.",
+      "punishment": "(1) Imprisonment for 5 years and\nfine.\n(2) Imprisonment for 2 years and\nfine, for death by negligence by a registered medical practitioner",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of the\nfirst class."
+    },
+    {
+      "bnss_section": "106(2)",
+      "offense": "Causing death of any person by rash and negligent driving",
+      "punishment": "Imprisonment for 10 years and fine.",
+      "cognizable": "Cognizable",
+      "bailable": "Nonbailable",
+      "court": "Magistrate of the\nfirst class."
+    },
+    {
+      "bnss_section": "107",
+      "offense": "Abetment of suicide of child or\nperson with mental illness.",
+      "punishment": "Death, or imprisonment for life, or\nimprisonment for 10 years and\nfine.",
+      "cognizable": "Cognizable",
+      "bailable": "Nonbailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "108",
+      "offense": "Abetment of suicide.",
+      "punishment": "Imprisonment for 10 years and fine.",
+      "cognizable": "Cognizable",
+      "bailable": "Nonbailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "109(1)",
+      "offense": "Attempt to murder",
+      "punishment": "Imprisonment for 10 years and fine.  Extendable to imprisonment for life if such act causes hurt to any person.",
+      "cognizable": "Cognizable",
+      "bailable": "Nonbailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "109(2)",
+      "offense": "Attempt by a life-convict to commit murder, if hurt is caused",
+      "punishment": "Death or with imprisonment for\nlife, which shall mean the\nremainder of that person’s natural\nlife.",
+      "cognizable": "Cognizable",
+      "bailable": "Nonbailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "110",
+      "offense": "Attempt to commit culpable\nhomicide",
+      "punishment": "three years, or with fine, or with\nboth; and, if hurt is caused to any\nperson by such act, shall be\npunished with imprisonment \nwhich may extend to seven years,\nor with fine, or with both.",
+      "cognizable": "Cognizable",
+      "bailable": "Nonbailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "111(2)(a)",
+      "offense": "Organised crime resulting in death of any person.",
+      "punishment": "Death or imprisonment for life and shall also be liable\nto fine which shall not be less than rupees\nten lakhs",
+      "cognizable": "Cognizable",
+      "bailable": "Nonbailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "111(2)(b)",
+      "offense": "Organised crime in any other case",
+      "punishment": "Imprisonment for not less than 5 years but which may extend to\nimprisonment for life and fine not less than rupees five lakhs",
+      "cognizable": "Cognizable",
+      "bailable": "Nonbailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "111(3)",
+      "offense": "Abetting, attempting, conspiring, or knowingly facilitating the commission of an organised crime",
+      "punishment": "Imprisonment for not less than 5 years but which may extend to\nimprisonment for life and fine not less than rupees five lakhs",
+      "cognizable": "Cognizable",
+      "bailable": "Nonbailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "111(4)",
+      "offense": "Being a member of an organized crime syndicate",
+      "punishment": "Imprisonment for not less than 5 years but which may extend to\nimprisonment for life and fine not less than rupees five lakhs",
+      "cognizable": "Cognizable",
+      "bailable": "Nonbailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "111(5)",
+      "offense": "Intentionally harboursing or concealing any person who has committed the offence of an organised crime",
+      "punishment": "Imprisonment for not less than 3 years but which may extend to\nimprisonment for life and fine not less than rupees five lakhs",
+      "cognizable": "Cognizable",
+      "bailable": "Nonbailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "111(6)",
+      "offense": "Possessing  any property derived, or obtained from the commission of an organised crime",
+      "punishment": "Imprisonment for not less than 3 years but which may extend to\nimprisonment for life and fine not less than rupees two lakhs",
+      "cognizable": "Cognizable",
+      "bailable": "Nonbailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "111(7)",
+      "offense": "Possessing  any property on behalf of a member of an organised crime syndicate",
+      "punishment": "Imprisonment for not less than 3 years but which may extend to\nimprisonment for 10 years and fine not less than rupees one lakh",
+      "cognizable": "Cognizable",
+      "bailable": "Nonbailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "112",
+      "offense": "Petty Organised crime",
+      "punishment": "imprisonment for a term which shall not be\nless than one year but which may extend to\nseven years and shall also be liable to fine",
+      "cognizable": "Cognizable",
+      "bailable": "Nonbailable",
+      "court": "Magistrate of the\nfirst class."
+    },
+    {
+      "bnss_section": "113(2)(a)",
+      "offense": "Terrorist act resulting in the death of any person",
+      "punishment": "death or imprisonment for life and fine.",
+      "cognizable": "Cognizable",
+      "bailable": "Nonbailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "113(2)(b)",
+      "offense": "Terrorist act in any other case",
+      "punishment": "imprisonment for a term which shall not be\nless than five years but which may extend to\nimprisonment for life and fine",
+      "cognizable": "Cognizable",
+      "bailable": "Nonbailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "113(3)",
+      "offense": "Conspiring, attempting, abetting, etc or knowingly\nfacilitating the commission of terrorist act",
+      "punishment": "imprisonment for a term which shall not be\nless than five years but which may extend to\nimprisonment for life and fine",
+      "cognizable": "Cognizable",
+      "bailable": "Nonbailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "113(4)",
+      "offense": "Organising camps, training, etc. for the commission of terrorist act",
+      "punishment": "imprisonment for a term which shall not be\nless than five years but which may extend to\nimprisonment for life and fine",
+      "cognizable": "Cognizable",
+      "bailable": "Nonbailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "113(5)",
+      "offense": "Being a member of an organisation involved in terrorist act",
+      "punishment": "imprisonment for life and fine",
+      "cognizable": "Cognizable",
+      "bailable": "Nonbailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "113(6)",
+      "offense": "Harbouring or concealing any person who has a terrorist act",
+      "punishment": "imprisonment for a term which shall not be\nless than three years but which may extend to\nimprisonment for life and fine",
+      "cognizable": "Cognizable",
+      "bailable": "Nonbailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "113(7)",
+      "offense": "Possession of property derived or obtained from commission of\nterrorist act",
+      "punishment": "imprisonment for life and fine",
+      "cognizable": "Cognizable",
+      "bailable": "Nonbailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "115(2)",
+      "offense": "Voluntarily causing hurt.",
+      "punishment": "Imprisonment for 1 year or fine of 10,000 rupees, or both.",
+      "cognizable": "Non-cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "117(2)",
+      "offense": "Voluntarily causing grievous hurt",
+      "punishment": "Imprisonment for 7 years and fine.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "117(3)",
+      "offense": "If hurt results in permanent disability or in persistent vegetative state",
+      "punishment": "rigorous imprisonment for a term which shall not be less than ten years but which may extend to imprisonment for life, which shall mean imprisonment for the remainder of that person’s natural life.",
+      "cognizable": "Cognizable",
+      "bailable": "Nonbailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "117(4)",
+      "offense": "Grievous hurt caused by a group of five or more persons",
+      "punishment": "Imprisonment for 7 years and fine.",
+      "cognizable": "Cognizable",
+      "bailable": "Nonbailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "118(1)",
+      "offense": "Voluntarily causing hurt by dangerous weapons or means.",
+      "punishment": "Imprisonment for a term which may extend to three years, or\nwith fine which may extend to twenty thousand rupees, or with both.",
+      "cognizable": "Cognizable",
+      "bailable": "Nonbailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "118(2)",
+      "offense": "Voluntarily causing grievous hurt by dangerous\nweapons or means",
+      "punishment": "Imprisonment for life or imprisonment of not less than one year but which may\nextend to ten years, and fine.",
+      "cognizable": "Cognizable",
+      "bailable": "Nonbailable",
+      "court": "Magistrate of the First\nclass."
+    },
+    {
+      "bnss_section": "119(1)",
+      "offense": "Voluntarily causing hurt or\ngrievous hurt to extort property, or\nto constrain to an illegal to an act",
+      "punishment": "Imprisonment for ten years, and fine.",
+      "cognizable": "Cognizable",
+      "bailable": "Nonbailable",
+      "court": "Magistrate of the First\nclass."
+    },
+    {
+      "bnss_section": "119(2)",
+      "offense": "Voluntarily causing grievous hurt for any\npurpose referred to in sub–section (1),",
+      "punishment": "imprisonment for life, or imprisonment for ten years, and fine.",
+      "cognizable": "Cognizable",
+      "bailable": "Nonbailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "120(1)",
+      "offense": "Voluntarily causing hurt to extort confession\nor information, or to compel\nrestoration of property, etc.",
+      "punishment": "Imprisonment for 7 years and fine.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of the First\nclass."
+    },
+    {
+      "bnss_section": "120(2)",
+      "offense": "Voluntarily causing grievous\nhurt to extort confession or\ninformation, or to compel\nrestoration of property, etc.",
+      "punishment": "Imprisonment for 10 years and fine.",
+      "cognizable": "Cognizable",
+      "bailable": "Nonbailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "121(1)",
+      "offense": "Voluntarily causing hurt to deter public\nservant from his duty.",
+      "punishment": "Imprisonment for five years, or with fine, or with\nboth.",
+      "cognizable": "Cognizable",
+      "bailable": "Nonbailable",
+      "court": "Magistrate of the First\nclass."
+    },
+    {
+      "bnss_section": "121(2)",
+      "offense": "Voluntarily causing grievous hurt to deter public\nservant from his duty.",
+      "punishment": "Imprisonment not less than 1 year, or Imprisonment for 10 years and fine.",
+      "cognizable": "Cognizable",
+      "bailable": "Nonbailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "122(1)",
+      "offense": "Voluntarily causing hurt on grave\nand sudden provocation, not\nintending to hurt any other than the\nperson who gave the provocation.",
+      "punishment": "Imprisonment for 1 month, or\nfine of 5000 rupees, or both.",
+      "cognizable": "Non-Cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "122(2)",
+      "offense": "Causing grievous hurt on\ngrave and sudden provocation,\nnot intending to hurt any other than\nthe person who gave the\nprovocation.",
+      "punishment": "Imprisonment for 5 years, or\nfine of 10,000 rupees, or both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of the First\nclass."
+    },
+    {
+      "bnss_section": "123",
+      "offense": "Causing hurt by means of poison,\netc., with intent to commit an\noffence.",
+      "punishment": "Imprisonment for 10 years and fine.",
+      "cognizable": "Cognizable",
+      "bailable": "Nonbailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "124(1)",
+      "offense": "Voluntarily causing grievous hurt by\nuse of acid, etc.",
+      "punishment": "Imprisonment for not less than 10 years but which may extend\nto imprisonment for life and fine to be paid to the victim",
+      "cognizable": "Cognizable",
+      "bailable": "Nonbailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "124(2)",
+      "offense": "Voluntarily throwing or attempting\nto throw acid.",
+      "punishment": "Imprisonment for 5 years but\nwhich may extend to 7 years and\nwith fine.",
+      "cognizable": "Cognizable",
+      "bailable": "Nonbailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "125",
+      "offense": "Doing any Act endangering human life or personal\nsafety of others.",
+      "punishment": "Imprisonment for 3 months, or\nfine of 2500 rupees, or both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "125(a)",
+      "offense": "Act endangering life or personal\nsafety of others, where the hurt is caused,",
+      "punishment": "six months, or with fine which\nmay extend to five thousand\nrupees, or with both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "125(b)",
+      "offense": "Act endangering life or personal\nsafety of others, where the grievous hurt is caused,",
+      "punishment": "three years, or with fine which\nmay extend to ten thousand\nrupees, or with both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "126(2)",
+      "offense": "Wrongfully restraining any person",
+      "punishment": "Simple imprisonment for\n1 month, or fine of 5000 rupees,\nor both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "127(2)",
+      "offense": "Wrongfully confining any person.",
+      "punishment": "Imprisonment for 1 year, or\nfine of 5,000 rupees, or both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "127(3)",
+      "offense": "Wrongfully confining for three or more days.",
+      "punishment": "Imprisonment for 3 years, or\nFine of 10000 rupees, or both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "127(4)",
+      "offense": "Wrongfully confining for 10 or more\ndays.",
+      "punishment": "Imprisonment for 5 years and\nfine of 10000 rupees.",
+      "cognizable": "Cognizable",
+      "bailable": "Nonbailable",
+      "court": "Magistrate of the First\nclass."
+    },
+    {
+      "bnss_section": "127(5)",
+      "offense": "Keeping any person in wrongful confinement, knowing that a writ has been issued for his liberation.",
+      "punishment": "Imprisonment for a term which\nmay extend to two years in\naddition to any term of\nimprisonment to which he may\nbe liable under any other section\nof this Chapter and shall also be\nliable to fine.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of the First\nclass."
+    },
+    {
+      "bnss_section": "127(6)",
+      "offense": "Wrongful confinement in secret",
+      "punishment": "Three years in addition to any\nother punishment to which he\nmay be liable for such wrongful\nconfinement and shall also be\nliable to fine.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of the First\nclass."
+    },
+    {
+      "bnss_section": "127(7)",
+      "offense": "Wrongful confinement for the\npurpose of extorting property, or\nconstraining to an illegal act, etc.",
+      "punishment": "Imprisonment of either\ndescription for a term which\nmay extend to three years, and\nshall also be liable to fine.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of the First\nclass."
+    },
+    {
+      "bnss_section": "127(8)",
+      "offense": "Wrongful confinement for the\npurpose of extorting confession or\ninformation, or of compelling\nrestoration of property, etc.",
+      "punishment": "Imprisonment of either\ndescription for a term which\nmay extend to three years, and\nshall also be liable to fine.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "131",
+      "offense": "Assault or criminal force otherwise\nthan on grave provocation.",
+      "punishment": "Three months, or with fine\nwhich may extend to one\nthousand rupees, or with both.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "132",
+      "offense": "Assault or criminal force to deter\npublic servant from discharge of his\nduty.",
+      "punishment": "imprisonment of either\ndescription for a term which\nmay extend to two years, or with\nfine, or with both",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "133",
+      "offense": "Assault or criminal force with intent\nto dishonor a person, otherwise than\non grave and sudden provocation.",
+      "punishment": "imprisonment of either\ndescription for a term which\nmay extend to two years, or with\nfine, or with both",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "134",
+      "offense": "Assault or criminal force in attempt\nto commit theft of property worn or\ncarried by a person.",
+      "punishment": "imprisonment of either\ndescription for a term which\nmay extend to two years, or with\nfine, or with both",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "135",
+      "offense": "Assault or use of criminal force\nin attempt wrongfully to confine a\nperson.",
+      "punishment": "Imprisonment for 1 year, or\nfine of 5,000 rupees, or both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "136",
+      "offense": "Assault or use of criminal force on\ngrave and sudden provocation.",
+      "punishment": "Simple imprisonment for one\nmonth, or fine of 1000 rupees,\nor both.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "137(2)",
+      "offense": "Kidnapping",
+      "punishment": "Imprisonment for 7 years and\nfine.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of the First\nclass."
+    },
+    {
+      "bnss_section": "139(1)",
+      "offense": "Kidnaping a child.",
+      "punishment": "Rigorous imprisonment which\nshall not be less than 10 years\nbut which may extend to\nimprisonment for life, and shall\nalso be liable to fine.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Magistrate of the First\nclass."
+    },
+    {
+      "bnss_section": "139(2)",
+      "offense": "Maiming a child for purposes of begging.",
+      "punishment": "Imprisonment which shall not be\nless than 20 years which may\nextend to remainder of life, and\nwith fine.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "140(1)",
+      "offense": "Kidnapping or abducting in order to murder.",
+      "punishment": "Imprisonment for life, or\nrigorous imprisonment for\n10 years and fine.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "140(2)",
+      "offense": "Kidnapping for ransom, etc.",
+      "punishment": "Death, or imprisonment for\nlife and fine.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "140(3)",
+      "offense": "Kidnapping or abducting with intent secretly and wrongfully to confine a person.",
+      "punishment": "Imprisonment for 7 years\nand fine.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Magistrate of the First\nclass."
+    },
+    {
+      "bnss_section": "140(4)",
+      "offense": "Kidnapping or abducting in order to subject a person to grievous hurt,\nslavery, etc.",
+      "punishment": "Imprisonment for 10 years\nand fine.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "141",
+      "offense": "Importation of a girl or boy from\nforeign country.",
+      "punishment": "Imprisonment for 10 years\nand fine.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "142",
+      "offense": "Wrongfully concealing or keeping in\nconfinement, kidnapped or abducted\nperson.",
+      "punishment": "Punishment for kidnapping or\nabduction.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Court by\nwhich the\nkidnapping\nor abduction\nis triable"
+    },
+    {
+      "bnss_section": "143(2)",
+      "offense": "Trafficking of person.",
+      "punishment": "Imprisonment of not less than 7 years\nbut which may extend to 10 years and\nwith fine.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "143(3)",
+      "offense": "Trafficking of more than one person",
+      "punishment": "Imprisonment of not less than\n10 years but which may extend to\nimprisonment for life and with fine.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "143(4)",
+      "offense": "Trafficking of a child",
+      "punishment": "Imprisonment of not less than\n10 years but which may extend to\nimprisonment for life and with fine",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "143(5)",
+      "offense": "Trafficking of more than one child.",
+      "punishment": "Imprisonment of not less than\n14 years but which may extend to\nimprisonment for life and with fine.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "143(6)",
+      "offense": "Person convicted of offence of\ntrafficking of child on more than one\noccasion.",
+      "punishment": "Imprisonment for life which shall\nmean the remainder of that person’s\nnatural life and with fine.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "143(7)",
+      "offense": "Public servant or a police officer\ninvolved in trafficking of child.",
+      "punishment": "Imprisonment for life which shall\nmean the remainder of that person’s\nnatural life and with fine.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "144(1)",
+      "offense": "Exploitation of a trafficked child.",
+      "punishment": "Rigorous Imprisonment of not less than\n5 years but which may extend\nto 10 years and with fine.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "144(2)",
+      "offense": "Exploitation of a trafficked person.",
+      "punishment": "Rigorous Imprisonment of not less than\n3 years but which may extend\nto 7 years and with fine.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "145",
+      "offense": "Habitual dealing in slaves.",
+      "punishment": "Imprisonment for life, or\nimprisonment for 10\nyears and fine.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "146",
+      "offense": "Unlawful compulsory labour.",
+      "punishment": "Imprisonment for 1 year, or\nfine, or both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "147",
+      "offense": "Waging or attempting to wage war, or\nabetting the waging of war, against the\nGovernment of India.",
+      "punishment": "Death, or imprisonment for\nlife and fine.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "148",
+      "offense": "Conspiring to commit certain offences\nagainst the State.",
+      "punishment": "Imprisonment for life, or\nimprisonment for 10 years\nand fine.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "149",
+      "offense": "Collecting arms, etc., with the\nintention of waging war against the\nGovernment of India.",
+      "punishment": "Imprisonment for life, or\nimprisonment for 10 years\nand fine.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "150",
+      "offense": "Concealing with intent to facilitate a\ndesign to wage war.",
+      "punishment": "Imprisonment for 10 years and\nfine.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "151",
+      "offense": "Assaulting President, Governor, etc.,\nwith intent to compel or restrain the\nexercise of any lawful power.",
+      "punishment": "Imprisonment for 7 years and\nfine.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "152",
+      "offense": "Acts endangering sovereignty unity\nand integrity of India.",
+      "punishment": "Imprisonment for life, or imprisonment for 7 years\nand fine.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "153",
+      "offense": "Waging war against Government of\nany foreign State at peace with the\nGovernment of India.",
+      "punishment": "Imprisonment for life, or imprisonment for 7 years\nand fine.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "154",
+      "offense": "Committing depredation on the\nterritories of any power in alliance or\nat peace with the Government of\nIndia",
+      "punishment": "Imprisonment for 7 years and\nfine, and forfeiture of certain\nproperty.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "155",
+      "offense": "Receiving property taken by war or\ndepredation mentioned in sections 153\nand 154.",
+      "punishment": "Imprisonment for 7 years and\nfine, and forfeiture of certain\nproperty.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "156",
+      "offense": "Public servant voluntarily allowing\nprisoner of state or war to escape.",
+      "punishment": "Imprisonment for life, or\nimprisonment for 10 years\nand fine.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "157",
+      "offense": "Public servant negligently suffering\nsuch prisoner to escape.",
+      "punishment": "Simple imprisonment for\n3 years and fine.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of the First\nclass."
+    },
+    {
+      "bnss_section": "158",
+      "offense": "Aiding escape of, rescuing or\nharbouring such prisoner.",
+      "punishment": "Imprisonment for life, or\nimprisonment for 10 years and\nfine.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "159",
+      "offense": "Abetting mutiny, or attempting to\nseduce a soldier, sailor or airman from\nhis duty.",
+      "punishment": "Imprisonment for life, or\nimprisonment for 10 years and\nfine.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "160",
+      "offense": "Abetment of mutiny, if mutiny is\ncommitted in consequence thereof.",
+      "punishment": "Death, or imprisonment for\nlife, or imprisonment for\n10 years and fine.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "161",
+      "offense": "Abetment of assault by soldier, sailor\nor airman on his superior officer,\nwhen in execution of his office.",
+      "punishment": "Imprisonment for 3 years and\nfine.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Magistrate of the First\nclass."
+    },
+    {
+      "bnss_section": "162",
+      "offense": "Abetment of such assault, if the\nassault committed.",
+      "punishment": "Imprisonment for 7 years and\nfine.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Magistrate of the First\nclass."
+    },
+    {
+      "bnss_section": "163",
+      "offense": "Abetment of desertion of soldier,\nsailor or airman.",
+      "punishment": "Imprisonment for 2 years, or\nfine, or both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "164",
+      "offense": "Harbouring deserter.",
+      "punishment": "Imprisonment for 2 years, or\nfine, or both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "165",
+      "offense": "Deserter concealed on board merchant\nvessel through negligence of master.",
+      "punishment": "Fine of 3000 rupees.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "166",
+      "offense": "Abetment of act of insubordination by\nsoldier, sailor or airman.",
+      "punishment": "Imprisonment for 2 years or fine,\nor both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "168",
+      "offense": "Wearing garb or carrying token used\nby soldier, sailor or airman.",
+      "punishment": "Imprisonment for 3 months, or fine\nof 2000 rupees, or both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "173",
+      "offense": "Bribery.",
+      "punishment": "Imprisonment for 1 year or fine, or\nboth, or if treating only, fine only.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of the First\nclass."
+    },
+    {
+      "bnss_section": "174",
+      "offense": "Undue influence or Personation at an election.",
+      "punishment": "Imprisonment for one year, or\nfine, or both.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of the First\nclass."
+    },
+    {
+      "bnss_section": "175",
+      "offense": "False statement in connection with an\nelection.",
+      "punishment": "Fine",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of the First\nclass."
+    },
+    {
+      "bnss_section": "176",
+      "offense": "Illegal payments in connection with\nelections.",
+      "punishment": "Fine of 10,000 rupees",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of the First\nclass."
+    },
+    {
+      "bnss_section": "177",
+      "offense": "Failure to keep election accounts",
+      "punishment": "Fine of 5,000 rupees.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of the First\nclass."
+    },
+    {
+      "bnss_section": "178",
+      "offense": "Counterfeiting coins, Government stamps, currency-notes or bank-notes.",
+      "punishment": "Imprisonment for life, or\nimprisonment for 10 years and\nfine",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "179",
+      "offense": "Using as genuine, forged or\ncounterfeit coin, Government stamp,\ncurrency-notes or bank notes.",
+      "punishment": "Imprisonment for life, or\nimprisonment for 10 years and\nfine",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "180",
+      "offense": "Possession of forged or counterfeit coin, Government stamp, currency-notes or bank notes.",
+      "punishment": "Imprisonment for seven years, or\nwith fine, or both.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "181",
+      "offense": "Making or mending, or buying or selling, possessing any machinery, die, or instrument or material for forging or counterfeiting any coin, stamp issued by Government, currency-note or bank-note.",
+      "punishment": "Imprisonment for ten years, or\nwith fine, or both.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "182(1)",
+      "offense": "Making or using documents\nresembling currency-notes or banknotes.",
+      "punishment": "Fine of 300 rupees.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "182(2)",
+      "offense": "On refusal to disclose the name and\naddress of the printer.",
+      "punishment": "Fine of 600 rupees.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "183",
+      "offense": "Effacing any writing from a substance\nbearing a Government stamp,\nremoving from a document a stamp\nused for it, with intent to cause a loss\nto Government.",
+      "punishment": "Imprisonment for 3 years, or\nfine, or both",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of the First\nclass."
+    },
+    {
+      "bnss_section": "184",
+      "offense": "Using a Government stamp known to\nhave been before used.",
+      "punishment": "Imprisonment for 2 years, or\nfine, or both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "185",
+      "offense": "Erasure of mark denoting that stamps\nhave been used.",
+      "punishment": "Imprisonment for 3 years, or\nfine, or both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of the First\nclass."
+    },
+    {
+      "bnss_section": "186",
+      "offense": "Fictitious stamps",
+      "punishment": "Fine of 200 rupees",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "187",
+      "offense": "Person employed in a Mint causing\ncoin to be of a different weight or\ncomposition from that fixed by law.",
+      "punishment": "Imprisonment of seven years and\nfine",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Magistrate of the First\nclass."
+    },
+    {
+      "bnss_section": "188",
+      "offense": "Unlawfully taking from a Mint any\ncoining instrument.",
+      "punishment": "Imprisonment of seven years and\nfine",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Magistrate of the First\nclass."
+    },
+    {
+      "bnss_section": "189(2)",
+      "offense": "Being member of an unlawful assembly.",
+      "punishment": "Imprisonment for\n6 months, or fine, or both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "189(3)",
+      "offense": "Joining or continuing in an unlawful\nassembly, knowing that it has been\ncommanded to disperse.",
+      "punishment": "Imprisonment for 2 years, or\nfine, or both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "189(4)",
+      "offense": "Joining an unlawful assembly armed\nwith any deadly weapon.",
+      "punishment": "Imprisonment for 2 years, or\nfine, or both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "189(5)",
+      "offense": "Knowingly joining or continuing in\nany assembly of five or more\npersons after it has been commanded\nto disperse.",
+      "punishment": "Imprisonment for 6 months, or fine or both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "189(6)",
+      "offense": "Hiring, engaging or employing\npersons to take part in an unlawful\nassembly.",
+      "punishment": "The same as for a member of such\nassembly, and for any offence\ncommitted by any member of such\nassembly.",
+      "cognizable": "Cognizable",
+      "bailable": "According as\noffence is bailable\nor non-bailable",
+      "court": "The Court by\nwhich the\noffence is triable."
+    },
+    {
+      "bnss_section": "189(7)",
+      "offense": "Harbouring persons hired for an\nunlawful assembly.",
+      "punishment": "Imprisonment for 6 months, or\nfine, or both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "189(8)",
+      "offense": "Being hired to take part in an\nunlawful assembly or riot.",
+      "punishment": "Imprisonment for 6 months, or\nfine, or both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "189(9)",
+      "offense": "Or to go armed.",
+      "punishment": "Imprisonment for 6 months, or\nfine, or both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "190",
+      "offense": "Every member of unlawful\nassembly guilty of offence\ncommitted in prosecution of\ncommon object.",
+      "punishment": "The same as for the offence.",
+      "cognizable": "According as offence is cognizable or noncognizable.",
+      "bailable": "According as offence is bailable or non-bailable",
+      "court": "The court by which the offence is triable."
+    },
+    {
+      "bnss_section": "191(2)",
+      "offense": "Rioting.",
+      "punishment": "Imprisonment for 2 years, or\nfine, or both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "191(3)",
+      "offense": "Rioting, armed with a deadly\nweapon.",
+      "punishment": "Imprisonment for 5 years, or fine,\nor both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of the First\nclass."
+    },
+    {
+      "bnss_section": "192",
+      "offense": "Wantonly giving provocation with\nintent to cause riot, if rioting be\ncommitted.",
+      "punishment": "Imprisonment for 1 year, or fine,\nor both. But if not committed then Imprisonment for 6 months, or\nfine, or both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "193(1)",
+      "offense": "Owner or occupier of land not giving\ninformation of riot, etc.",
+      "punishment": "Fine of 1,000 rupees.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "193(2)",
+      "offense": "Person for whose benefit or on\nwhose behalf a riot takes place not\nusing all lawful means to prevent it.",
+      "punishment": "Fine.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "193(3)",
+      "offense": "Agent of owner or occupier for\nwhose benefit a riot is committed not\nusing all lawful means to prevent it.",
+      "punishment": "Fine.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "194(2)",
+      "offense": "Committing affray",
+      "punishment": "Imprisonment for one month, or\nfine of 1000 rupees or both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "195(1)",
+      "offense": "Assaulting or obstructing public\nservant when suppressing riot, etc.",
+      "punishment": "Imprisonment for 3 years or fine not less than",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of the First\nclass."
+    },
+    {
+      "bnss_section": "195(2)",
+      "offense": "Threatening to assault or attempting to obstruct any public servant  in the discharge of his duty as such\npublic servant",
+      "punishment": "Imprisonment for 1 year and fine.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "196(1)",
+      "offense": "Promoting enmity between different\ngroups on ground of religion, race,\nplace of birth, residence, language,\netc., and doing acts prejudicial to\nmaintenance of harmony.",
+      "punishment": "Imprisonment for 3 years and fine.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Magistrate of the First\nclass."
+    },
+    {
+      "bnss_section": "196(2)",
+      "offense": "Promoting enmity between classes in place of worship, etc.",
+      "punishment": "Imprisonment for 5 years and fine.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Magistrate of the First\nclass."
+    },
+    {
+      "bnss_section": "197(1)",
+      "offense": "Imputations, assertions prejudicial\nto national integration.",
+      "punishment": "Imprisonment for 3 years and fine.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Magistrate of the First\nclass."
+    },
+    {
+      "bnss_section": "197(2)",
+      "offense": "Imputations, assertions prejudicial\nto national integration, if committed in a place of public\nworship, etc.",
+      "punishment": "Imprisonment for 5 years and fine.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Magistrate of the First\nclass."
+    },
+    {
+      "bnss_section": "198",
+      "offense": "Public servant disobeying a\ndirection of the law with intent to\ncause injury to any person.",
+      "punishment": "Simple imprisonment for 1 year,\nor fine, or both.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of the First\nclass."
+    },
+    {
+      "bnss_section": "199",
+      "offense": "Public servant disobeying direction\nunder law",
+      "punishment": "Rigorous imprisonment for minimum 6\nmonths which may extend to 2\nyears and fine.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of the First\nclass."
+    },
+    {
+      "bnss_section": "200",
+      "offense": "Non-treatment of victim by hospital",
+      "punishment": "Imprisonment for 1 year or fine or\nboth",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of the First\nclass."
+    },
+    {
+      "bnss_section": "201",
+      "offense": "Public servant framing an incorrect\ndocument with intent to cause\ninjury.",
+      "punishment": "Imprisonment for 3 years, or fine,\nor both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of the First\nclass."
+    },
+    {
+      "bnss_section": "202",
+      "offense": "Public servant unlawfully engaging\nin trade.",
+      "punishment": "Simple imprisonment for 1 year,\nor fine, or both.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of the First\nclass."
+    },
+    {
+      "bnss_section": "203",
+      "offense": "Public servant unlawfully buying or\nbidding for property.",
+      "punishment": "Simple imprisonment for 2 years,\nor fine, or both and confiscation of\nproperty, if purchased.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of the First\nclass."
+    },
+    {
+      "bnss_section": "204",
+      "offense": "Personating a public servant.",
+      "punishment": "imprisonment of either description\nfor a term which shall not be less\nthan six months but may extend to\nthree years and with fine",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "205",
+      "offense": "Wearing garb or carrying token used\nby public servant with fraudulent\nintent.",
+      "punishment": "Imprisonment for\n3 months, or fine of 5000 rupees,\nor both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "206(a)",
+      "offense": "Absconding to avoid service of\nsummons or other proceeding from a public servant.",
+      "punishment": "Simple imprisonment for\n1 month, or fine of 5000 rupees,\nor both.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "206(b)",
+      "offense": "If summons or notice require\nattendance in person, etc., in a Court\nof Justice.",
+      "punishment": "Simple imprisonment for 6\nmonths, or fine of 10,000 rupees,\nor both",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "207(a)",
+      "offense": "Preventing service of summons or\nother proceeding, or preventing\npublication thereof.",
+      "punishment": "Simple imprisonment for\n1 month, or fine of 5000 rupees,\nor both.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "207(b)",
+      "offense": "If summons or notice require\nattendance in person, etc., in a Court\nof Justice.",
+      "punishment": "Simple imprisonment for 6\nmonths, or fine of 10,000 rupees,\nor both",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "208(a)",
+      "offense": "Non-attendance in obedience to an\norder from public servant.",
+      "punishment": "Simple imprisonment for\n1 month, or fine of 5000 rupees,\nor both.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "208(b)",
+      "offense": "Non-attendance in obedience to an\norder from public servant.",
+      "punishment": "Simple imprisonment for\n1 month, or fine of 5000 rupees,\nor both.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "209",
+      "offense": "Non-appearance in response to a proclamation under section 84 of this Sanhita\nImprisonment for 3 years, or with fine, or with both",
+      "punishment": "Imprisonment for 3 years, or with\nfine, or with both.  But  In a case where declaration has been made under sub-section (4) of\nsection 82 of this Code pronouncing a person as proclaimed offender then Imprisonment for 7 years and fine",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Magistrate of the First\nclass."
+    },
+    {
+      "bnss_section": "210(a)",
+      "offense": "Omission to produce document to\npublic servant by person legally\nbound to produce it.",
+      "punishment": "Simple imprisonment for\n1 month, or fine of 5000 rupees,\nor both.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "210(b)",
+      "offense": "If the document is required to be\nproduced in or delivered to a Court\nof Justice.",
+      "punishment": "Simple imprisonment for 6\nmonths, or fine of 10,000 rupees,\nor both.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "211(a)",
+      "offense": "Intentional Omission to give notice or\ninformation to public servant by\nperson legally bound to give it",
+      "punishment": "Simple imprisonment for\n1 month, or fine of 5000 rupees,\nor both.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "211(b)",
+      "offense": "If the notice or information required\nrespects the commission of an\noffence, etc",
+      "punishment": "Simple imprisonment for 6\nmonths, or fine of 10,000 rupees,\nor both.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "211(c)",
+      "offense": "If the notice or information is\nrequired by an order passed under\nsub-section (1) of section 394 of this Sanhita.",
+      "punishment": "Imprisonment for\n6 months, or fine of 1,000 rupees,\nor both.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "212(a)",
+      "offense": "Knowingly furnishing false information to a public servant",
+      "punishment": "Simple imprisonment for 6\nmonths, or fine of 5,000 rupees,\nor both.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "212(b)",
+      "offense": "If the information required\nrespects the commission of an\noffence, etc.",
+      "punishment": "Imprisonment for 2 years, or fine,\nor both.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "213",
+      "offense": "Refusing oath when duly required to\ntake oath by a public servant.",
+      "punishment": "Simple imprisonment for\n6 months, or fine of 5,000 rupees,\nor both.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "214",
+      "offense": "Being legally bound t state the truth and refusing to answer public servant\nauthorised to question",
+      "punishment": "Simple imprisonment for\n6 months, or fine of 5,000 rupees,\nor both.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "215",
+      "offense": "Refusing to sign a statement made to\na public servant when legally\nrequired to do so.",
+      "punishment": "Simple imprisonment for\n3 months, or fine of 3,000 rupees,\nor both.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "216",
+      "offense": "Knowingly stating to a public\nservant on oath as true that which is false.",
+      "punishment": "Imprisonment for 3 years and fine.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of the First\nclass."
+    },
+    {
+      "bnss_section": "217",
+      "offense": "Giving false information to a public\nservant in order to cause him to use\nhis lawful power to the injury or\nannoyance of any person.",
+      "punishment": "Imprisonment for\n1 year, or fine of 10,000 rupees,\nor both.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "218",
+      "offense": "Resistance to the taking of property\nby the lawful authority of a public servant.",
+      "punishment": "Imprisonment for 6 months, or fine of 10000 rupees, or\nboth.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "219",
+      "offense": "Obstructing sale of property offered\nfor sale by authority of a public\nservant.",
+      "punishment": "Imprisonment for 1 month, or fine\nof 5000 rupees, or both.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "220",
+      "offense": "Illegal purchase or bid for property\noffered for sale by authority of\npublic servant.",
+      "punishment": "Imprisonment for 1 month, or fine\nof 200 rupees, or both.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "221",
+      "offense": "Obstructing public servant in\ndischarge of his public functions.",
+      "punishment": "Imprisonment for 3 months, or\nfine of 2500 rupees, or both.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "222(a)",
+      "offense": "Omission to assist public servant\nwhen bound by law to give such\nassistance.",
+      "punishment": "Simple imprisonment for 1 month,\nor fine of 2500 rupees, or both.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "222(b)",
+      "offense": "Wilfully neglecting to aid a\npublic servant who demands aid in\nthe execution of process, the\nprevention of offences, etc.",
+      "punishment": "Simple imprisonment for 6\nmonths, or fine of 5000 rupees, or\nboth.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "223(a)",
+      "offense": "Disobedience to an order\nlawfully promulgated by a public\nservant, if such disobedience causes\nobstruction, annoyance or injury to\npersons lawfully employed.",
+      "punishment": "Simple imprisonment for 6 month,\nor fine of 2000 rupees, or both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "223(b)",
+      "offense": "If such disobedience causes\ndanger to human life, health or\nsafety, or causes or tends to cause a\nriot or affray.",
+      "punishment": "Imprisonment for 1 Year, or fine\nof 5,000 rupees, or both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "224",
+      "offense": "Threat of injury to public servant",
+      "punishment": "Imprisonment for 2 years, or fine,\nor both",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "225",
+      "offense": "Threat of injury to induce person to\nrefrain from applying for protection\nto public servant.",
+      "punishment": "Imprisonment for 1 year, or fine,\nor both.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "226",
+      "offense": "Attempt to commit suicide to\ncompel or restraint exercise of\nlawful power.",
+      "punishment": "imprisonment for 1 year or\nfine or both or community service.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "229(1)",
+      "offense": "Intentionally giving or fabricating false\nevidence in a judicial proceeding.",
+      "punishment": "Imprisonment for 7 years and\n10000 rupees.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of the First Class"
+    },
+    {
+      "bnss_section": "229(2)",
+      "offense": "Giving or fabricating false\nevidence in any other case.",
+      "punishment": "Imprisonment for 3 years and\n5000 rupees.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "230(1)",
+      "offense": "Giving or fabricating false\nevidence with intent to cause any\nperson to be convicted of capital\noffence.",
+      "punishment": "Imprisonment for life, or rigorous\nimprisonment for 10 years and\n50000 rupees.",
+      "cognizable": "NonCognizable",
+      "bailable": "NonBailable",
+      "court": "Court of Session"
+    },
+    {
+      "bnss_section": "230(2)",
+      "offense": "If innocent person be thereby\nconvicted and executed.",
+      "punishment": "Death, or Imprisonment for life, or rigorous\nimprisonment for 10 years and\n50000 rupees.",
+      "cognizable": "NonCognizable",
+      "bailable": "NonBailable",
+      "court": "Court of Session"
+    },
+    {
+      "bnss_section": "231",
+      "offense": "Giving or fabricating false evidence\nwith intent to procure conviction of\nan offence punishable with\nimprisonment for life or with\nimprisonment for 7 years, or\nupwards.",
+      "punishment": "The same as for the offence.",
+      "cognizable": "NonCognizable",
+      "bailable": "NonBailable",
+      "court": "Court of Session"
+    },
+    {
+      "bnss_section": "232(1)",
+      "offense": "Threatening any person to give\nfalse evidence.",
+      "punishment": "Imprisonment for 7 years, or fine,\nor both.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Court by\nwhich\noffence of\ngiving false\nevidence is\ntriable."
+    },
+    {
+      "bnss_section": "232(2)",
+      "offense": "If innocent person is convicted\nand sentenced in consequence of\nfalse evidence with death, or\nimprisonment for more than seven\nyears.",
+      "punishment": "The same as for the offence.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Court by\nwhich\noffence of\ngiving false\nevidence is\ntriable."
+    },
+    {
+      "bnss_section": "233",
+      "offense": "Using in a judicial proceeding\nevidence known to be false or\nfabricated.",
+      "punishment": "The same as for giving or\nfabricating false evidence.",
+      "cognizable": "NonCognizable",
+      "bailable": "According as\noffence of\ngiving such\nevidence is\nbailable or\nnonbailable",
+      "court": "Court by\nwhich\noffence of\ngiving false\nevidence is\ntriable."
+    },
+    {
+      "bnss_section": "234",
+      "offense": "Knowingly issuing or signing a false\ncertificate relating to any fact of\nwhich such certificate is by law\nadmissible in evidence.",
+      "punishment": "The same as for giving or\nfabricating false evidence.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Court by\nwhich\noffence of\ngiving false\nevidence is\ntriable."
+    },
+    {
+      "bnss_section": "235",
+      "offense": "Using as a true certificate one known\nto be false in a material point.",
+      "punishment": "The same as for giving or\nfabricating false evidence.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Court by\nwhich\noffence of\ngiving false\nevidence is\ntriable."
+    },
+    {
+      "bnss_section": "236",
+      "offense": "False statement made in any\ndeclaration which is by law\nreceivable as evidence.",
+      "punishment": "The same as for giving or\nfabricating false evidence.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Court by\nwhich\noffence of\ngiving false\nevidence is\ntriable."
+    },
+    {
+      "bnss_section": "237",
+      "offense": "Using as true any such declaration\nknown to be false.",
+      "punishment": "The same as for giving or\nfabricating false evidence.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Court by\nwhich\noffence of\ngiving false\nevidence is\ntriable."
+    },
+    {
+      "bnss_section": "238(a)",
+      "offense": "Causing disappearance of evidence\nof an offence committed, or giving\nfalse information touching it to\nscreen the offender, if a capital\noffence.",
+      "punishment": "Imprisonment for 7 years and fine",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Court of\nSession."
+    },
+    {
+      "bnss_section": "238(b)",
+      "offense": "If punishable with imprisonment for\nlife or imprisonment for 10 years.",
+      "punishment": "Imprisonment for 3 years and fine",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of the First Class"
+    },
+    {
+      "bnss_section": "238(c)",
+      "offense": "If punishable with less than 10\nyears’ imprisonment.",
+      "punishment": "Imprisonment for a quarter of the\nlongest term provided for the\noffence, or fine, or both.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Court by\nwhich\noffence is\ntriable."
+    },
+    {
+      "bnss_section": "239",
+      "offense": "Intentional omission to give\ninformation of an offence by a\nperson legally bound to inform.",
+      "punishment": "Imprisonment for 6 months, or fine of 5000 rupees, or\nboth.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "240",
+      "offense": "Giving false information respecting\nan offence committed.",
+      "punishment": "Imprisonment for 2 years, or fine,\nor both.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "241",
+      "offense": "Secreting or destroying any\ndocument to prevent its production\nas evidence.",
+      "punishment": "Imprisonment for 3 years, or fine\nof 5000 rupees, or both.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of the First Class"
+    },
+    {
+      "bnss_section": "242",
+      "offense": "False personation for the purpose\nof any act or proceeding in a suit or\ncriminal prosecution, or for\nbecoming bail or security.",
+      "punishment": "Imprisonment for 3 years, or fine,\nor both.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of the First Class"
+    },
+    {
+      "bnss_section": "243",
+      "offense": "Fraudulent removal or concealment,\netc., of property to prevent its\nseizure as a forfeiture or in\nsatisfaction of a fine under sentence,\nor in execution of a decree.",
+      "punishment": "Imprisonment for 3 years, or fine of 5000 rupees,\nor both.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "244",
+      "offense": "Claiming property without right, or\npracticing deception touching any\nright to it, to prevent its being taken\nas a forfeiture, or in satisfaction of a\nfine under sentence, or in execution\nof a decree.",
+      "punishment": "Imprisonment for 2 years, or fine,\nor both.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "245",
+      "offense": "Fraudulently suffering a decree to\npass for a sum not due, or suffering\ndecree to be executed after it has\nbeen satisfied.",
+      "punishment": "Imprisonment for 2 years, or fine,\nor both.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of the First Class"
+    },
+    {
+      "bnss_section": "246",
+      "offense": "False claim in a Court of Justice.",
+      "punishment": "Imprisonment for 2 years, or fine,\nor both.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of the First Class"
+    },
+    {
+      "bnss_section": "247",
+      "offense": "Fraudulently obtaining a decree for\na sum not due, or causing a decree to\nbe executed after it has been\nsatisfied",
+      "punishment": "Imprisonment for 2 years, or fine,\nor both.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of the First Class"
+    },
+    {
+      "bnss_section": "248(a)",
+      "offense": "False charge of offence made with\nintent to injure",
+      "punishment": "Imprisonment for 5 years or fine of 2 lakh rupees, or both.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of the First Class"
+    },
+    {
+      "bnss_section": "248(b)",
+      "offense": "Criminal proceeding instituted on a\nfalse charge of an offence\npunishable with death,\nimprisonment for life, or\nimprisonment for ten years or\nupwards",
+      "punishment": "Imprisonment for 10 years and fine.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Course of Session."
+    },
+    {
+      "bnss_section": "249(a)",
+      "offense": "Harbouring an offender, if the\noffence be capital.",
+      "punishment": "Imprisonment for 5 years, or fine,\nor both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of the First Class"
+    },
+    {
+      "bnss_section": "249(b)",
+      "offense": "Harbouring an offender, if the\noffence is punishable with imprisonment for\nlife or with imprisonment for\n10 years.",
+      "punishment": "Imprisonment for 3 years, or fine,\nor both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of the First Class"
+    },
+    {
+      "bnss_section": "249(c)",
+      "offense": "Harbouring an offender, If punishable with imprisonment for\n1 year and not for 10 years.",
+      "punishment": "Imprisonment for a quarter of the\nlongest term, and of the\ndescriptions, provided for the\noffence, or fine, or both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of the First Class"
+    },
+    {
+      "bnss_section": "250(a)",
+      "offense": "Taking gift, etc., to screen an\noffender from punishment if the\noffence be capital.",
+      "punishment": "Imprisonment for 7 years, or fine,\nor both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of the First Class"
+    },
+    {
+      "bnss_section": "250(b)",
+      "offense": "Taking gift, etc., to screen an\noffender from punishment if punishable with imprisonment for\nlife or with imprisonment for\n10 years.",
+      "punishment": "Imprisonment for 3 years, or fine,\nor both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of the First Class"
+    },
+    {
+      "bnss_section": "250(c)",
+      "offense": "Taking gift, etc., to screen an\noffender from punishment if punishable with imprisonment less than\n10 years.",
+      "punishment": "Imprisonment for a quarter of the\nlongest term, and of the\ndescriptions, provided for the\noffence, or fine, or both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of the First Class"
+    },
+    {
+      "bnss_section": "251(a)",
+      "offense": "Offering gift or restoration of\nproperty in consideration of\nscreening offender if the offence be\ncapital.",
+      "punishment": "Imprisonment for 7 years, or fine,\nor both.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of the First Class"
+    },
+    {
+      "bnss_section": "251(b)",
+      "offense": "Offering gift or restoration of\nproperty in consideration of\nscreening offender if punishable with imprisonment for\nlife or with imprisonment for\n10 years.",
+      "punishment": "Imprisonment for 3 years, or fine,\nor both.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of the First Class"
+    },
+    {
+      "bnss_section": "251(c)",
+      "offense": "Offering gift or restoration of\nproperty in consideration of\nscreening offender if punishable with imprisonment for\nless than 10 years.",
+      "punishment": "Imprisonment for a quarter of the\nlongest term, and of the\ndescriptions, provided for the\noffence, or fine, or both.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of the First Class"
+    },
+    {
+      "bnss_section": "252",
+      "offense": "Taking gift to help to recover\nmovable property of which a person\nhas been deprived by an offence\nwithout causing apprehension of\noffender.",
+      "punishment": "Imprisonment for 2 years, or fine,\nor both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of the First Class"
+    },
+    {
+      "bnss_section": "253(a)",
+      "offense": "Harbouring an offender who has\nescaped from custody, or whose\napprehension has been ordered, if\nthe offence be capital.",
+      "punishment": "Imprisonment for 7 years, or fine,\nor both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of the First Class"
+    },
+    {
+      "bnss_section": "253(b)",
+      "offense": "Harbouring an offender who has\nescaped from custody, or whose\napprehension has been ordered, if\npunishable with imprisonment for\nlife or with imprisonment for\n10 years.",
+      "punishment": "Imprisonment for 3 years, or fine,\nor both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of the First Class"
+    },
+    {
+      "bnss_section": "253(c)",
+      "offense": "Harbouring an offender who has\nescaped from custody, or whose\napprehension has been ordered, if  punishable with imprisonment for\n1 year and not for  more than 10 years.",
+      "punishment": "Imprisonment for a quarter of the\nlongest term, and of the\ndescriptions, provided for the\noffence, or fine, or both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of the First Class"
+    },
+    {
+      "bnss_section": "254",
+      "offense": "Harbouring robbers or dacoits.",
+      "punishment": "Rigorous Imprisonment for 7 years, and fine.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of the First Class"
+    },
+    {
+      "bnss_section": "255",
+      "offense": "Public servant disobeying a\ndirection of law with intent to save\nperson from punishment, or property\nfrom forfeiture",
+      "punishment": "Imprisonment for 2 years, or fine,\nor both.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "256",
+      "offense": "Public servant framing an incorrect\nrecord or writing with intent to save\nperson from punishment, or property\nfrom forfeiture.",
+      "punishment": "Imprisonment for 3 years, or fine,\nor both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of the First Class"
+    },
+    {
+      "bnss_section": "257",
+      "offense": "Public servant in a judicial\nproceeding corruptly making and\npronouncing an order, report,\nverdict, or decision which he knows\nto be contrary to law.",
+      "punishment": "Imprisonment for 7 years, or fine,\nor both.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of the First Class"
+    },
+    {
+      "bnss_section": "258",
+      "offense": "Commitment for trial or\nconfinement by a person having\nauthority, who knows that he is\nacting contrary to law.",
+      "punishment": "Imprisonment for 7 years, or fine,\nor both.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of the First Class"
+    },
+    {
+      "bnss_section": "259(a)",
+      "offense": "Intentional omission to apprehend\non the part of a public servant bound\nby law to apprehend an offender, if\nthe offence be capital.",
+      "punishment": "Imprisonment for 7 years, or fine,\nor both.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of the First Class"
+    },
+    {
+      "bnss_section": "259(b)",
+      "offense": "Intentional omission to apprehend\non the part of a public servant bound\nby law to apprehend an offender, if\npunishable with imprisonment for\nlife or imprisonment for 10 years.",
+      "punishment": "Imprisonment for 3 years, or fine,\nor both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of the First Class"
+    },
+    {
+      "bnss_section": "259(c)",
+      "offense": "Intentional omission to apprehend\non the part of a public servant bound\nby law to apprehend an offender, if punishable with imprisonment for\nless than 10 years.",
+      "punishment": "Imprisonment for 2 years, or fine,\nor both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of the First Class"
+    },
+    {
+      "bnss_section": "260(a)",
+      "offense": "Intentional omission to apprehend\non the part of a public servant bound\nby law to apprehend person under\nsentence of a Court of Justice if\nunder sentence of death.",
+      "punishment": "Imprisonment for life, or imprisonment for 14 years, with or without or fine,\nor both.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Court of Session"
+    },
+    {
+      "bnss_section": "260(b)",
+      "offense": "Intentional omission to apprehend\non the part of a public servant bound\nby law to apprehend person under\nsentence of a Court of Justice if\nunder sentence of imprisonment\nfor life or imprisonment for\n10 years, or upwards.",
+      "punishment": "Imprisonment for 7 years, or fine,\nor both.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Magistrate of the First Class"
+    },
+    {
+      "bnss_section": "260(c)",
+      "offense": "Intentional omission to apprehend\non the part of a public servant bound\nby law to apprehend person under\nsentence of a Court of Justice if\nunder sentence of imprisonment\nfor less than 10 years or lawfully\ncommitted to custody.",
+      "punishment": "Imprisonment for 3 years, or fine,\nor both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of the First Class"
+    },
+    {
+      "bnss_section": "261",
+      "offense": "Escape from confinement\nnegligently suffered by a public\nservant.",
+      "punishment": "Simple Imprisonment for 2 years, or fine,\nor both.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "262",
+      "offense": "Resistance or obstruction by a\nperson to his lawful apprehension.",
+      "punishment": "Imprisonment for 2 years, or fine,\nor both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "263(a)",
+      "offense": "Resistance or obstruction to the\nlawful apprehension of any person,\nor rescuing him from lawful\ncustody.",
+      "punishment": "Imprisonment for 2 years, or fine,\nor both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "263(b)",
+      "offense": "If charged with an offence\npunishable with imprisonment for\nlife or imprisonment for 10 years.",
+      "punishment": "Imprisonment for 3 years, or fine,\nor both.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Magistrate of the First Class"
+    },
+    {
+      "bnss_section": "263(c)",
+      "offense": "If charged with a capital offence.",
+      "punishment": "Imprisonment for 7 years, or fine,\nor both.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Magistrate of the First Class"
+    },
+    {
+      "bnss_section": "263(d)",
+      "offense": "If the person is sentenced to\nimprisonment for life, or\nimprisonment for 10 years, or\nupwards.",
+      "punishment": "Imprisonment for 7 years, or fine,\nor both.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Magistrate of the First Class"
+    },
+    {
+      "bnss_section": "263(e)",
+      "offense": "If under sentence of death",
+      "punishment": "Imprisonment for life, imprisonment for 10 years, or fine,\nor both.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Court of Session"
+    },
+    {
+      "bnss_section": "264(a)",
+      "offense": "Omission to apprehend, or\nsufferance of escape on part of\npublic servant, in cases not\notherwise provided for:– (a) in case of intentional omission\nor sufferance;",
+      "punishment": "Imprisonment for 3 years, or fine,\nor both.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of the First Class"
+    },
+    {
+      "bnss_section": "264(b)",
+      "offense": "Omission to apprehend, or\nsufferance of escape on part of\npublic servant, in cases not\notherwise provided for:– (b) in case of negligent omission or\nsufferance.",
+      "punishment": "Simple Imprisonment for 2 years, or fine,\nor both.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate."
+    },
+    {
+      "bnss_section": "265",
+      "offense": "Resistance or obstruction to lawful\napprehension, or escape or rescue in\ncases not otherwise provided for.",
+      "punishment": "Imprisonment for 6\nmonths, or fine, or both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate."
+    },
+    {
+      "bnss_section": "266",
+      "offense": "Violation of condition of remission of\npunishment",
+      "punishment": "Punishment of original sentence,\nor if part of the punishment has\nbeen undergone, the residue.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "The Court by which the original offence is triable."
+    },
+    {
+      "bnss_section": "267",
+      "offense": "Intentional insult or interruption to a\npublic servant sitting in any stage of\na judicial proceeding.",
+      "punishment": "Simple imprisonment for 6\nmonths, or fine of 5,000 rupees,\nor both.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate."
+    },
+    {
+      "bnss_section": "268",
+      "offense": "Personation of an assessor.",
+      "punishment": "Imprisonment for 2 years,\nor fine, or both.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of the First Class"
+    },
+    {
+      "bnss_section": "269",
+      "offense": "Failure by person released on bail or\nbond to appear in Court",
+      "punishment": "Imprisonment for 1 year, or\nfine, or both",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Any Magistrate."
+    },
+    {
+      "bnss_section": "271",
+      "offense": "Negligently doing any act known to\nbe likely to spread infection of any\ndisease dangerous to life.",
+      "punishment": "Imprisonment for 6 months, or\nfine, or both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate."
+    },
+    {
+      "bnss_section": "272",
+      "offense": "Malignantly doing any act known to\nbe likely to spread infection of any\ndisease dangerous to life.",
+      "punishment": "Imprisonment for 2 years, or\nfine, or both",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate."
+    },
+    {
+      "bnss_section": "273",
+      "offense": "Knowingly disobeying any quarantine\nrule.",
+      "punishment": "Imprisonment for 6 months, or\nfine, or both.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate."
+    },
+    {
+      "bnss_section": "274",
+      "offense": "Adulterating food or drink intended\nfor sale, so as to make the same\nnoxious.",
+      "punishment": "Imprisonment for 6 months, or\nfine of 5,000 rupees, or both.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate."
+    },
+    {
+      "bnss_section": "275",
+      "offense": "Selling any food or drink as food and\ndrink, knowing the same to be\nnoxious.",
+      "punishment": "Imprisonment for 6 months, or\nfine of 5,000 rupees, or both.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate."
+    },
+    {
+      "bnss_section": "276",
+      "offense": "Adulterating any drug or medical\npreparation intended for sale so as to\nlessen its efficacy, or to change its\noperation, or to make it noxious.",
+      "punishment": "imprisonment of either\ndescription for a term which\nmay extend to one year, or with\nfine which may extend to five\nthousand rupees, or with both",
+      "cognizable": "NonCognizable",
+      "bailable": "NonBailable",
+      "court": "Any Magistrate."
+    },
+    {
+      "bnss_section": "277",
+      "offense": "Sale of adulterated drugs.",
+      "punishment": "Imprisonment for 6 months, or\nfine of 5,000 rupees, or both.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate."
+    },
+    {
+      "bnss_section": "278",
+      "offense": "Sale of drug as a different drug or\npreparation.",
+      "punishment": "Imprisonment for 6 months, or\nfine of 5,000 rupees, or both.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate."
+    },
+    {
+      "bnss_section": "279",
+      "offense": "Fouling water of public spring or\nreservoir",
+      "punishment": "Imprisonment for 6 months, or\nfine of 5,000 rupees, or both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate."
+    },
+    {
+      "bnss_section": "280",
+      "offense": "Making atmosphere noxious to health",
+      "punishment": "Fine of 1000 rupees",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate."
+    },
+    {
+      "bnss_section": "281",
+      "offense": "Rash driving or riding on a public\nway.",
+      "punishment": "Imprisonment for 6 months, or\nfine of 1,000 rupees, or both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate."
+    },
+    {
+      "bnss_section": "282",
+      "offense": "Rash navigation of vessel",
+      "punishment": "Imprisonment for 6 months, or\nfine of 10,000 rupees, or both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate."
+    },
+    {
+      "bnss_section": "283",
+      "offense": "Exhibition of a false light, mark or\nbuoy.",
+      "punishment": "imprisonment of either\ndescription for a term which\nmay extend to seven years, and\nwith fine which shall not be less\nthan ten thousand rupees.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of the First Class"
+    },
+    {
+      "bnss_section": "284",
+      "offense": "Conveying person by water for hire in unsafe or overloaded vessel.",
+      "punishment": "Imprisonment for 6 months, or\nfine of 5,000 rupees, or both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate."
+    },
+    {
+      "bnss_section": "285",
+      "offense": "Danger or obstruction in public way\nor line of navigation.",
+      "punishment": "Fine of 5000 rupees.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate."
+    },
+    {
+      "bnss_section": "286",
+      "offense": "Negligent conduct with respect to\npoisonous substance.",
+      "punishment": "Imprisonment for 6 months, or\nfine of 5,000 rupees, or both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate."
+    },
+    {
+      "bnss_section": "287",
+      "offense": "Negligent conduct with respect to fire\nor combustible matter.",
+      "punishment": "Imprisonment for 6 months, or\nfine of 2,000 rupees, or both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate."
+    },
+    {
+      "bnss_section": "288",
+      "offense": "Negligent conduct with respect to\nexplosive substance.",
+      "punishment": "Imprisonment for 6 months, or\nfine of 5,000 rupees, or both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate."
+    },
+    {
+      "bnss_section": "289",
+      "offense": "Negligent conduct with respect to\nmachinery.",
+      "punishment": "Imprisonment for 6 months, or\nfine of 5,000 rupees, or both.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate."
+    },
+    {
+      "bnss_section": "290",
+      "offense": "Negligent conduct with respect to\npulling down, repairing or\nconstructing buildings etc.",
+      "punishment": "Imprisonment for 6 months, or\nfine of 5,000 rupees, or both.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate."
+    },
+    {
+      "bnss_section": "291",
+      "offense": "Negligent conduct with respect to\nanimal.",
+      "punishment": "Imprisonment for 6 months, or\nfine of 5,000 rupees, or both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate."
+    },
+    {
+      "bnss_section": "292",
+      "offense": "Punishment for public nuisance in\ncases not otherwise provided for.",
+      "punishment": "Fine of 1000 rupees",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate."
+    },
+    {
+      "bnss_section": "293",
+      "offense": "Continuance of nuisance after\ninjunction to discontinue.",
+      "punishment": "simple imprisonment for a term\nwhich may extend to six\nmonths, or with fine which may\nextend to five thousand rupees,\nor with both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate."
+    },
+    {
+      "bnss_section": "294(2)",
+      "offense": "Sale, etc., of obscene books, etc.",
+      "punishment": "On first conviction, with\nimprisonment for 2 years, and\nwith fine of 5,000 rupees, and,\nin the event of second or\nsubsequent conviction, with\nimprisonment for five years,\nand with fine of 10,000 rupees.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate."
+    },
+    {
+      "bnss_section": "295",
+      "offense": "Sale, etc., of obscene objects to child.",
+      "punishment": "On first conviction, with\nimprisonment for 3 years, and\nwith fine of 2,000 rupees, and\nin the event of second or\nsubsequent conviction, with\nimprisonment for 7 years, and\nwith fine of 5,000 rupees.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate."
+    },
+    {
+      "bnss_section": "296",
+      "offense": "Obscene acts and songs",
+      "punishment": "imprisonment of either\ndescription for a term which\nmay extend to three months, or\nwith fine which may extend to\none thousand rupees, or with\nboth.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate."
+    },
+    {
+      "bnss_section": "297(1)",
+      "offense": "Keeping a lottery office",
+      "punishment": "Imprisonment for 6 months, or\nfine or both.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate."
+    },
+    {
+      "bnss_section": "297(2)",
+      "offense": "Publishing proposals relating to\nlotteries.",
+      "punishment": "fine which may extend to five\nthousand rupees.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate."
+    },
+    {
+      "bnss_section": "298",
+      "offense": "Injuring or defiling place of worship,\nwith intent to insult the religion of any\nclass.",
+      "punishment": "Imprisonment for 2 years, or\nfine or both.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Any Magistrate."
+    },
+    {
+      "bnss_section": "299",
+      "offense": "Deliberate and malicious acts, intended\nto outrage religious feelings of any\nclass by insulting its religion or\nreligious beliefs",
+      "punishment": "Imprisonment for 3 years, or\nfine, or both.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Magistrate of the First Class"
+    },
+    {
+      "bnss_section": "300",
+      "offense": "Disturbing religious assembly.",
+      "punishment": "Imprisonment for 1 year, or\nfine, or both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "301",
+      "offense": "Trespassing on burial places, etc.",
+      "punishment": "Imprisonment for 1 year, or\nfine, or both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "302",
+      "offense": "Uttering words, etc., with deliberate\nintent to wound religious feelings.",
+      "punishment": "Imprisonment for 1 year, or\nfine, or both.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "303(2)",
+      "offense": "Theft",
+      "punishment": "Rigorous imprisonment for a\nterm which shall not be less\nthan one year but which may\nextend to five years and with\nfine.\nIn cases of theft where the value\nof the stolen property is less\nthan five thousand rupees, and a\nperson is convicted for the first\ntime, shall upon return of the\nvalue of property or restoration\nof the stolen property, shall be\npunished with community\nservice",
+      "cognizable": "Cognizable; but NonCognizable if value stolen is less than 5000 rupees",
+      "bailable": "NonBailable; but Bailable if value stolen is less than 5000 rupees",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "304(2)",
+      "offense": "Snatching.",
+      "punishment": "Imprisonment for 3 years and\nfine.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "305",
+      "offense": "Theft in a dwelling house, or means of\ntransportation or place of worship, etc",
+      "punishment": "Imprisonment for 7 years and\nfine.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "306",
+      "offense": "Theft by clerk or servant of property in\npossession of master or employer.",
+      "punishment": "Imprisonment for 7 years and\nfine.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "307",
+      "offense": "Theft after preparation made for\ncausing death, hurt or restraint in order\nto the committing of theft.",
+      "punishment": "Rigorous imprisonment for 10\nyears and fine.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Magistrate of the\nfirst class."
+    },
+    {
+      "bnss_section": "308(2)",
+      "offense": "Extortion",
+      "punishment": "Imprisonment for 7\nyears, or fine, or both.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Magistrate of the\nfirst class."
+    },
+    {
+      "bnss_section": "308(3)",
+      "offense": "Putting or attempting to put in fear of\ninjury, in order to commit extortion",
+      "punishment": "Imprisonment for 2\nyears, or fine, or both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate."
+    },
+    {
+      "bnss_section": "308(4)",
+      "offense": "Putting or attempting to put a person in\nfear of death or grievous hurt in order\nto commit extortion.",
+      "punishment": "Imprisonment for 7\nyears, or fine, or both.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Magistrate of the\nfirst class."
+    },
+    {
+      "bnss_section": "308(5)",
+      "offense": "Extortion by putting a person in fear of\ndeath or grievous hurt.",
+      "punishment": "Imprisonment for 10 years and\nfine.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Magistrate of the\nfirst class."
+    },
+    {
+      "bnss_section": "308(6)",
+      "offense": "Putting a person in fear of accusation of\nan offence punishable with death,\nimprisonment for life, or imprisonment\nfor 10 years in order to commit\nextortion.",
+      "punishment": "Imprisonment for 10 years and\nfine.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of the\nfirst class."
+    },
+    {
+      "bnss_section": "308(7)",
+      "offense": "Extortion by threat of accusation of an\noffence punishable with death,\nimprisonment for life, or imprisonment\nfor 10 years.",
+      "punishment": "Imprisonment for 10 years and\nfine.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of the\nfirst class."
+    },
+    {
+      "bnss_section": "309(4)",
+      "offense": "Robbery",
+      "punishment": "Rigorous imprisonment for\n10 years and fine.  But Rigorous imprisonment for upto\n14 years and fine if committed on a highway between sunset and sunrise",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Magistrate of the\nfirst class."
+    },
+    {
+      "bnss_section": "309(5)",
+      "offense": "Attempt to commit robbery",
+      "punishment": "Rigorous imprisonment for\n7 years and fine.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Magistrate of the\nfirst class."
+    },
+    {
+      "bnss_section": "309(6)",
+      "offense": "Causing hurt during robbery.",
+      "punishment": "Imprisonment for life or Rigorous imprisonment for\n10 years and fine.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Magistrate of the\nfirst class."
+    },
+    {
+      "bnss_section": "310(2)",
+      "offense": "Dacoity",
+      "punishment": "Imprisonment for life, or\nrigorous imprisonment for 10\nyears and fine",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Court of\nSession."
+    },
+    {
+      "bnss_section": "310(3)",
+      "offense": "Murder in dacoity",
+      "punishment": "Death, imprisonment for life, or\nrigorous imprisonment for 10\nyears and fine",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Court of\nSession."
+    },
+    {
+      "bnss_section": "310(4)",
+      "offense": "Making preparation to commit dacoity.",
+      "punishment": "Rigorous imprisonment for 10\nyears and fine.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Court of\nSession."
+    },
+    {
+      "bnss_section": "310(5)",
+      "offense": "Being one of five or more persons\nassembled for the purpose of\ncommitting dacoity.",
+      "punishment": "Rigorous imprisonment for 7\nyears and fine.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Court of\nSession."
+    },
+    {
+      "bnss_section": "310(6)",
+      "offense": "Belonging to a gang of persons\nassociated for the purpose of habitually\ncommitting dacoity.",
+      "punishment": "Imprionment for life, Rigorous imprisonment for 10\nyears and fine.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Court of\nSession."
+    },
+    {
+      "bnss_section": "311",
+      "offense": "Robbery or dacoity, with attempt to\ncause death or grievous hurt.",
+      "punishment": "Rigorous imprisonment for not\nless than 7 years.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Court of\nSession."
+    },
+    {
+      "bnss_section": "312",
+      "offense": "Attempt to commit robbery or dacoity\nwhen armed with deadly weapon.",
+      "punishment": "Rigorous imprisonment for not\nless than 7 years.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Court of\nSession."
+    },
+    {
+      "bnss_section": "313",
+      "offense": "Belonging to a wandering gang of\npersons associated for the purpose of\nhabitually committing thefts.",
+      "punishment": "Rigorous imprisonment for 7\nyears and fine.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Magistrate of the\nfirst class."
+    },
+    {
+      "bnss_section": "314",
+      "offense": "Dishonest misappropriation of movable\nproperty, or converting it to one’s own\nuse.",
+      "punishment": "Imprisonment of not less than six months but\nwhich may extend to two years\nand with fine.",
+      "cognizable": "Non-cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate."
+    },
+    {
+      "bnss_section": "315",
+      "offense": "Dishonest misappropriation of property\npossessed by deceased person at the\ntime of his death.",
+      "punishment": "Imprisonment for 3 years and fine. But if done by clerk or person employed by the deceased then extendable to Imprisonment for 7 years and fine.",
+      "cognizable": "Non-cognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of the\nfirst class."
+    },
+    {
+      "bnss_section": "316(2)",
+      "offense": "Criminal breach of trust",
+      "punishment": "Imprisonment for 5 years, or\nfine, or both.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Magistrate of the\nfirst class."
+    },
+    {
+      "bnss_section": "316(3)",
+      "offense": "Criminal breach of trust by a carrier,\nwharfinger, etc.",
+      "punishment": "Imprisonment for 7 years and\nfine.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Magistrate of the\nfirst class."
+    },
+    {
+      "bnss_section": "316(4)",
+      "offense": "Criminal breach of trust by a clerk or\nservant.",
+      "punishment": "Imprisonment for 7 years and\nfine.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Magistrate of the\nfirst class."
+    },
+    {
+      "bnss_section": "316(5)",
+      "offense": "Criminal breach of trust by public\nservant or by banker, merchant or\nagent, etc.",
+      "punishment": "Imprisonment for life, or\nimprisonment for 10 years and\nfine.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Magistrate of the\nfirst class."
+    },
+    {
+      "bnss_section": "317(2)",
+      "offense": "Dishonestly receiving stolen property\nknowing it to be stolen.",
+      "punishment": "Imprisonment for 3 years, or\nfine, or both.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Any Magistrate."
+    },
+    {
+      "bnss_section": "317(3)",
+      "offense": "Dishonestly receiving stolen property,\nknowing that it was obtained by\ndacoity.",
+      "punishment": "Imprisonment for life, or\nrigorous imprisonment for 10\nyears and fine.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "317(4)",
+      "offense": "Habitually dealing in stolen property.",
+      "punishment": "Imprisonment for life, or\nrigorous imprisonment for 10\nyears and fine.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Court of Session."
+    },
+    {
+      "bnss_section": "317(5)",
+      "offense": "Assisting in concealment or disposal\nof stolen property, knowing it to be\nstolen.",
+      "punishment": "Imprisonment for 3 years, or\nfine, or both.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Any Magistrate."
+    },
+    {
+      "bnss_section": "318(2)",
+      "offense": "Cheating",
+      "punishment": "Imprisonment for 3 years, or\nfine, or both.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate."
+    },
+    {
+      "bnss_section": "318(3)",
+      "offense": "Cheating a person whose interest the\noffender was bound, either by law or\nby legal contract, to protect.",
+      "punishment": "Imprisonment for 5 years, or\nfine, or both.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate."
+    },
+    {
+      "bnss_section": "318(4)",
+      "offense": "Cheating and dishonestly inducing delivery of property",
+      "punishment": "Imprisonment for 7 years, or\nfine, or both.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Magistrate of the\nfirst class."
+    },
+    {
+      "bnss_section": "319(2)",
+      "offense": "Cheating by personation.",
+      "punishment": "Imprisonment for 5 years, or\nfine, or both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate."
+    },
+    {
+      "bnss_section": "320",
+      "offense": "Fraudulent removal or concealment of\nproperty, etc., to prevent distribution\namong creditors.",
+      "punishment": "Imprisonment of not less than six months but\nwhich may extend to two years\nand with fine.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate."
+    },
+    {
+      "bnss_section": "321",
+      "offense": "Fraudulently preventing from being\nmade available for his creditors a debt\nor demand due to the offender",
+      "punishment": "Imprisonment for 2 years, or\nfine, or both.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate."
+    },
+    {
+      "bnss_section": "322",
+      "offense": "Fraudulent execution of deed of\ntransfer containing a false statement\nof consideration.",
+      "punishment": "Imprisonment for 3 years, or\nfine, or both.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate."
+    },
+    {
+      "bnss_section": "323",
+      "offense": "Fraudulent removal or concealment of\nproperty, of himself or any other\nperson or assisting in the doing\nthereof, or dishonestly releasing any\ndemand or claim to which he is\nentitled.",
+      "punishment": "Imprisonment for 3 years, or\nfine, or both.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate."
+    },
+    {
+      "bnss_section": "324(2)",
+      "offense": "Mischief",
+      "punishment": "Imprisonment for 6 months\nor fine, or both.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate."
+    },
+    {
+      "bnss_section": "324(3)",
+      "offense": "Mischief by causing loss or damage to any property\nincluding the property of Government or Local Authority",
+      "punishment": "Imprisonment for 1 year, or\nfine, or both.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate."
+    },
+    {
+      "bnss_section": "324(4)",
+      "offense": "Mischief causing loss or damage to the amount of\ntwenty thousand rupees and more but less than one lakh rupees.",
+      "punishment": "Imprisonment for 2 years, or\nfine, or both.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate."
+    },
+    {
+      "bnss_section": "324(5)",
+      "offense": "Mischief by causing loss or damage to the amount of\none lakh rupees or upwards",
+      "punishment": "Imprisonment for 5 years, or\nfine, or both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of the\nfirst class."
+    },
+    {
+      "bnss_section": "324(6)",
+      "offense": "Mischief with preparation for causing to any person\ndeath, or hurt, or wrongful restraint, or fear of death, or of hurt, or of wrongful restraint,",
+      "punishment": "Imprisonment for 5 years, or\nfine, or both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of the\nfirst class."
+    },
+    {
+      "bnss_section": "325",
+      "offense": "Mischief by killing or maiming\nanimal",
+      "punishment": "Imprisonment for 5 years, or\nfine, or both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of the\nfirst class."
+    },
+    {
+      "bnss_section": "326(a)",
+      "offense": "Mischief by causing diminution of\nsupply of water for agricultural\npurposes, etc.",
+      "punishment": "Imprisonment for 5 years, or\nfine, or both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of the\nfirst class."
+    },
+    {
+      "bnss_section": "326(b)",
+      "offense": "Mischief by injury to public road,\nbridge, navigable river, or navigable\nchannel, and rendering it impassable\nor less safe for travelling or conveying\nproperty.",
+      "punishment": "Imprisonment for 5 years, or\nfine, or both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of the\nfirst class."
+    },
+    {
+      "bnss_section": "326(c)",
+      "offense": "Mischief by causing inundation or\nobstruction to public drainage\nattended with damage.",
+      "punishment": "Imprisonment for 5 years, or\nfine, or both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of the\nfirst class."
+    },
+    {
+      "bnss_section": "326(d)",
+      "offense": "Mischief by destroying or moving or\nrendering less useful a lighthouse or\nseamark, or by exhibiting false lights",
+      "punishment": "Imprisonment for 7 years, or\nfine, or both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of the\nfirst class."
+    },
+    {
+      "bnss_section": "326(e)",
+      "offense": "Mischief by destroying or moving,\netc., a landmark fixed by public\nauthority.",
+      "punishment": "Imprisonment for 1 year, or\nfine, or both.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate."
+    },
+    {
+      "bnss_section": "326(f)",
+      "offense": "Mischief by fire or explosive\nsubstance with intent to cause damage\nto an amount of 100 rupees or\nupwards, or, in case of agricultural\nproduce, 10 rupees or upwards.",
+      "punishment": "Imprisonment for 7 years and\nfine.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of the\nfirst class."
+    },
+    {
+      "bnss_section": "326(g)",
+      "offense": "Mischief by fire or explosive\nsubstance with intent to destroy a\nhouse, etc.",
+      "punishment": "Imprisonment for life, or\nimprisonment for 10 years and\nfine.",
+      "cognizable": "Cognizable",
+      "bailable": "Non-Bailable",
+      "court": "Court of\nSession."
+    },
+    {
+      "bnss_section": "327(1)",
+      "offense": "Mischief with intent to destroy or\nmake unsafe a decked vessel or a\nvessel of 20 tonnes burden.",
+      "punishment": "Imprisonment for 10 years and\nfine.",
+      "cognizable": "Cognizable",
+      "bailable": "Non-Bailable",
+      "court": "Court of\nSession."
+    },
+    {
+      "bnss_section": "327(2)",
+      "offense": "The mischief described in the last\nsection when committed by fire or\nany explosive substance.",
+      "punishment": "Imprisonment for life, or\nimprisonment for 10 years and\nfine.",
+      "cognizable": "Cognizable",
+      "bailable": "Non-Bailable",
+      "court": "Court of\nSession."
+    },
+    {
+      "bnss_section": "328",
+      "offense": "Running vessel ashore with intent to\ncommit theft, etc.",
+      "punishment": "Imprisonment for 10 years and\nfine.",
+      "cognizable": "Cognizable",
+      "bailable": "Non-Bailable",
+      "court": "Court of\nSession."
+    },
+    {
+      "bnss_section": "329(3)",
+      "offense": "Criminal trespass",
+      "punishment": "Imprisonment for 3 months, or\nfine of 5000 rupees, or both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Any\nMagistrate."
+    },
+    {
+      "bnss_section": "329(4)",
+      "offense": "House-trespass",
+      "punishment": "Imprisonment for 1 year, or fine\nof 5,000 rupees, or both.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Any\nMagistrate."
+    },
+    {
+      "bnss_section": "331(1)",
+      "offense": "Lurking house-trespass or housebreaking.",
+      "punishment": "Imprisonment for 2 years\nand fine.",
+      "cognizable": "Cognizable",
+      "bailable": "Non-Bailable",
+      "court": "Any\nMagistrate."
+    },
+    {
+      "bnss_section": "331(2)",
+      "offense": "Lurking house-trespass or house-breaking by night.",
+      "punishment": "Imprisonment for 3 years\nand fine.",
+      "cognizable": "Cognizable",
+      "bailable": "Non-Bailable",
+      "court": "Any\nMagistrate."
+    },
+    {
+      "bnss_section": "331(3)",
+      "offense": "Lurking house-trespass or housebreaking in order to the commission\nof an offence punishable with\nimprisonment.",
+      "punishment": "Imprisonment for 3 years and\nfine. But Imprisonment for 10 years\nand fine if the offence be theft",
+      "cognizable": "Cognizable",
+      "bailable": "Non-Bailable",
+      "court": "Any\nMagistrate but Magistrate of\nthe first class if the offence be theft"
+    },
+    {
+      "bnss_section": "331(4)",
+      "offense": "Lurking house-trespass or housebreaking by night in order to the\ncommission of an offence punishable\nwith imprisonment.",
+      "punishment": "Imprisonment for 5 years and\nfine.  But Imprisonment for 14 years\nand fine if also theft",
+      "cognizable": "Cognizable",
+      "bailable": "Non-Bailable",
+      "court": "Any\nMagistrate but Magistrate of\nthe first class if the offence be theft"
+    },
+    {
+      "bnss_section": "331(5)",
+      "offense": "Lurking house-trespass or housebreaking after preparation made for\ncausing hurt, assault, etc.",
+      "punishment": "Imprisonment for 10 years and\nfine.",
+      "cognizable": "Cognizable",
+      "bailable": "Non-Bailable",
+      "court": "Magistrate of\nthe first class"
+    },
+    {
+      "bnss_section": "331(6)",
+      "offense": "Lurking house-trespass or housebreaking by night, after preparation\nmade for causing hurt, etc.",
+      "punishment": "Imprisonment for 14 years and\nfine.",
+      "cognizable": "Cognizable",
+      "bailable": "Non-Bailable",
+      "court": "Magistrate of\nthe first class"
+    },
+    {
+      "bnss_section": "331(7)",
+      "offense": "Grievous hurt caused whilst\ncommitting lurking house-trespass or\nhouse-breaking.",
+      "punishment": "Imprisonment for 10 years and\nfine.",
+      "cognizable": "Cognizable",
+      "bailable": "Non-Bailable",
+      "court": "Court of Session"
+    },
+    {
+      "bnss_section": "331(8)",
+      "offense": "Death or grievous hurt caused by one\nof several persons jointly concerned in\nhouse-breaking by night, etc",
+      "punishment": "Imprisonment for 10 years and\nfine.",
+      "cognizable": "Cognizable",
+      "bailable": "Non-Bailable",
+      "court": "Court of Session"
+    },
+    {
+      "bnss_section": "332(a)",
+      "offense": "House-trespass in order to the\ncommission of an offence punishable\nwith death.",
+      "punishment": "Imprisonment for life, or\nrigorous imprisonment for\n10 years and fine.",
+      "cognizable": "Cognizable",
+      "bailable": "Non-Bailable",
+      "court": "Court of Session"
+    },
+    {
+      "bnss_section": "332(b)",
+      "offense": "House-trespass in order to the\ncommission of an offence punishable\nwith imprisonment for life.",
+      "punishment": "Imprisonment for 10 years and\nfine.",
+      "cognizable": "Cognizable",
+      "bailable": "Non-Bailable",
+      "court": "Court of Session"
+    },
+    {
+      "bnss_section": "332(c)",
+      "offense": "House-trespass in order to the\ncommission of an offence punishable\nwith imprisonment.",
+      "punishment": "Imprisonment for 2 years\nand fine. But imprisonment for 7 years\nand fine if theft also committed.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable; but Non-Bailable if theft also committed.",
+      "court": "Any\nMagistrate."
+    },
+    {
+      "bnss_section": "333",
+      "offense": "House-trespass, having made\npreparation for causing hurt, assault,\netc.",
+      "punishment": "Imprisonment for 7 years\nand fine.",
+      "cognizable": "Cognizable",
+      "bailable": "Non-Bailable",
+      "court": "Any\nMagistrate."
+    },
+    {
+      "bnss_section": "334(1)",
+      "offense": "Dishonestly breaking open or\nunfastening any closed receptacle\ncontaining or supposed to contain\nproperty.",
+      "punishment": "Imprisonment for 2 years or\nfine, or both.",
+      "cognizable": "Cognizable",
+      "bailable": "Non-Bailable",
+      "court": "Any\nMagistrate."
+    },
+    {
+      "bnss_section": "334(2)",
+      "offense": "Being entrusted with any closed\nreceptacle containing or supposed to\ncontain any property, and fraudulently\nopening the same.",
+      "punishment": "Imprisonment for 3 years or\nfine, or both",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Any\nMagistrate."
+    },
+    {
+      "bnss_section": "336(2)",
+      "offense": "Forgery",
+      "punishment": "Imprisonment for 2 years, or\nfine, or both.",
+      "cognizable": "NonCognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of\nthe first class"
+    },
+    {
+      "bnss_section": "336(3)",
+      "offense": "Forgery for the purpose of cheating.",
+      "punishment": "Imprisonment for 7 years and\nfine.",
+      "cognizable": "Cognizable",
+      "bailable": "Non-Bailable",
+      "court": "Magistrate of\nthe first class"
+    },
+    {
+      "bnss_section": "336(4)",
+      "offense": "Forgery for the purpose of harming\nthe reputation of any person or\nknowing that it is likely to be used for\nthat purpose.",
+      "punishment": "Imprisonment for 3 years and\nfine.",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of\nthe first class"
+    },
+    {
+      "bnss_section": "337",
+      "offense": "Forgery of a record of a Court of\nJustice or of a Registrar of Births, etc.,\nkept by a public servant.",
+      "punishment": "Imprisonment for 7 years and\nfine",
+      "cognizable": "Non-cognizable",
+      "bailable": "NonBailable",
+      "court": "Magistrate of\nthe first class"
+    },
+    {
+      "bnss_section": "338",
+      "offense": "Forgery of a valuable security, will, or\nauthority to make or transfer any\nvaluable security, or to receive any\nmoney, etc",
+      "punishment": "Imprisonment for life, or\nimprisonment for 10 years and\nfine",
+      "cognizable": "Non-cognizable, but Cognizable if the valuable security is a promissory note of the central\ngovernment",
+      "bailable": "NonBailable",
+      "court": "Magistrate of\nthe first class"
+    },
+    {
+      "bnss_section": "339",
+      "offense": "Having possession of a document,\nknowing it to be forged, with intent to\nuse it as genuine; if the document is\none of the description mentioned in\nsection 337 of the Bhartiya Nyaya\nSanhita.",
+      "punishment": "Imprisonment for 7 years and\nfine",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of\nthe first class"
+    },
+    {
+      "bnss_section": "340(2)",
+      "offense": "Using as genuine a forged document\nwhich is known to be forged.",
+      "punishment": "Imprisonment for 7 years and\nfine",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of\nthe first class"
+    },
+    {
+      "bnss_section": "341(1)",
+      "offense": "Making or counterfeiting a seal, plate,\netc., with intent to commit a forgery\npunishable under section 336 of the\nBhartiya Nyaya Sanhita, or possessing\nwith like intent any such seal, plate,\netc., knowing the same to be\ncounterfeit.",
+      "punishment": "Imprisonment for life, or\nimprisonment for 7 years and\nfine",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of\nthe first class"
+    },
+    {
+      "bnss_section": "341(2)",
+      "offense": "Making or counterfeiting a seal, plate,\netc., with intent to commit a forgery\npunishable otherwise than under\nsection 338 of the Bhartiya Nyaya\nSanhita, or possessing with like intent\nany such seal, plate, etc., knowing the\nsame to be counterfeit.",
+      "punishment": "Imprisonment for 7 years and\nfine",
+      "cognizable": "Non-cognizable",
+      "bailable": "NonBailable",
+      "court": "Magistrate of\nthe first class"
+    },
+    {
+      "bnss_section": "341(3)",
+      "offense": "Possession of any seal, plate or other instrument knowing the same to be\ncounterfeit",
+      "punishment": "Imprisonment for 3 years and\nfine",
+      "cognizable": "Non-cognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of\nthe first class"
+    },
+    {
+      "bnss_section": "341(4)",
+      "offense": "Fraudulently or dishonestly using as genuine any seal, plate or other\ninstrument knowing or having reason to believe the same to be counterfeit",
+      "punishment": "Imprisonment for 7 years and\nfine",
+      "cognizable": "Non-cognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of\nthe first class"
+    },
+    {
+      "bnss_section": "342(1)",
+      "offense": "Counterfeiting a device or mark used\nfor authenticating documents\ndescribed in section 338 of the\nBhartiya Nyaya Sanhita, or possessing\ncounterfeit marked material.",
+      "punishment": "Imprisonment for life, or\nimprisonment for 7 years and\nfine.",
+      "cognizable": "Non-cognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of\nthe first class"
+    },
+    {
+      "bnss_section": "342(2)",
+      "offense": "Counterfeiting a device or mark used\nfor authenticating documents other\nthan those described in section 338 of\nthe Bhartiya Nyaya Sanhita, or\npossessing counterfeit marked\nmaterial.",
+      "punishment": "Imprisonment for 7 years and\nfine.",
+      "cognizable": "Non-cognizable",
+      "bailable": "NonBailable",
+      "court": "Magistrate of\nthe first class"
+    },
+    {
+      "bnss_section": "343",
+      "offense": "Fraudulently destroying or defacing,\nor attempting to destroy or deface, or\nsecreting, a will, etc.",
+      "punishment": "Imprisonment for life, or\nimprisonment for 7 years and\nfine.",
+      "cognizable": "Non-cognizable",
+      "bailable": "NonBailable",
+      "court": "Magistrate of\nthe first class"
+    },
+    {
+      "bnss_section": "344",
+      "offense": "Falsification of accounts.",
+      "punishment": "Imprisonment for 7 years or\nfine, or both.",
+      "cognizable": "Non-cognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of\nthe first class"
+    },
+    {
+      "bnss_section": "345(3)",
+      "offense": "Using a false property mark with intent\nto deceive or injure any person.",
+      "punishment": "Imprisonment for 1 year, or\nfine, or both.",
+      "cognizable": "Non-cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "346",
+      "offense": "Removing, destroying or defacing\nproperty mark with intent to cause\ninjury",
+      "punishment": "Imprisonment for 1 year, or\nfine, or both.",
+      "cognizable": "Non-cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "347(1)",
+      "offense": "Counterfeiting a property mark used by\nanother, with intent to cause damage or\ninjury.",
+      "punishment": "Imprisonment for 2 years, or\nfine, or both.",
+      "cognizable": "Non-cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "347(2)",
+      "offense": "Counterfeiting a property mark used by\na public servant, or any mark used by\nhim to denote the manufacture, quality,\netc., of any property.",
+      "punishment": "Imprisonment for 3 years, or\nfine, or both.",
+      "cognizable": "Non-cognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of\nthe first class"
+    },
+    {
+      "bnss_section": "348",
+      "offense": "Fraudulently making or having\npossession of any die, plate or other\ninstrument for counterfeiting any\npublic or private property mark.",
+      "punishment": "Imprisonment for 3 years or,\nfine, or both.",
+      "cognizable": "Non-cognizable",
+      "bailable": "Bailable",
+      "court": "Magistrate of\nthe first class"
+    },
+    {
+      "bnss_section": "349",
+      "offense": "Knowingly selling goods marked with\na counterfeit property mark.",
+      "punishment": "Imprisonment for 1 year, or\nfine, or both.",
+      "cognizable": "Non-cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "350(1)",
+      "offense": "Fraudulently making a false mark upon\nany package or receptacle containing\ngoods, with intent to cause it to be\nbelieved that it contains\ngoods, which it does not contain, etc.",
+      "punishment": "Imprisonment for 3 years or,\nfine, or both.",
+      "cognizable": "Non-cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "350(2)",
+      "offense": "Making use of any such false mark.",
+      "punishment": "Imprisonment for 3 years or,\nfine, or both.",
+      "cognizable": "Non-cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "351(2)",
+      "offense": "Criminal intimidation.",
+      "punishment": "Imprisonment for 2 years, or\nfine, or both.",
+      "cognizable": "Non-cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate"
+    },
+    {
+      "bnss_section": "351(3)",
+      "offense": "If threat be to cause death or grievous\nhurt, etc.",
+      "punishment": "Imprisonment for 7 years, or\nfine, or both.",
+      "cognizable": "Non-cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate."
+    },
+    {
+      "bnss_section": "351(4)",
+      "offense": "Criminal intimidation by anonymous\ncommunication or having taken\nprecaution to conceal whence the threat\ncomes.",
+      "punishment": "Imprisonment for 2 years, in\naddition to the punishment\nunder above section.",
+      "cognizable": "Non-cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate."
+    },
+    {
+      "bnss_section": "352",
+      "offense": "Insult intended to provoke breach of\nthe peace.",
+      "punishment": "Imprisonment for 2 years, or\nfine, or both.",
+      "cognizable": "Non-cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate."
+    },
+    {
+      "bnss_section": "353(1)",
+      "offense": "False statement, rumour, etc.,\ncirculated with intent to cause mutiny\nor offence against the public peace.",
+      "punishment": "Imprisonment for 3 years, or\nfine, or both.",
+      "cognizable": "Non-cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate."
+    },
+    {
+      "bnss_section": "353(2)",
+      "offense": "False statement, rumour, etc., with\nintent to create enmity, hatred or illwill between different classes",
+      "punishment": "Imprisonment for 3 years, or\nfine, or both.",
+      "cognizable": "Cognizable",
+      "bailable": "NonBailable",
+      "court": "Any Magistrate."
+    },
+    {
+      "bnss_section": "353(3)",
+      "offense": "False statement, rumour, etc., made in\nplace of worship, etc., with intent to\ncreate enmity, hatred or ill-will.",
+      "punishment": "Imprisonment for 5 years, or\nfine, or both.",
+      "cognizable": "Non-cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate."
+    },
+    {
+      "bnss_section": "354",
+      "offense": "Act caused by inducing a person to\nbelieve that he will be rendered an\nobject of Divine displeasure.",
+      "punishment": "Imprisonment for 1 year, or\nfine, or both.",
+      "cognizable": "Non-cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate."
+    },
+    {
+      "bnss_section": "355",
+      "offense": "Appearing in a public place, etc., in a\nstate of intoxication, and causing\nannoyance to any person.",
+      "punishment": "Simple imprisonment for 2\nyears, or fine, or both or with community service.",
+      "cognizable": "Non-cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate."
+    },
+    {
+      "bnss_section": "356(2)",
+      "offense": "Defamation against the President or the\nVice-President or the Governor of a\nState or Administrator of a Union\nterritory or a Minister in respect of his\nconduct in the discharge of his public\nfunctions when instituted upon a\ncomplaint made by the Public\nProsecutor.",
+      "punishment": "Simple imprisonment for 2\nyears, or fine, or both or with community service.",
+      "cognizable": "Non-cognizable",
+      "bailable": "Bailable",
+      "court": "Court of Session; but Magistrate of\nthe first class if Defamation in any other case"
+    },
+    {
+      "bnss_section": "356(3)",
+      "offense": "Printing or engraving matter knowing\nit to be defamatory against the\nPresident or the Vice-President or the\nGovernor of a State or Administrator\nof a Union territory or a Minister in\nrespect of his conduct in the discharge\nof his public functions when instituted\nupon a complaint made by the Public\nProsecutor.",
+      "punishment": "Simple imprisonment for 2\nyears, or fine, or both",
+      "cognizable": "Non-cognizable",
+      "bailable": "Bailable",
+      "court": "Court of Session; but Magistrate of\nthe first class if Printing or engraving matter knowing\nit to be defamatory, in any other case."
+    },
+    {
+      "bnss_section": "356(4)",
+      "offense": "Sale of printed or engraved substance\ncontaining defamatory matter,\nknowing it to contain such matter\nagainst the President or the VicePresident or the Governor of a State or\nAdministrator of a Union territory or a\nMinister in respect of his conduct in\nthe discharge of his public functions\nwhen instituted upon a complaint\nmade by the Public Prosecutor.",
+      "punishment": "Simple imprisonment for 2\nyears, or fine, or both",
+      "cognizable": "Non-cognizable",
+      "bailable": "Bailable",
+      "court": "Court of\nSession; But Magistrate of the\nfirst class if Sale of printed or engraved substance containing defamatory matter,\nknowing it to contain such matter in\nany other case."
+    },
+    {
+      "bnss_section": "357",
+      "offense": "Being bound to attend on or supply\nthe wants of a person who is helpless\nfrom youth, unsoundness of mind or\ndisease, and voluntarily omitting to do\nso.",
+      "punishment": "Imprisonment for 3 months, or\nfine of 5000 rupees, or both.",
+      "cognizable": "Non-cognizable",
+      "bailable": "Bailable",
+      "court": "Any Magistrate."
+    }
+  ]
+}

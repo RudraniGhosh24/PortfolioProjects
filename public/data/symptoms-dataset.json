@@ -1,0 +1,150 @@
+{
+  "diseases": [
+    {
+      "name": "Common Cold",
+      "symptoms": ["fever", "cough", "sore throat", "runny nose", "sneezing", "headache", "fatigue"]
+    },
+    {
+      "name": "Influenza (Flu)",
+      "symptoms": ["fever", "chills", "muscle aches", "cough", "congestion", "runny nose", "headache", "fatigue", "weakness"]
+    },
+    {
+      "name": "Pneumonia",
+      "symptoms": ["fever", "cough", "shortness of breath", "chest pain", "fatigue", "rapid breathing", "chills"]
+    },
+    {
+      "name": "Malaria",
+      "symptoms": ["fever", "chills", "sweating", "headache", "nausea", "vomiting", "muscle pain", "fatigue"]
+    },
+    {
+      "name": "Dengue Fever",
+      "symptoms": ["high fever", "severe headache", "pain behind eyes", "joint pain", "muscle pain", "rash", "nausea", "vomiting"]
+    },
+    {
+      "name": "Typhoid",
+      "symptoms": ["prolonged fever", "headache", "abdominal pain", "constipation", "diarrhea", "weakness", "loss of appetite", "rose spots"]
+    },
+    {
+      "name": "Tuberculosis",
+      "symptoms": ["persistent cough", "coughing up blood", "chest pain", "weight loss", "fatigue", "fever", "night sweats", "loss of appetite"]
+    },
+    {
+      "name": "Diabetes Type 2",
+      "symptoms": ["increased thirst", "frequent urination", "hunger", "fatigue", "blurred vision", "slow healing sores", "frequent infections", "numbness"]
+    },
+    {
+      "name": "Hypertension",
+      "symptoms": ["headache", "shortness of breath", "nosebleed", "flushing", "dizziness", "chest pain", "visual changes", "blood in urine"]
+    },
+    {
+      "name": "Asthma",
+      "symptoms": ["shortness of breath", "chest tightness", "wheezing", "coughing", "difficulty breathing", "rapid breathing"]
+    },
+    {
+      "name": "Bronchitis",
+      "symptoms": ["cough", "mucus production", "fatigue", "shortness of breath", "chest discomfort", "fever", "chills"]
+    },
+    {
+      "name": "Migraine",
+      "symptoms": ["severe headache", "nausea", "vomiting", "sensitivity to light", "sensitivity to sound", "visual aura", "dizziness"]
+    },
+    {
+      "name": "Anemia",
+      "symptoms": ["fatigue", "weakness", "pale skin", "shortness of breath", "dizziness", "cold hands and feet", "headache", "irregular heartbeat"]
+    },
+    {
+      "name": "Food Poisoning",
+      "symptoms": ["nausea", "vomiting", "diarrhea", "stomach cramps", "fever", "weakness", "headache", "loss of appetite"]
+    },
+    {
+      "name": "Urinary Tract Infection",
+      "symptoms": ["burning urination", "frequent urination", "pelvic pain", "cloudy urine", "strong smelling urine", "blood in urine", "fever"]
+    },
+    {
+      "name": "Chickenpox",
+      "symptoms": ["rash", "itchy blisters", "fever", "fatigue", "loss of appetite", "headache", "muscle pain"]
+    },
+    {
+      "name": "Measles",
+      "symptoms": ["high fever", "cough", "runny nose", "red eyes", "rash", "koplik spots", "sensitivity to light"]
+    },
+    {
+      "name": "Jaundice",
+      "symptoms": ["yellow skin", "yellow eyes", "fatigue", "abdominal pain", "dark urine", "pale stools", "nausea", "vomiting", "itching"]
+    },
+    {
+      "name": "Appendicitis",
+      "symptoms": ["abdominal pain", "nausea", "vomiting", "loss of appetite", "fever", "swelling", "inability to pass gas"]
+    },
+    {
+      "name": "Kidney Stones",
+      "symptoms": ["severe back pain", "abdominal pain", "painful urination", "frequent urination", "blood in urine", "nausea", "vomiting", "fever"]
+    }
+  ],
+  "synonyms": {
+    "fever": ["fever", "high temperature", "pyrexia", "hot", "burning up"],
+    "high fever": ["high fever", "very high temperature", "severe fever"],
+    "cough": ["cough", "coughing", "hacking", "dry cough", "wet cough"],
+    "sore throat": ["sore throat", "throat pain", "painful throat", "scratchy throat"],
+    "runny nose": ["runny nose", "stuffy nose", "nasal congestion", "blocked nose", "rhinorrhea"],
+    "sneezing": ["sneezing", "sneeze"],
+    "headache": ["headache", "head pain", "migraine", "splitting headache"],
+    "fatigue": ["fatigue", "tired", "exhaustion", "weakness", "lethargy", "low energy"],
+    "chills": ["chills", "shivering", "rigors", "feeling cold"],
+    "muscle aches": ["muscle aches", "body ache", "muscle pain", "myalgia", "sore muscles"],
+    "congestion": ["congestion", "stuffy", "blocked"],
+    "weakness": ["weakness", "feeble", "frail", "low strength"],
+    "shortness of breath": ["shortness of breath", "breathlessness", "dyspnea", "difficulty breathing", "cannot breathe", "labored breathing"],
+    "chest pain": ["chest pain", "chest tightness", "thoracic pain"],
+    "rapid breathing": ["rapid breathing", "fast breathing", "tachypnea"],
+    "sweating": ["sweating", "perspiration", "diaphoresis"],
+    "nausea": ["nausea", "feeling sick", "queasiness", "want to vomit"],
+    "vomiting": ["vomiting", "throwing up", "emesis", "puking"],
+    "joint pain": ["joint pain", "arthralgia", "aching joints"],
+    "rash": ["rash", "skin rash", "eruption", "hives"],
+    "abdominal pain": ["abdominal pain", "stomach pain", "belly ache", "tummy pain", "gastric pain"],
+    "constipation": ["constipation", "hard stools", "difficulty passing stool"],
+    "diarrhea": ["diarrhea", "loose stools", "watery stools", "frequent stools"],
+    "loss of appetite": ["loss of appetite", "not hungry", "anorexia", "poor appetite"],
+    "weight loss": ["weight loss", "losing weight", "emaciation"],
+    "night sweats": ["night sweats", "drenching sweats at night"],
+    "increased thirst": ["increased thirst", "very thirsty", "polydipsia", "always thirsty"],
+    "frequent urination": ["frequent urination", "urinating often", "polyuria"],
+    "hunger": ["hunger", "increased appetite", "polyphagia", "always hungry"],
+    "blurred vision": ["blurred vision", "cloudy vision", "double vision", "fuzzy sight"],
+    "slow healing sores": ["slow healing sores", "wounds not healing", "delayed healing"],
+    "numbness": ["numbness", "tingling", "pins and needles", "paresthesia"],
+    "nosebleed": ["nosebleed", "epistaxis", "bleeding from nose"],
+    "flushing": ["flushing", "red face", "hot flashes"],
+    "dizziness": ["dizziness", "lightheaded", "vertigo", "spinning sensation"],
+    "visual changes": ["visual changes", "vision problems", "sight changes"],
+    "wheezing": ["wheezing", "whistling sound when breathing"],
+    "mucus production": ["mucus production", "phlegm", "sputum", "productive cough"],
+    "chest discomfort": ["chest discomfort", "chest pressure", "chest heaviness"],
+    "severe headache": ["severe headache", "intense headache", "debilitating headache"],
+    "sensitivity to light": ["sensitivity to light", "photophobia", "light hurts eyes"],
+    "sensitivity to sound": ["sensitivity to sound", "phonophobia", "noise hurts"],
+    "visual aura": ["visual aura", "flashing lights", "zigzag vision"],
+    "pale skin": ["pale skin", "pallor", "whitish skin"],
+    "cold hands and feet": ["cold hands and feet", "cold extremities"],
+    "irregular heartbeat": ["irregular heartbeat", "palpitations", "racing heart", "skipped beats"],
+    "stomach cramps": ["stomach cramps", "abdominal cramps", "gut spasms"],
+    "pelvic pain": ["pelvic pain", "lower abdominal pain", "pain in pelvis"],
+    "cloudy urine": ["cloudy urine", "turbid urine"],
+    "strong smelling urine": ["strong smelling urine", "foul smelling urine"],
+    "blood in urine": ["blood in urine", "hematuria", "red urine"],
+    "itchy blisters": ["itchy blisters", "vesicles", "fluid filled bumps"],
+    "red eyes": ["red eyes", "conjunctival redness", "bloodshot eyes"],
+    "koplik spots": ["koplik spots", "white spots in mouth"],
+    "yellow skin": ["yellow skin", "jaundice", "yellowish skin"],
+    "yellow eyes": ["yellow eyes", "yellowish eyes", "scleral icterus"],
+    "dark urine": ["dark urine", "brown urine", "tea colored urine"],
+    "pale stools": ["pale stools", "clay colored stools", "light stools"],
+    "itching": ["itching", "pruritus", "skin itch"],
+    "swelling": ["swelling", "inflammation", "edema", "bloating"],
+    "inability to pass gas": ["inability to pass gas", "cannot fart", "no flatus"],
+    "severe back pain": ["severe back pain", "renal colic", "flank pain", "loin pain"],
+    "painful urination": ["painful urination", "dysuria", "burning urination"],
+    "burning urination": ["burning urination", "painful urination", "dysuria"]
+  }
+}

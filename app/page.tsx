@@ -1,65 +1,181 @@
-import Image from "next/image";
+"use client";
+
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { Download, ExternalLink, Briefcase, GraduationCap, Award } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
+
+const projects = [
+  {
+    title: "DiagnoChat",
+    description: "A multilingual, multimodal disease diagnosis chatbot using Bernoulli Naive Bayes and NLP. Supports text/image symptom input with real-time predictions.",
+    href: "/diagnochat",
+    tags: ["Machine Learning", "NLP", "Healthcare", "Naive Bayes"],
+  },
+  {
+    title: "BNSS Offense Classifier",
+    description: "Classifies offenses under 358 sections of the Bharatiya Nyaya Sanhita (2023) using TF-IDF and GloVe embeddings. Auto-generates legal documents.",
+    href: "/bnss-classifier",
+    tags: ["NLP", "Legal AI", "TF-IDF", "GloVe"],
+  },
+  {
+    title: "Legal Text Summarizer",
+    description: "Extracts entities (acts, sections, parties) from legal documents using regex, POS tagging, and word embeddings. Generates concise case summaries.",
+    href: "/legal-summarizer",
+    tags: ["Entity Extraction", "BART", "Regex", "POS Tagging"],
+  },
+];
+
+const skills = [
+  "Python", "R", "SQL", "Prolog", "TensorFlow", "Keras", "Scikit-learn",
+  "NLTK", "SpaCy", "Hugging Face", "NLP", "LLMs", "RAG", "Prompt Engineering",
+  "Deep Learning", "Computer Vision", "Time Series", "Legal Reasoning",
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <div className="flex flex-col">
+      {/* Hero */}
+      <section className="relative overflow-hidden border-b bg-muted/30 py-24 md:py-32">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="max-w-3xl"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-4">
+              Rudrani Ghosh
+            </h1>
+            <p className="text-xl md:text-2xl text-muted-foreground mb-6">
+              Data Scientist · Programmer · Lawyer
+            </p>
+            <p className="text-lg text-muted-foreground max-w-2xl mb-8 leading-relaxed">
+              I build AI-powered tools at the intersection of law, healthcare, and data science.
+              From disease diagnosis chatbots to legal offense classifiers and text summarizers,
+              my work focuses on democratizing access to complex systems through machine learning.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <a href="/resume.pdf" download>
+                <Button size="lg" className="gap-2">
+                  <Download className="h-4 w-4" />
+                  Download Resume
+                </Button>
+              </a>
+              <Link href="/diagnochat">
+                <Button variant="outline" size="lg" className="gap-2">
+                  Explore Tools
+                  <ExternalLink className="h-4 w-4" />
+                </Button>
+              </Link>
+            </div>
+          </motion.div>
         </div>
-      </main>
+      </section>
+
+      {/* Projects */}
+      <section className="py-16 md:py-24">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-3xl font-bold tracking-tight mb-4">Research Tools</h2>
+            <p className="text-muted-foreground max-w-2xl mb-10">
+              Interactive implementations of the machine learning and NLP systems from my published research papers.
+            </p>
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {projects.map((project) => (
+                <Link key={project.href} href={project.href} className="group">
+                  <Card className="h-full transition-shadow hover:shadow-lg">
+                    <CardHeader>
+                      <CardTitle className="group-hover:text-primary transition-colors">
+                        {project.title}
+                      </CardTitle>
+                      <CardDescription>{project.description}</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="flex flex-wrap gap-2">
+                        {project.tags.map((tag) => (
+                          <Badge key={tag} variant="secondary">{tag}</Badge>
+                        ))}
+                      </div>
+                    </CardContent>
+                  </Card>
+                </Link>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <Separator />
+
+      {/* About */}
+      <section className="py-16 md:py-24 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-3xl font-bold tracking-tight mb-8">About Me</h2>
+            <div className="grid gap-8 md:grid-cols-2">
+              <div className="space-y-6">
+                <div className="flex items-start gap-4">
+                  <GraduationCap className="h-6 w-6 text-primary mt-1" />
+                  <div>
+                    <h3 className="font-semibold mb-2">Education</h3>
+                    <ul className="space-y-2 text-sm text-muted-foreground">
+                      <li>M.Sc Data Science, VIT Vellore (CGPA: 9.19)</li>
+                      <li>L.L.B, Techno India University (CGPA: 9.7)</li>
+                      <li>B.C.A, Lovely Professional University (CGPA: 9.65)</li>
+                    </ul>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <Briefcase className="h-6 w-6 text-primary mt-1" />
+                  <div>
+                    <h3 className="font-semibold mb-2">Experience</h3>
+                    <ul className="space-y-2 text-sm text-muted-foreground">
+                      <li>Founder — LawReformer (AI legal assistance platform)</li>
+                      <li>Founder — Astroformer (Astrology + AI platform)</li>
+                      <li>Freelance AI Trainer — Outlier (LLM evaluation)</li>
+                      <li>ML Intern — Infosys Springboard (Healthcare fraud detection)</li>
+                    </ul>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <Award className="h-6 w-6 text-primary mt-1" />
+                  <div>
+                    <h3 className="font-semibold mb-2">Achievements</h3>
+                    <ul className="space-y-2 text-sm text-muted-foreground">
+                      <li>University Gold Medal Recipient (L.L.B & B.C.A)</li>
+                      <li>AWS AI ML Fellow 2023-2024</li>
+                      <li>WiBD Shakti Fellow 2024</li>
+                      <li>VU Amsterdam Summer School Scholarship</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <h3 className="font-semibold mb-4">Skills</h3>
+                <div className="flex flex-wrap gap-2">
+                  {skills.map((skill) => (
+                    <Badge key={skill} variant="outline">{skill}</Badge>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
     </div>
   );
 }

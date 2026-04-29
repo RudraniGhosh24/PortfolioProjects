@@ -144,8 +144,8 @@ export default function Home() {
                   <div>
                     <h3 className="font-semibold mb-2">Experience</h3>
                     <ul className="space-y-2 text-sm text-muted-foreground">
-                      <li>Founder — LawReformer (AI legal assistance platform)</li>
-                      <li>Founder — Astroformer (Astrology + AI platform)</li>
+                      <li>Founder — <a href="https://lawreformer.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary transition-colors">LawReformer.com</a> (<a href="https://ai.lawreformer.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary transition-colors">ai.lawreformer.com</a>)</li>
+                      <li>Founder — <a href="https://astroformer.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary transition-colors">Astroformer.com</a></li>
                       <li>Freelance AI Trainer — Outlier (LLM evaluation)</li>
                       <li>ML Intern — Infosys Springboard (Healthcare fraud detection)</li>
                     </ul>

@@ -228,7 +228,7 @@ export default function Home() {
       </section>
 
       {/* Projects */}
-      <section className="py-16 md:py-24">
+      <section className="py-10 md:py-14">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -304,7 +304,7 @@ export default function Home() {
       <Separator />
 
       {/* About */}
-      <section className="py-16 md:py-24 bg-muted/30">
+      <section className="py-10 md:py-14 bg-muted/30">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -379,7 +379,7 @@ export default function Home() {
       </section>
 
       {/* Contact */}
-      <section className="py-16 md:py-24 border-t">
+      <section className="py-10 md:py-14 border-t">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

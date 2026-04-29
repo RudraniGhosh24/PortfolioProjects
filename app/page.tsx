@@ -379,7 +379,7 @@ export default function Home() {
       </section>
 
       {/* Contact */}
-      <section className="py-10 md:py-14 border-t">
+      <section className="py-16 md:py-24 border-t">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

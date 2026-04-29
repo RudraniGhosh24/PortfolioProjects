@@ -303,6 +303,127 @@ export default function Home() {
 
       <Separator />
 
+      {/* Live Products */}
+      <section className="py-10 md:py-14">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-3xl font-bold tracking-tight mb-4">Live Products</h2>
+            <p className="text-muted-foreground max-w-2xl mb-10">
+              Active platforms I have founded and continue to build — from AI-powered legal tools to intelligent astrology.
+            </p>
+            <div className="grid gap-6 md:grid-cols-3">
+              <a
+                href="https://lawreformer.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group"
+              >
+                <Card className="h-full transition-shadow hover:shadow-lg overflow-hidden">
+                  <div className="p-4 border-b bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-950/30 dark:to-purple-950/30">
+                    <div className="bg-white dark:bg-background rounded-lg border shadow-sm p-3 space-y-2">
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 rounded-full bg-red-400" />
+                        <div className="w-2 h-2 rounded-full bg-yellow-400" />
+                        <div className="w-2 h-2 rounded-full bg-green-400" />
+                        <div className="flex-1 h-4 bg-muted rounded text-[8px] flex items-center px-1.5 text-muted-foreground">lawreformer.com</div>
+                      </div>
+                      <div className="h-1.5 w-3/4 bg-muted rounded" />
+                      <div className="h-1.5 w-1/2 bg-muted rounded" />
+                    </div>
+                  </div>
+                  <CardHeader className="pb-2">
+                    <CardTitle className="group-hover:text-primary transition-colors flex items-center gap-2">
+                      LawReformer
+                      <ExternalLink className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    </CardTitle>
+                    <CardDescription>
+                      A legal-tech platform bridging the gap between statutory law and accessible legal services for citizens and practitioners.
+                    </CardDescription>
+                  </CardHeader>
+                </Card>
+              </a>
+
+              <a
+                href="https://ai.lawreformer.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group"
+              >
+                <Card className="h-full transition-shadow hover:shadow-lg overflow-hidden">
+                  <div className="p-4 border-b bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-950/30 dark:to-indigo-950/30">
+                    <div className="bg-white dark:bg-background rounded-lg border shadow-sm p-3 space-y-2">
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 rounded-full bg-red-400" />
+                        <div className="w-2 h-2 rounded-full bg-yellow-400" />
+                        <div className="w-2 h-2 rounded-full bg-green-400" />
+                        <div className="flex-1 h-4 bg-muted rounded text-[8px] flex items-center px-1.5 text-muted-foreground">ai.lawreformer.com</div>
+                      </div>
+                      <div className="flex gap-1.5">
+                        <div className="h-8 w-8 rounded bg-primary/10 flex items-center justify-center text-[10px] font-bold text-primary">AI</div>
+                        <div className="flex-1 space-y-1">
+                          <div className="h-1.5 w-full bg-muted rounded" />
+                          <div className="h-1.5 w-2/3 bg-muted rounded" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <CardHeader className="pb-2">
+                    <CardTitle className="group-hover:text-primary transition-colors flex items-center gap-2">
+                      AI LawReformer
+                      <ExternalLink className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    </CardTitle>
+                    <CardDescription>
+                      An AI assistant for legal research, document drafting, and instant answers to complex legal queries.
+                    </CardDescription>
+                  </CardHeader>
+                </Card>
+              </a>
+
+              <a
+                href="https://astroformer.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group"
+              >
+                <Card className="h-full transition-shadow hover:shadow-lg overflow-hidden">
+                  <div className="p-4 border-b bg-gradient-to-br from-violet-50 to-fuchsia-50 dark:from-violet-950/30 dark:to-fuchsia-950/30">
+                    <div className="bg-white dark:bg-background rounded-lg border shadow-sm p-3 space-y-2">
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 rounded-full bg-red-400" />
+                        <div className="w-2 h-2 rounded-full bg-yellow-400" />
+                        <div className="w-2 h-2 rounded-full bg-green-400" />
+                        <div className="flex-1 h-4 bg-muted rounded text-[8px] flex items-center px-1.5 text-muted-foreground">astroformer.com</div>
+                      </div>
+                      <div className="flex justify-center py-1">
+                        <div className="w-6 h-6 rounded-full border-2 border-primary/30 flex items-center justify-center">
+                          <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <CardHeader className="pb-2">
+                    <CardTitle className="group-hover:text-primary transition-colors flex items-center gap-2">
+                      Astroformer
+                      <ExternalLink className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    </CardTitle>
+                    <CardDescription>
+                      An intelligent astrology platform combining traditional astrological wisdom with modern data science and AI.
+                    </CardDescription>
+                  </CardHeader>
+                </Card>
+              </a>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <Separator />
+
       {/* About */}
       <section className="py-10 md:py-14 bg-muted/30">
         <div className="container mx-auto px-4">

@@ -156,7 +156,8 @@ export default function Home() {
                   <div>
                     <h3 className="font-semibold mb-2">Achievements</h3>
                     <ul className="space-y-2 text-sm text-muted-foreground">
-                      <li>University Gold Medal Recipient (L.L.B & B.C.A)</li>
+                      <li>University Gold Medal Recipient — L.L.B</li>
+                      <li>University Gold Medal Recipient — B.C.A</li>
                       <li>AWS AI ML Fellow 2023-2024</li>
                       <li>WiBD Shakti Fellow 2024</li>
                       <li>VU Amsterdam Summer School Scholarship</li>

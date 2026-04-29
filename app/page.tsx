@@ -163,7 +163,7 @@ export default function Home() {
   return (
     <div className="flex flex-col">
       {/* Hero */}
-      <section className="relative overflow-hidden border-b bg-muted/30 py-24 md:py-32">
+      <section className="relative overflow-hidden border-b bg-muted/30 py-10 md:py-14">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -177,12 +177,12 @@ export default function Home() {
             <p className="text-xl md:text-2xl text-muted-foreground mb-6">
               Data Scientist · Programmer · Lawyer
             </p>
-            <p className="text-lg text-muted-foreground max-w-2xl mb-8 leading-relaxed">
+            <p className="text-lg text-muted-foreground max-w-2xl mb-5 leading-relaxed">
               I build AI-powered tools at the intersection of law, healthcare, and data science.
               From disease diagnosis chatbots to legal offense classifiers and text summarizers,
               my work focuses on democratizing access to complex systems through machine learning.
             </p>
-            <div className="flex flex-wrap gap-4 mb-8">
+            <div className="flex flex-wrap gap-4 mb-5">
               <a href="/resume.pdf" download>
                 <Button size="lg" className="gap-2">
                   <Download className="h-4 w-4" />

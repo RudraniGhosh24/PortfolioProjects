@@ -15,8 +15,22 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Rudrani Ghosh | Data Scientist · Programmer · Lawyer",
-  description: "Portfolio of Rudrani Ghosh — Data Scientist, Programmer, and Lawyer. Building AI-powered legal and healthcare tools.",
+  title: "Rudrani Ghosh | Legal AI & Healthcare ML Researcher",
+  description: "Portfolio of Rudrani Ghosh — Data Scientist, Programmer, and Lawyer building AI-powered tools at the intersection of law, healthcare, and data science. Explore interactive research demos.",
+  keywords: ["Rudrani Ghosh", "Legal AI", "Healthcare ML", "Data Science", "NLP", "Machine Learning", "Portfolio"],
+  authors: [{ name: "Rudrani Ghosh" }],
+  openGraph: {
+    title: "Rudrani Ghosh | Legal AI & Healthcare ML Researcher",
+    description: "Data Scientist · Programmer · Lawyer. Building AI-powered tools for legal reasoning, healthcare diagnosis, and NLP.",
+    type: "website",
+    url: "https://www.rudranig.com",
+    siteName: "Rudrani Ghosh",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Rudrani Ghosh | Legal AI & Healthcare ML Researcher",
+    description: "Data Scientist · Programmer · Lawyer. Explore interactive ML research tools.",
+  },
 };
 
 export default function RootLayout({

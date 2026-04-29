@@ -236,7 +236,7 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl font-bold tracking-tight mb-4">Research Tools</h2>
+            <h2 className="text-3xl font-bold tracking-tight mb-4">Working Prototypes</h2>
             <p className="text-muted-foreground max-w-2xl mb-10">
               Interactive implementations of the machine learning and NLP systems from my published research papers.
               Every tool includes source code and datasets on GitHub.

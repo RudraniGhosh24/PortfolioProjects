@@ -249,7 +249,7 @@ function buildDocText(p: Provision): string {
   return `${p.offense} ${p.punishment} ${p.cognizable} ${p.bailable} ${p.court}`;
 }
 
-function computeTfIdf(docs: string[][]): Record<string, number>[] {
+function computeIdf(docs: string[][]): Record<string, number> {
   const df: Record<string, number> = {};
   const N = docs.length;
 
@@ -267,7 +267,10 @@ function computeTfIdf(docs: string[][]): Record<string, number>[] {
   for (const [term, count] of Object.entries(df)) {
     idf[term] = Math.log(N / (count || 1));
   }
+  return idf;
+}
 
+function computeTfIdfVectors(docs: string[][], idf: Record<string, number>): Record<string, number>[] {
   return docs.map((doc) => {
     const tf: Record<string, number> = {};
     for (const term of doc) {
@@ -279,6 +282,18 @@ function computeTfIdf(docs: string[][]): Record<string, number>[] {
     }
     return vec;
   });
+}
+
+function computeQueryVector(tokens: string[], idf: Record<string, number>): Record<string, number> {
+  const tf: Record<string, number> = {};
+  for (const term of tokens) {
+    tf[term] = (tf[term] || 0) + 1;
+  }
+  const vec: Record<string, number> = {};
+  for (const term of Object.keys(tf)) {
+    vec[term] = tf[term] * (idf[term] || 0);
+  }
+  return vec;
 }
 
 function cosineSimilarity(a: Record<string, number>, b: Record<string, number>): number {
@@ -306,6 +321,7 @@ export default function BNSSClassifierPage() {
   const [loading, setLoading] = useState(false);
   const [results, setResults] = useState<Array<{ provision: Provision; score: number }>>([]);
   const [vectors, setVectors] = useState<Record<string, number>[]>([]);
+  const [idf, setIdf] = useState<Record<string, number>>({});
 
   useEffect(() => {
     fetch("/data/bnss-dataset.json")
@@ -313,7 +329,9 @@ export default function BNSSClassifierPage() {
       .then((d: BNSSData) => {
         setData(d);
         const docs = d.provisions.map((p) => expandTokens(tokenize(buildDocText(p))));
-        setVectors(computeTfIdf(docs));
+        const computedIdf = computeIdf(docs);
+        setIdf(computedIdf);
+        setVectors(computeTfIdfVectors(docs, computedIdf));
       });
   }, []);
 
@@ -324,7 +342,7 @@ export default function BNSSClassifierPage() {
 
     setTimeout(() => {
       const userTokens = expandTokens(tokenize(input));
-      const userVec = computeTfIdf([userTokens])[0];
+      const userVec = computeQueryVector(userTokens, idf);
 
       const scored = vectors
         .map((vec, i) => ({ index: i, score: cosineSimilarity(userVec, vec) }))

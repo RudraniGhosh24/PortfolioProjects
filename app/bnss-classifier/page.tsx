@@ -219,12 +219,97 @@ const SYNONYMS: Record<string, string[]> = {
   husband: ["marriage", "bigamy", "cruelty"],
 };
 
+function stem(word: string): string {
+  // Simple Porter-style stemmer for common inflections
+  if (word.endsWith("ies")) return word.slice(0, -3) + "y";
+  if (word.endsWith("ied")) return word.slice(0, -3) + "y";
+  if (word.endsWith("ied")) return word.slice(0, -3) + "y";
+  if (word.endsWith("ies")) return word.slice(0, -3) + "y";
+  if (word.endsWith("ying")) return word.slice(0, -3) + "ie";
+  if (word.endsWith("ing")) {
+    const base = word.slice(0, -3);
+    if (base.length > 2) return base;
+  }
+  if (word.endsWith("edly")) return word.slice(0, -4);
+  if (word.endsWith("edly")) return word.slice(0, -2);
+  if (word.endsWith("ed")) {
+    const base = word.slice(0, -2);
+    if (base.length > 2) return base;
+  }
+  if (word.endsWith("en")) {
+    const base = word.slice(0, -2);
+    if (base.length > 2) return base;
+  }
+  if (word.endsWith("er")) {
+    const base = word.slice(0, -2);
+    if (base.length > 2) return base;
+  }
+  if (word.endsWith("est")) {
+    const base = word.slice(0, -3);
+    if (base.length > 2) return base;
+  }
+  // Common irregulars
+  const irregulars: Record<string, string> = {
+    stole: "steal", stolen: "steal", stealing: "steal",
+    broke: "break", broken: "break",
+    took: "take", taken: "take",
+    gave: "give", given: "give",
+    went: "go", gone: "go",
+    came: "come",
+    saw: "see", seen: "see",
+    knew: "know", known: "know",
+    drove: "drive", driven: "drive",
+    wrote: "write", written: "write",
+    spoke: "speak", spoken: "speak",
+    chose: "choose", chosen: "choose",
+    froze: "freeze", frozen: "freeze",
+    woke: "wake", woken: "wake",
+    rode: "ride", ridden: "ride",
+    hid: "hide", hidden: "hide",
+    bit: "bite", bitten: "bite",
+    beat: "beat", beaten: "beat",
+    fell: "fall", fallen: "fall",
+    got: "get", gotten: "get",
+    forgot: "forget", forgotten: "forget",
+    did: "do", done: "do",
+    ate: "eat", eaten: "eat",
+    drank: "drink", drunk: "drink",
+    swam: "swim", swum: "swim",
+    ran: "run",
+    sang: "sing", sung: "sing",
+    began: "begin", begun: "begin",
+    rang: "ring", rung: "ring",
+    shrank: "shrink", shrunk: "shrink",
+    sank: "sink", sunk: "sink",
+    stank: "stink", stunk: "stink",
+    sprang: "spring", sprung: "spring",
+    spun: "spin",
+    stuck: "stick",
+    struck: "strike", stricken: "strike",
+    swore: "swear", sworn: "swear",
+    tore: "tear", torn: "tear",
+    wore: "wear", worn: "wear",
+    wove: "weave", woven: "weave",
+    won: "win",
+    wound: "wind",
+    withdrew: "withdraw", withdrawn: "withdraw",
+    withheld: "withhold",
+    misunderstood: "misunderstand",
+    undertook: "undertake", undertaken: "undertake",
+  };
+  if (irregulars[word]) return irregulars[word];
+  return word;
+}
+
 function tokenize(text: string): string[] {
-  return text
+  const raw = text
     .toLowerCase()
     .replace(/[^a-z0-9\s]/g, " ")
     .split(/\s+/)
     .filter((t) => t.length > 2 && !STOPWORDS.has(t));
+  // Return both raw and stemmed forms
+  const stemmed = raw.map(stem);
+  return Array.from(new Set([...raw, ...stemmed]));
 }
 
 function expandTokens(tokens: string[]): string[] {
@@ -377,15 +462,21 @@ function computeRefinedScore(
 
   // 5. Category mismatch penalty
   const querySet = new Set(queryTokens);
-  const isTheftQuery = ["steal", "stole", "robbed", "rob", "theft", "money", "wallet", "cash", "property", "belongings", "jewellery", "jewelry", "bike", "car", "phone", "wallet"].some((t) => querySet.has(t));
+  const isTheftQuery = ["steal", "stole", "stolen", "stealing", "robbed", "rob", "theft", "money", "wallet", "cash", "property", "belongings", "jewellery", "jewelry", "bike", "car", "phone", "wallet"].some((t) => querySet.has(t));
+  const isReceivingQuery = ["receive", "receiving", "buy", "bought", "purchase", "purchased", "sell", "sold"].some((t) => querySet.has(t));
   const isKidnappingProvision = docText.includes("kidnapping") || docText.includes("abducting") || docText.includes("abduction");
   const isMurderProvision = docText.includes("murder") || docText.includes("culpable homicide");
   const isSexualProvision = docText.includes("rape") || docText.includes("sexual") || docText.includes("modesty");
+  const isReceivingProvision = docText.includes("receiving") || docText.includes("receipt") || (docText.includes("stolen") && docText.includes("property") && !docText.includes("theft") && !docText.includes("robbery"));
 
   if (isTheftQuery) {
     // Boost theft-related provisions
     if (docText.includes("theft") || docText.includes("robbery") || docText.includes("extortion") || docText.includes("dacoity") || docText.includes("snatching") || docText.includes("mischief")) {
       score += 0.15;
+    }
+    // Penalize receiving-stolen-property when query describes active theft
+    if (isReceivingProvision && !isReceivingQuery) {
+      score *= 0.2;
     }
     // Penalize unrelated categories
     if (isKidnappingProvision && directMatches.length < 2) {

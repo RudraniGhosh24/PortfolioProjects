@@ -324,17 +324,12 @@ export default function Home() {
                 className="group"
               >
                 <Card className="h-full transition-shadow hover:shadow-lg overflow-hidden">
-                  <div className="p-4 border-b bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-950/30 dark:to-purple-950/30">
-                    <div className="bg-white dark:bg-background rounded-lg border shadow-sm p-3 space-y-2">
-                      <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 rounded-full bg-red-400" />
-                        <div className="w-2 h-2 rounded-full bg-yellow-400" />
-                        <div className="w-2 h-2 rounded-full bg-green-400" />
-                        <div className="flex-1 h-4 bg-muted rounded text-[8px] flex items-center px-1.5 text-muted-foreground">lawreformer.com</div>
-                      </div>
-                      <div className="h-1.5 w-3/4 bg-muted rounded" />
-                      <div className="h-1.5 w-1/2 bg-muted rounded" />
-                    </div>
+                  <div className="h-44 overflow-hidden border-b">
+                    <img
+                      src="/images/lawreformer.jpg"
+                      alt="LawReformer homepage"
+                      className="w-full h-full object-cover object-top"
+                    />
                   </div>
                   <CardHeader className="pb-2">
                     <CardTitle className="group-hover:text-primary transition-colors flex items-center gap-2">
@@ -355,22 +350,12 @@ export default function Home() {
                 className="group"
               >
                 <Card className="h-full transition-shadow hover:shadow-lg overflow-hidden">
-                  <div className="p-4 border-b bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-950/30 dark:to-indigo-950/30">
-                    <div className="bg-white dark:bg-background rounded-lg border shadow-sm p-3 space-y-2">
-                      <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 rounded-full bg-red-400" />
-                        <div className="w-2 h-2 rounded-full bg-yellow-400" />
-                        <div className="w-2 h-2 rounded-full bg-green-400" />
-                        <div className="flex-1 h-4 bg-muted rounded text-[8px] flex items-center px-1.5 text-muted-foreground">ai.lawreformer.com</div>
-                      </div>
-                      <div className="flex gap-1.5">
-                        <div className="h-8 w-8 rounded bg-primary/10 flex items-center justify-center text-[10px] font-bold text-primary">AI</div>
-                        <div className="flex-1 space-y-1">
-                          <div className="h-1.5 w-full bg-muted rounded" />
-                          <div className="h-1.5 w-2/3 bg-muted rounded" />
-                        </div>
-                      </div>
-                    </div>
+                  <div className="h-44 overflow-hidden border-b">
+                    <img
+                      src="/images/ai-lawreformer.jpg"
+                      alt="AI LawReformer homepage"
+                      className="w-full h-full object-cover object-top"
+                    />
                   </div>
                   <CardHeader className="pb-2">
                     <CardTitle className="group-hover:text-primary transition-colors flex items-center gap-2">
@@ -391,20 +376,12 @@ export default function Home() {
                 className="group"
               >
                 <Card className="h-full transition-shadow hover:shadow-lg overflow-hidden">
-                  <div className="p-4 border-b bg-gradient-to-br from-violet-50 to-fuchsia-50 dark:from-violet-950/30 dark:to-fuchsia-950/30">
-                    <div className="bg-white dark:bg-background rounded-lg border shadow-sm p-3 space-y-2">
-                      <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 rounded-full bg-red-400" />
-                        <div className="w-2 h-2 rounded-full bg-yellow-400" />
-                        <div className="w-2 h-2 rounded-full bg-green-400" />
-                        <div className="flex-1 h-4 bg-muted rounded text-[8px] flex items-center px-1.5 text-muted-foreground">astroformer.com</div>
-                      </div>
-                      <div className="flex justify-center py-1">
-                        <div className="w-6 h-6 rounded-full border-2 border-primary/30 flex items-center justify-center">
-                          <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-                        </div>
-                      </div>
-                    </div>
+                  <div className="h-44 overflow-hidden border-b">
+                    <img
+                      src="/images/astroformer.jpg"
+                      alt="Astroformer homepage"
+                      className="w-full h-full object-cover object-top"
+                    />
                   </div>
                   <CardHeader className="pb-2">
                     <CardTitle className="group-hover:text-primary transition-colors flex items-center gap-2">

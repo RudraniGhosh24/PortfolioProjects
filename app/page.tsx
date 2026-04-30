@@ -324,7 +324,7 @@ export default function Home() {
                 className="group"
               >
                 <Card className="h-full transition-shadow hover:shadow-lg overflow-hidden">
-                  <div className="h-44 overflow-hidden border-b">
+                  <div className="h-80 overflow-hidden border-b">
                     <img
                       src="/images/lawreformer.jpg"
                       alt="LawReformer homepage"
@@ -350,7 +350,7 @@ export default function Home() {
                 className="group"
               >
                 <Card className="h-full transition-shadow hover:shadow-lg overflow-hidden">
-                  <div className="h-44 overflow-hidden border-b">
+                  <div className="h-80 overflow-hidden border-b">
                     <img
                       src="/images/ai-lawreformer.jpg"
                       alt="AI LawReformer homepage"
@@ -376,7 +376,7 @@ export default function Home() {
                 className="group"
               >
                 <Card className="h-full transition-shadow hover:shadow-lg overflow-hidden">
-                  <div className="h-44 overflow-hidden border-b">
+                  <div className="h-80 overflow-hidden border-b">
                     <img
                       src="/images/astroformer.jpg"
                       alt="Astroformer homepage"

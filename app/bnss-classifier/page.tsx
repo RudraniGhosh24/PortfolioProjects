@@ -165,13 +165,13 @@ const SYNONYMS: Record<string, string[]> = {
 
   // Riots / Unlawful assembly
   riot: ["riot", "unlawful", "assembly", "affray"],
-  mob: ["unlawful", "assembly", "riot", "group"],
+  mob: ["unlawful", "assembly", "riot"],
   crowd: ["unlawful", "assembly", "riot"],
   protest: ["unlawful", "assembly", "riot"],
   fight: ["affray", "riot", "assault", "hurt"],
   fighting: ["affray", "riot", "assault"],
-  group: ["group", "unlawful", "assembly", "gang"],
-  gang: ["gang", "group", "organised", "crime", "dacoity"],
+  group: ["group", "people"],
+  gang: ["gang", "organised", "crime", "dacoity"],
 
   // Terrorism / Sedition
   terror: ["terrorist", "terrorism", "organised", "crime"],
@@ -209,10 +209,10 @@ const SYNONYMS: Record<string, string[]> = {
   compelled: ["compel", "force", "coerce"],
   consent: ["consent", "without", "rape", "sexual"],
   unconscious: ["without", "consent", "rape"],
-  minor: ["child", "under", "age", "rape"],
+  minor: ["child", "under", "age"],
   child: ["child", "minor", "under", "age"],
-  girl: ["woman", "female", "minor", "child"],
-  boy: ["child", "minor", "male"],
+  girl: ["woman", "female"],
+  boy: ["male"],
   woman: ["woman", "female", "modesty", "cruelty", "dowry"],
   women: ["woman", "female", "modesty", "cruelty", "dowry"],
   wife: ["woman", "cruelty", "dowry", "marriage"],
@@ -335,18 +335,140 @@ export default function BNSSClassifierPage() {
       });
   }, []);
 
+function getPhrases(text: string): string[] {
+  const words = text.toLowerCase().replace(/[^a-z0-9\s]/g, " ").split(/\s+/).filter((w) => w.length > 2 && !STOPWORDS.has(w));
+  const phrases: string[] = [];
+  for (let i = 0; i < words.length - 1; i++) {
+    phrases.push(`${words[i]} ${words[i + 1]}`);
+  }
+  for (let i = 0; i < words.length - 2; i++) {
+    phrases.push(`${words[i]} ${words[i + 1]} ${words[i + 2]}`);
+  }
+  return phrases;
+}
+
+function computeRefinedScore(
+  queryRaw: string,
+  queryTokens: string[],
+  queryExpanded: string[],
+  provision: Provision,
+  baseCosine: number
+): number {
+  const docText = buildDocText(provision).toLowerCase();
+  const docTokens = tokenize(buildDocText(provision));
+
+  // 1. Base TF-IDF score (capped to avoid outliers)
+  let score = Math.min(baseCosine, 0.85);
+
+  // 2. Direct token overlap bonus
+  const directMatches = queryTokens.filter((t) => docTokens.includes(t));
+  score += directMatches.length * 0.06;
+
+  // 3. Phrase overlap bonus
+  const queryPhrases = getPhrases(queryRaw);
+  let phraseMatches = 0;
+  for (const phrase of queryPhrases) {
+    if (docText.includes(phrase)) phraseMatches++;
+  }
+  score += phraseMatches * 0.12;
+
+  // 4. Expanded token overlap count (for minimum match gating)
+  const expandedMatches = queryExpanded.filter((t) => docTokens.includes(t) || docText.includes(t));
+
+  // 5. Category mismatch penalty
+  const querySet = new Set(queryTokens);
+  const isTheftQuery = ["steal", "stole", "robbed", "rob", "theft", "money", "wallet", "cash", "property", "belongings", "jewellery", "jewelry", "bike", "car", "phone", "wallet"].some((t) => querySet.has(t));
+  const isKidnappingProvision = docText.includes("kidnapping") || docText.includes("abducting") || docText.includes("abduction");
+  const isMurderProvision = docText.includes("murder") || docText.includes("culpable homicide");
+  const isSexualProvision = docText.includes("rape") || docText.includes("sexual") || docText.includes("modesty");
+
+  if (isTheftQuery) {
+    // Boost theft-related provisions
+    if (docText.includes("theft") || docText.includes("robbery") || docText.includes("extortion") || docText.includes("dacoity") || docText.includes("snatching") || docText.includes("mischief")) {
+      score += 0.15;
+    }
+    // Penalize unrelated categories
+    if (isKidnappingProvision && directMatches.length < 2) {
+      score *= 0.25;
+    }
+    if (isMurderProvision && directMatches.length < 2) {
+      score *= 0.3;
+    }
+    if (isSexualProvision && directMatches.length < 2) {
+      score *= 0.25;
+    }
+  }
+
+  // 6. Kidnapping query handling
+  const isKidnappingQuery = ["kidnap", "kidnapped", "abduct", "abducted", "captured", "trapped", "tied"].some((t) => querySet.has(t));
+  if (isKidnappingQuery) {
+    if (isKidnappingProvision) {
+      score += 0.15;
+    } else if (directMatches.length < 2) {
+      score *= 0.4;
+    }
+  }
+
+  // 7. Murder query handling
+  const isMurderQuery = ["killed", "kill", "murder", "murdered", "dead", "death", "died", "strangled", "poisoned", "stabbed", "shoot", "shot"].some((t) => querySet.has(t));
+  if (isMurderQuery) {
+    if (isMurderProvision) {
+      score += 0.15;
+    } else if (directMatches.length < 2) {
+      score *= 0.4;
+    }
+  }
+
+  // 8. Sexual offense query handling
+  const isSexualQuery = ["rape", "raped", "molest", "molested", "harass", "harassed", "touched", "undress", "naked", "stalking"].some((t) => querySet.has(t));
+  if (isSexualQuery) {
+    if (isSexualProvision) {
+      score += 0.15;
+    } else if (directMatches.length < 2) {
+      score *= 0.3;
+    }
+  }
+
+  // 9. Minimum match gate: reject if fewer than 2 expanded tokens match
+  if (expandedMatches.length < 2) {
+    score *= 0.2;
+  }
+
+  // 10. Penalize pure synonym-only matches (no direct matches at all)
+  if (directMatches.length === 0 && expandedMatches.length > 0) {
+    score *= 0.5;
+  }
+
+  // 11. Boost strong direct matches
+  if (directMatches.length >= 3) {
+    score *= 1.25;
+  }
+
+  return Math.max(0, Math.min(score, 0.99));
+}
+
   const handleClassify = () => {
     if (!data || vectors.length === 0 || !input.trim()) return;
     setLoading(true);
     setResults([]);
 
     setTimeout(() => {
-      const userTokens = expandTokens(tokenize(input));
-      const userVec = computeQueryVector(userTokens, idf);
+      const rawQuery = input.trim();
+      const userTokens = tokenize(rawQuery);
+      const userExpanded = expandTokens(userTokens);
+      const userVec = computeQueryVector(userExpanded, idf);
 
       const scored = vectors
-        .map((vec, i) => ({ index: i, score: cosineSimilarity(userVec, vec) }))
-        .filter((s) => s.score > 0)
+        .map((vec, i) => ({
+          index: i,
+          cosine: cosineSimilarity(userVec, vec),
+        }))
+        .filter((s) => s.cosine > 0)
+        .map((s) => ({
+          index: s.index,
+          score: computeRefinedScore(rawQuery, userTokens, userExpanded, data.provisions[s.index], s.cosine),
+        }))
+        .filter((s) => s.score > 0.02)
         .sort((a, b) => b.score - a.score)
         .slice(0, 5);
 

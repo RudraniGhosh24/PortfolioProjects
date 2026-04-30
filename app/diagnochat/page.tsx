@@ -67,17 +67,19 @@ function predictDiseases(
     const matched = disease.symptoms.filter((s) => symptoms.has(s));
     if (matched.length === 0) continue;
 
-    // Bernoulli Naive Bayes-inspired probability
-    const pSymptomGivenDisease = matched.length / disease.symptoms.length;
-    const pDisease = 1 / data.diseases.length;
-    const pSymptom = symptoms.size / Object.keys(data.synonyms).length;
+    // Coverage: fraction of the disease's symptoms that are present
+    const coverage = matched.length / disease.symptoms.length;
+    // Precision: fraction of input symptoms that match this disease
+    const precision = matched.length / symptoms.size;
+    // Combined score (penalizes diseases with many unmatched symptoms)
+    const score = coverage * precision;
 
-    const probability = (pSymptomGivenDisease * pDisease) / (pSymptom || 0.01);
-    const normalizedProb = Math.min(probability * 100, 0.99);
+    // Scale to a sensible percentage range
+    const probability = Math.min(Math.round(score * 100) / 100, 0.95);
 
     results.push({
       name: disease.name,
-      probability: normalizedProb,
+      probability,
       matched,
     });
   }

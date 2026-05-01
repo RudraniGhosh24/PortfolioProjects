@@ -15,6 +15,7 @@ import {
   Gavel,
   FileSearch,
   ArrowRight,
+  BookOpen,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -22,6 +23,16 @@ import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 
 const projects = [
+  {
+    title: "EduRAG Tutor",
+    impact: "Democratizes access to quality education by delivering curriculum-aligned, grade-specific explanations in 7 languages with audio-visual narration.",
+    description: "Fine-tuned TinyLlama-1.1B with QLoRA on 346K+ QA pairs. Uses RAG with FAISS for factual grounding, GPT-4o Mini for grade adaptation, and generates narrated educational videos.",
+    href: "/edu-rag-tutor",
+    githubCode: "https://github.com/RudraniGhosh24",
+    githubData: "https://github.com/RudraniGhosh24",
+    tags: ["LLMs", "RAG", "QLoRA", "TinyLlama", "Multilingual", "Education"],
+    preview: "edurag",
+  },
   {
     title: "DiagnoChat",
     impact: "Helps patients in underserved areas identify possible conditions in their native language before seeing a doctor.",
@@ -153,7 +164,29 @@ function PreviewSummarizer() {
   );
 }
 
+function PreviewEduRAG() {
+  return (
+    <div className="bg-muted/50 rounded-lg p-3 space-y-2 border">
+      <div className="flex items-center justify-between">
+        <span className="text-[10px] font-semibold">Photosynthesis</span>
+        <span className="text-[9px] bg-primary/10 text-primary px-1.5 py-0.5 rounded">Class 8</span>
+      </div>
+      <div className="bg-background rounded border p-2">
+        <p className="text-[9px] text-muted-foreground line-clamp-3">
+          Plants use chlorophyll to absorb sunlight, CO₂, and water to produce glucose and oxygen...
+        </p>
+      </div>
+      <div className="flex items-center gap-2">
+        <span className="text-[9px] bg-green-100 text-green-700 px-1.5 py-0.5 rounded">English</span>
+        <span className="text-[9px] bg-muted px-1.5 py-0.5 rounded">हिन्दी</span>
+        <span className="text-[9px] bg-muted px-1.5 py-0.5 rounded">বাংলা</span>
+      </div>
+    </div>
+  );
+}
+
 const previewMap: Record<string, React.ReactNode> = {
+  edurag: <PreviewEduRAG />,
   chat: <PreviewChat />,
   classifier: <PreviewClassifier />,
   summarizer: <PreviewSummarizer />,
@@ -178,9 +211,9 @@ export default function Home() {
               Data Scientist · Programmer · Lawyer
             </p>
             <p className="text-lg text-muted-foreground max-w-2xl mb-5 leading-relaxed">
-              I build AI-powered tools at the intersection of law, healthcare, and data science.
-              From disease diagnosis chatbots to legal offense classifiers and text summarizers,
-              my work focuses on democratizing access to complex systems through machine learning.
+              I build AI-powered tools at the intersection of law, healthcare, education, and data science.
+              From disease diagnosis chatbots to legal offense classifiers, educational RAG tutors,
+              and text summarizers, my work focuses on democratizing access to complex systems through machine learning.
             </p>
             <div className="flex flex-wrap gap-4 mb-5">
               <a href="/resume.pdf" download>

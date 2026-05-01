@@ -32,6 +32,48 @@ function tokenize(text: string): string[] {
     .filter((t) => t.length > 1);
 }
 
+function levenshtein(a: string, b: string): number {
+  if (a.length < b.length) [a, b] = [b, a];
+  if (b.length === 0) return a.length;
+  let prev = new Array<number>(b.length + 1);
+  let curr = new Array<number>(b.length + 1);
+  for (let j = 0; j <= b.length; j++) prev[j] = j;
+  for (let i = 1; i <= a.length; i++) {
+    curr[0] = i;
+    for (let j = 1; j <= b.length; j++) {
+      curr[j] =
+        a[i - 1] === b[j - 1]
+          ? prev[j - 1]
+          : 1 + Math.min(prev[j - 1], curr[j - 1], prev[j]);
+    }
+    [prev, curr] = [curr, prev];
+  }
+  return prev[b.length];
+}
+
+function fuzzyMatchTokens(inputWords: string[], targetWords: string[]): boolean {
+  if (targetWords.length === 0) return false;
+  for (let i = 0; i <= inputWords.length - targetWords.length; i++) {
+    let ok = true;
+    for (let j = 0; j < targetWords.length; j++) {
+      const w1 = inputWords[i + j];
+      const w2 = targetWords[j];
+      if (w1 === w2) continue;
+      if (w2.length <= 3) {
+        ok = false;
+        break;
+      }
+      const maxDist = w2.length <= 5 ? 1 : 2;
+      if (levenshtein(w1, w2) > maxDist) {
+        ok = false;
+        break;
+      }
+    }
+    if (ok) return true;
+  }
+  return false;
+}
+
 function extractSymptoms(text: string, data: SymptomData): Set<string> {
   const found = new Set<string>();
   const tokens = tokenize(text);
@@ -43,12 +85,20 @@ function extractSymptoms(text: string, data: SymptomData): Set<string> {
         found.add(canonical);
         break;
       }
+      if (fuzzyMatchTokens(tokens, syn.toLowerCase().split(/\s+/))) {
+        found.add(canonical);
+        break;
+      }
     }
   }
 
   for (const disease of data.diseases) {
     for (const sym of disease.symptoms) {
       if (textLower.includes(sym.toLowerCase())) {
+        found.add(sym);
+        continue;
+      }
+      if (fuzzyMatchTokens(tokens, sym.toLowerCase().split(/\s+/))) {
         found.add(sym);
       }
     }

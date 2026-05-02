@@ -649,9 +649,9 @@ function computeRefinedScore(
   return (
     <div className="container mx-auto px-4 py-8 max-w-4xl">
       <div className="mb-6">
-        <h1 className="text-3xl font-bold tracking-tight">BNSS Offense Classifier</h1>
+        <h1 className="text-3xl font-bold tracking-tight">Offence Detection under Indian Criminal Law</h1>
         <p className="text-muted-foreground mt-1">
-          Classify offenses under the Bharatiya Nyaya Sanhita (2023) using TF-IDF and cosine similarity.
+          Classify offences under the Bharatiya Nyaya Sanhita (BNSS, 2023) using TF-IDF and cosine similarity.
         </p>
       </div>
 

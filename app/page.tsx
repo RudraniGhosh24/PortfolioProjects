@@ -65,9 +65,9 @@ const projects = [
     preview: "chat",
   },
   {
-    title: "BNSS Offense Classifier",
-    impact: "Democratizes legal literacy by mapping everyday crime descriptions to 443 codified Bharatiya Nyaya Sanhita provisions in seconds.",
-    description: "Classifies offenses under 358 sections of the Bharatiya Nyaya Sanhita (2023) using TF-IDF and synonym expansion. Auto-generates legal documents.",
+    title: "Offence Detection under Indian Criminal Law",
+    impact: "Democratizes legal literacy by mapping everyday crime descriptions to 443 codified Bharatiya Nyaya Sanhita (BNSS) provisions in seconds.",
+    description: "Classifies offences under the Bharatiya Nyaya Sanhita (BNSS, 2023) using TF-IDF and synonym expansion. Auto-generates draft FIRs and bail bonds.",
     href: "/bnss-classifier",
     githubCode: "https://github.com/RudraniGhosh24/PortfolioProjects/tree/main/app/bnss-classifier",
     githubData: "https://github.com/RudraniGhosh24/PortfolioProjects/tree/main/public/data/bnss-dataset.json",

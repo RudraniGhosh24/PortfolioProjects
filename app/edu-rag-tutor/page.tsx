@@ -35,6 +35,7 @@ interface ContentEntry {
 }
 
 type SourceType = "curated" | "wikipedia" | "duckduckgo" | null;
+type TranslateType = "native" | "translated" | null;
 
 const languages = [
   { code: "en", name: "English" },
@@ -156,17 +157,77 @@ function matchWikiTopic(query: string, wikiTopics: string[]): string | null {
   return bestScore >= 3 ? bestTopic : null;
 }
 
-async function fetchWikipediaSummary(title: string): Promise<string | null> {
+async function fetchWikipediaSummary(title: string, lang: string = "en"): Promise<string | null> {
   try {
+    const wikiLang = lang === "en" ? "en" : lang;
     const res = await fetch(
-      `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(title)}`
+      `https://${wikiLang}.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(title)}`
     );
-    if (!res.ok) return null;
+    if (!res.ok) {
+      // Fallback to English Wikipedia
+      if (lang !== "en") {
+        const enRes = await fetch(
+          `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(title)}`
+        );
+        if (!enRes.ok) return null;
+        const enData = await enRes.json();
+        if (enData.type === "disambiguation") return null;
+        return enData.extract || null;
+      }
+      return null;
+    }
     const data = await res.json();
     if (data.type === "disambiguation") return null;
     return data.extract || null;
   } catch {
     return null;
+  }
+}
+
+async function translateText(text: string, targetLang: string): Promise<string> {
+  if (targetLang === "en" || !text) return text;
+  try {
+    const langPair = `en|${targetLang}`;
+    // MyMemory has a ~500 char limit per request, so chunk if needed
+    const maxLen = 450;
+    if (text.length <= maxLen) {
+      const res = await fetch(
+        `https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=${langPair}`
+      );
+      const data = await res.json();
+      if (data.responseStatus === 200 && data.responseData?.translatedText) {
+        return data.responseData.translatedText;
+      }
+      return text;
+    }
+    // Chunk translation for longer text
+    const sentences = text.match(/[^.!?]+[.!?]+/g) || [text];
+    const chunks: string[] = [];
+    let currentChunk = "";
+    for (const sentence of sentences) {
+      if ((currentChunk + sentence).length > maxLen) {
+        if (currentChunk) chunks.push(currentChunk);
+        currentChunk = sentence;
+      } else {
+        currentChunk += sentence;
+      }
+    }
+    if (currentChunk) chunks.push(currentChunk);
+
+    const translatedChunks = await Promise.all(
+      chunks.map(async (chunk) => {
+        const res = await fetch(
+          `https://api.mymemory.translated.net/get?q=${encodeURIComponent(chunk)}&langpair=${langPair}`
+        );
+        const data = await res.json();
+        return data.responseStatus === 200 && data.responseData?.translatedText
+          ? data.responseData.translatedText
+          : chunk;
+      })
+    );
+    return translatedChunks.join(" ");
+  } catch {
+    return text;
   }
 }
 
@@ -225,6 +286,7 @@ export default function EduRAGPage() {
   const [matchedTopic, setMatchedTopic] = useState<string | null>(null);
   const [noMatch, setNoMatch] = useState(false);
   const [source, setSource] = useState<SourceType>(null);
+  const [translateStatus, setTranslateStatus] = useState<TranslateType>(null);
   const [isLoading, setIsLoading] = useState(false);
 
   const typingRef = useRef<NodeJS.Timeout | null>(null);
@@ -326,6 +388,7 @@ export default function EduRAGPage() {
     setMatchedTopic(null);
     setNoMatch(false);
     setSource(null);
+    setTranslateStatus(null);
     setIsLoading(true);
 
     if (!question.trim()) {
@@ -340,13 +403,27 @@ export default function EduRAGPage() {
     if (curatedTopic) {
       setMatchedTopic(curatedTopic);
       setSource("curated");
-      const { entry, fallback } = findContent(curatedTopic, grade, language);
+      let { entry, fallback } = findContent(curatedTopic, grade, language);
       if (entry) {
         setFallbackLang(fallback);
+        setTranslateStatus(fallback ? "translated" : "native");
         setFullContent(entry.content);
         setIsLoading(false);
         startTyping(entry.content);
         return;
+      }
+      // If no content in target language, get English and translate
+      if (language !== "en") {
+        const english = findContent(curatedTopic, grade, "en");
+        if (english.entry) {
+          setFallbackLang("en");
+          const translated = await translateText(english.entry.content, language);
+          setTranslateStatus("translated");
+          setFullContent(translated);
+          setIsLoading(false);
+          startTyping(translated);
+          return;
+        }
       }
     }
 
@@ -355,11 +432,20 @@ export default function EduRAGPage() {
     if (wikiTopic) {
       setMatchedTopic(wikiTopic);
       setSource("wikipedia");
-      const summary = await fetchWikipediaSummary(wikiTopic);
+      const summary = await fetchWikipediaSummary(wikiTopic, language);
       if (summary) {
-        setFullContent(summary);
+        let finalText = summary;
+        // If we got English Wikipedia but user wants another language, translate
+        if (language !== "en" && !summary.includes(String.fromCharCode(0x0900))) {
+          // Simple heuristic: if language is Indic and text doesn't look Indic, translate
+          finalText = await translateText(summary, language);
+          setTranslateStatus("translated");
+        } else {
+          setTranslateStatus("native");
+        }
+        setFullContent(finalText);
         setIsLoading(false);
-        startTyping(summary);
+        startTyping(finalText);
         return;
       }
     }
@@ -369,9 +455,14 @@ export default function EduRAGPage() {
     const ddgAnswer = await fetchDuckDuckGo(question);
     if (ddgAnswer) {
       setMatchedTopic("Web Search");
-      setFullContent(ddgAnswer);
+      let finalText = ddgAnswer;
+      if (language !== "en") {
+        finalText = await translateText(ddgAnswer, language);
+        setTranslateStatus("translated");
+      }
+      setFullContent(finalText);
       setIsLoading(false);
-      startTyping(ddgAnswer);
+      startTyping(finalText);
       return;
     }
 
@@ -613,6 +704,11 @@ export default function EduRAGPage() {
                     {fallbackLang && (
                       <Badge variant="secondary" className="text-xs">
                         Fallback: {languages.find((l) => l.code === fallbackLang)?.name}
+                      </Badge>
+                    )}
+                    {translateStatus === "translated" && (
+                      <Badge variant="outline" className="text-xs text-amber-600 border-amber-600">
+                        Translated
                       </Badge>
                     )}
                   </div>

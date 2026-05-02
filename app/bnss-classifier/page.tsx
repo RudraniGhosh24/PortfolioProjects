@@ -489,14 +489,24 @@ function computeRefinedScore(
   const isTrespassProvision = docText.includes("trespass") || docText.includes("house-breaking") || docText.includes("lurking");
   const isReceivingProvision = docText.includes("receiving") || docText.includes("receipt") || (docText.includes("stolen") && docText.includes("property") && !docText.includes("theft") && !docText.includes("robbery"));
 
+  // Whether this provision matches ANY detected query category
+  const categoryMatch =
+    (isTheftQuery && isTheftProvision) ||
+    (isKidnappingQuery && isKidnappingProvision) ||
+    (isMurderQuery && isMurderProvision) ||
+    (isSexualQuery && isSexualProvision) ||
+    (isConfinementQuery && isConfinementProvision) ||
+    (isHurtQuery && isHurtProvision) ||
+    (isTrespassQuery && isTrespassProvision);
+
   // Boost matching categories (additive, not multiplicative penalty on others)
-  if (isTheftQuery && isTheftProvision) score += 0.18;
-  if (isKidnappingQuery && isKidnappingProvision) score += 0.18;
-  if (isMurderQuery && isMurderProvision) score += 0.18;
-  if (isSexualQuery && isSexualProvision) score += 0.18;
-  if (isConfinementQuery && isConfinementProvision) score += 0.18;
-  if (isHurtQuery && isHurtProvision) score += 0.12;
-  if (isTrespassQuery && isTrespassProvision) score += 0.15;
+  if (isTheftQuery && isTheftProvision) score += 0.22;
+  if (isKidnappingQuery && isKidnappingProvision) score += 0.22;
+  if (isMurderQuery && isMurderProvision) score += 0.22;
+  if (isSexualQuery && isSexualProvision) score += 0.22;
+  if (isConfinementQuery && isConfinementProvision) score += 0.22;
+  if (isHurtQuery && isHurtProvision) score += 0.15;
+  if (isTrespassQuery && isTrespassProvision) score += 0.18;
 
   // Penalize receiving-stolen-property when query describes active theft
   if (isTheftQuery && isReceivingProvision && !isReceivingQuery) {
@@ -514,13 +524,14 @@ function computeRefinedScore(
     if (isSexualQuery && isMurderProvision && directMatches.length < 1) score *= 0.5;
   }
 
-  // 9. Minimum match gate: reject if fewer than 2 expanded tokens match
+  // 9. Minimum match gate: relaxed for category-matched provisions
   if (expandedMatches.length < 2) {
-    score *= 0.2;
+    // If this provision matches a detected category, be lenient (0.6x instead of 0.2x)
+    score *= categoryMatch ? 0.6 : 0.2;
   }
 
-  // 10. Penalize pure synonym-only matches (no direct matches at all)
-  if (directMatches.length === 0 && expandedMatches.length > 0) {
+  // 10. Penalize pure synonym-only matches — exempt category-matched provisions
+  if (directMatches.length === 0 && expandedMatches.length > 0 && !categoryMatch) {
     score *= 0.5;
   }
 
@@ -555,7 +566,7 @@ function computeRefinedScore(
           score: computeRefinedScore(rawQuery, userTokens, userExpanded, data.provisions[s.index], s.cosine),
           provision: data.provisions[s.index],
         }))
-        .filter((s) => s.score > 0.02)
+        .filter((s) => s.score > 0.015)
         .sort((a, b) => b.score - a.score);
 
       // Detect which categories are present in the query
@@ -586,7 +597,7 @@ function computeRefinedScore(
       const picked = new Set<number>();
       const finalResults: Array<{ provision: Provision; score: number }> = [];
 
-      // Pick top 2 from each detected category
+      // Pick top 3 from each detected category
       for (const cat of detectedCategories) {
         let count = 0;
         for (const s of allScored) {
@@ -595,17 +606,17 @@ function computeRefinedScore(
             finalResults.push({ provision: s.provision, score: s.score });
             picked.add(s.index);
             count++;
-            if (count >= 2) break;
+            if (count >= 3) break;
           }
         }
       }
 
-      // Fill remaining slots with highest overall scores (up to 10 total)
+      // Fill remaining slots with highest overall scores (up to 12 total)
       for (const s of allScored) {
         if (picked.has(s.index)) continue;
         finalResults.push({ provision: s.provision, score: s.score });
         picked.add(s.index);
-        if (finalResults.length >= 10) break;
+        if (finalResults.length >= 12) break;
       }
 
       // Sort by score descending

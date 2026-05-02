@@ -508,6 +508,11 @@ function computeRefinedScore(
   if (isHurtQuery && isHurtProvision) score += 0.15;
   if (isTrespassQuery && isTrespassProvision) score += 0.18;
 
+  // Extra boost for robbery when both theft and trespass signals present (house-breaking + stealing = robbery)
+  if (isTheftQuery && isTrespassQuery && docText.includes("robbery")) score += 0.2;
+  // Extra boost for theft-after-preparation when hurt/restraint signals also present
+  if (isTheftQuery && (isHurtQuery || isConfinementQuery) && docText.includes("preparation") && docText.includes("theft")) score += 0.15;
+
   // Penalize receiving-stolen-property when query describes active theft
   if (isTheftQuery && isReceivingProvision && !isReceivingQuery) {
     score *= 0.3;
@@ -581,6 +586,15 @@ function computeRefinedScore(
       if (["hurt", "beating", "beat", "hit", "punched", "kicked", "slap", "attacked", "attack", "injured", "injure", "wound", "wounded"].some((t) => querySet.has(t))) detectedCategories.push("hurt");
       if (["broke", "break", "broken", "enter", "entered", "intrude", "house", "home", "building", "door", "window", "lock", "gate"].some((t) => querySet.has(t))) detectedCategories.push("trespass");
 
+      // When both theft and trespass are present, also explicitly surface robbery
+      const hasTheft = detectedCategories.includes("theft");
+      const hasTrespass = detectedCategories.includes("trespass");
+      if (hasTheft && hasTrespass) {
+        // Insert robbery right after theft so it gets dedicated slots
+        const theftIdx = detectedCategories.indexOf("theft");
+        detectedCategories.splice(theftIdx + 1, 0, "robbery");
+      }
+
       // Helper to categorize a provision
       function provisionCategory(p: Provision): string {
         const d = `${p.offense} ${p.punishment}`.toLowerCase();
@@ -588,7 +602,9 @@ function computeRefinedScore(
         if (d.includes("wrongful confinement") || d.includes("wrongfully confining") || d.includes("wrongful restrain")) return "confinement";
         if (d.includes("kidnapping") || d.includes("abducting") || d.includes("abduction")) return "kidnapping";
         if (d.includes("murder") || d.includes("culpable homicide")) return "murder";
-        if (d.includes("theft") || d.includes("robbery") || d.includes("extortion") || d.includes("dacoity") || d.includes("snatching")) return "theft";
+        // Dedicated robbery category when both theft and trespass are present
+        if (d.includes("robbery")) return "robbery";
+        if (d.includes("theft") || d.includes("extortion") || d.includes("dacoity") || d.includes("snatching")) return "theft";
         if (d.includes("hurt") || d.includes("grievous") || (d.includes("assault") && !d.includes("sexual"))) return "hurt";
         if (d.includes("trespass") || d.includes("house-breaking") || d.includes("lurking")) return "trespass";
         return "other";

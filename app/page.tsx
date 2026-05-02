@@ -16,6 +16,7 @@ import {
   FileSearch,
   ArrowRight,
   BookOpen,
+  Smile,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -23,6 +24,16 @@ import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 
 const projects = [
+  {
+    title: "Real-Time Emotion Detector",
+    impact: "Enables real-time facial emotion recognition accessible through any browser, demonstrating practical applications of computer vision and embedded AI.",
+    description: "Detects 7 emotions (happy, sad, angry, surprised, neutral, fearful, disgusted) in real time using deep learning. Originally built on Raspberry Pi with voice command activation for BCA thesis.",
+    href: "/emotion-detector",
+    githubCode: "https://github.com/RudraniGhosh24/PortfolioProjects/tree/main/app/emotion-detector",
+    githubData: "https://github.com/RudraniGhosh24/PortfolioProjects/tree/main/app/emotion-detector",
+    tags: ["Computer Vision", "TensorFlow.js", "OpenCV", "Deep Learning", "Real-Time"],
+    preview: "emotion",
+  },
   {
     title: "EduRAG Tutor",
     impact: "Democratizes access to quality education by delivering curriculum-aligned, grade-specific explanations in 7 languages with audio-visual narration.",
@@ -185,7 +196,30 @@ function PreviewEduRAG() {
   );
 }
 
+function PreviewEmotion() {
+  return (
+    <div className="bg-muted/50 rounded-lg p-3 space-y-2 border">
+      <div className="flex items-center justify-between">
+        <span className="text-[10px] font-semibold">Emotion Detection</span>
+        <span className="text-[9px] bg-green-100 text-green-700 px-1.5 py-0.5 rounded">Live</span>
+      </div>
+      <div className="relative bg-black rounded border h-16 flex items-center justify-center">
+        <div className="absolute inset-0 flex items-center justify-center">
+          <Smile className="h-6 w-6 text-green-500" />
+        </div>
+        <div className="absolute top-0.5 left-0.5 text-[7px] text-green-500 font-mono">happy 94%</div>
+        <div className="absolute border border-green-500 rounded" style={{ width: 24, height: 28, top: 8, left: 'calc(50% - 12px)' }} />
+      </div>
+      <div className="flex items-center gap-1.5">
+        <span className="text-[9px] bg-primary/10 text-primary px-1.5 py-0.5 rounded">7 emotions</span>
+        <span className="text-[9px] bg-muted px-1.5 py-0.5 rounded">Real-time</span>
+      </div>
+    </div>
+  );
+}
+
 const previewMap: Record<string, React.ReactNode> = {
+  emotion: <PreviewEmotion />,
   edurag: <PreviewEduRAG />,
   chat: <PreviewChat />,
   classifier: <PreviewClassifier />,

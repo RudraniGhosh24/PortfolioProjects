@@ -20,6 +20,7 @@ import {
   GraduationCap,
   MessageCircle,
   HelpCircle,
+  Globe,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -32,6 +33,8 @@ interface ContentEntry {
   lang: string;
   content: string;
 }
+
+type SourceType = "curated" | "wikipedia" | "duckduckgo" | null;
 
 const languages = [
   { code: "en", name: "English" },
@@ -83,7 +86,7 @@ function mapGradeToAvailable(grade: number): number {
   return 12;
 }
 
-function matchTopic(query: string): string | null {
+function matchCuratedTopic(query: string): string | null {
   const normalized = query.toLowerCase().replace(/[^\w\s]/g, " ").trim();
   const words = normalized.split(/\s+/).filter((w) => w.length > 2);
   if (words.length === 0) return null;
@@ -95,14 +98,12 @@ function matchTopic(query: string): string | null {
     let score = 0;
     const topicWords = topic.toLowerCase().split(/\s+/);
     for (const word of words) {
-      // Topic name match (higher weight)
       for (const tw of topicWords) {
         if (tw.length > 2 && (tw.includes(word) || word.includes(tw))) {
           score += 3;
           break;
         }
       }
-      // Keyword match
       for (const kw of keywords) {
         if (kw.includes(word) || word.includes(kw)) {
           score += 1;
@@ -117,6 +118,70 @@ function matchTopic(query: string): string | null {
   }
 
   return bestScore > 0 ? bestTopic : null;
+}
+
+function matchWikiTopic(query: string, wikiTopics: string[]): string | null {
+  const normalized = query.toLowerCase().replace(/[^\w\s]/g, " ").trim();
+  const words = normalized.split(/\s+/).filter((w) => w.length > 2);
+  if (words.length === 0) return null;
+
+  let bestTopic: string | null = null;
+  let bestScore = 0;
+
+  for (const topic of wikiTopics) {
+    const topicLower = topic.toLowerCase();
+    let score = 0;
+
+    if (normalized.includes(topicLower)) {
+      score += topic.length * 2;
+    } else if (topicLower.includes(normalized)) {
+      score += normalized.length * 2;
+    }
+
+    const topicWords = topicLower.split(/\s+/).filter((w) => w.length > 2);
+    for (const tw of topicWords) {
+      for (const w of words) {
+        if (tw === w || tw.includes(w) || w.includes(tw)) {
+          score += 2;
+        }
+      }
+    }
+
+    if (score > bestScore) {
+      bestScore = score;
+      bestTopic = topic;
+    }
+  }
+
+  return bestScore >= 3 ? bestTopic : null;
+}
+
+async function fetchWikipediaSummary(title: string): Promise<string | null> {
+  try {
+    const res = await fetch(
+      `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(title)}`
+    );
+    if (!res.ok) return null;
+    const data = await res.json();
+    if (data.type === "disambiguation") return null;
+    return data.extract || null;
+  } catch {
+    return null;
+  }
+}
+
+async function fetchDuckDuckGo(query: string): Promise<string | null> {
+  try {
+    const res = await fetch(
+      `https://api.duckduckgo.com/?q=${encodeURIComponent(query)}&format=json&no_html=1&skip_disambig=1`,
+      { headers: { Accept: "application/json" } }
+    );
+    if (!res.ok) return null;
+    const data = await res.json();
+    return data.AbstractText || data.RelatedTopics?.[0]?.Text || null;
+  } catch {
+    return null;
+  }
 }
 
 const metrics = [
@@ -146,6 +211,7 @@ const techStack = [
 
 export default function EduRAGPage() {
   const [dataset, setDataset] = useState<ContentEntry[]>([]);
+  const [wikiTopics, setWikiTopics] = useState<string[]>([]);
   const [question, setQuestion] = useState("");
   const [grade, setGrade] = useState(8);
   const [language, setLanguage] = useState("en");
@@ -158,6 +224,8 @@ export default function EduRAGPage() {
   const [voicesLoaded, setVoicesLoaded] = useState(false);
   const [matchedTopic, setMatchedTopic] = useState<string | null>(null);
   const [noMatch, setNoMatch] = useState(false);
+  const [source, setSource] = useState<SourceType>(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const typingRef = useRef<NodeJS.Timeout | null>(null);
   const utteranceRef = useRef<SpeechSynthesisUtterance | null>(null);
@@ -169,11 +237,16 @@ export default function EduRAGPage() {
     Promise.all([
       fetch("/data/edu-rag-content.json").then((r) => r.json()),
       fetch("/data/edu-rag-topics-expanded.json").then((r) => r.json()),
+      fetch("/data/wiki-topics-index.json").then((r) => r.json()),
     ])
-      .then(([base, expanded]) => {
+      .then(([base, expanded, wiki]) => {
         setDataset([...base, ...expanded]);
+        setWikiTopics(wiki);
       })
-      .catch(() => setDataset([]));
+      .catch(() => {
+        setDataset([]);
+        setWikiTopics([]);
+      });
   }, []);
 
   // Load speech synthesis voices
@@ -228,53 +301,85 @@ export default function EduRAGPage() {
     setIsPaused(false);
   }, []);
 
-  const generateContent = useCallback(() => {
+  const startTyping = useCallback(
+    (text: string) => {
+      setIsTyping(true);
+      let index = 0;
+      setDisplayedContent("");
+      typingRef.current = setInterval(() => {
+        index++;
+        if (index <= text.length) {
+          setDisplayedContent(text.slice(0, index));
+        } else {
+          stopTyping();
+        }
+      }, 25);
+    },
+    [stopTyping]
+  );
+
+  const generateContent = useCallback(async () => {
     stopTyping();
     stopAudio();
     setDisplayedContent("");
     setFallbackLang(null);
     setMatchedTopic(null);
     setNoMatch(false);
+    setSource(null);
+    setIsLoading(true);
 
     if (!question.trim()) {
       setFullContent("Please type a question first!");
       setDisplayedContent("Please type a question first!");
+      setIsLoading(false);
       return;
     }
 
-    const topic = matchTopic(question);
-    if (!topic) {
-      setNoMatch(true);
-      setFullContent("");
-      return;
-    }
-
-    setMatchedTopic(topic);
-    const { entry, fallback } = findContent(topic, grade, language);
-
-    if (!entry) {
-      setFullContent("Content not available for this combination. Try a different grade or language.");
-      setDisplayedContent("Content not available for this combination. Try a different grade or language.");
-      return;
-    }
-
-    setFallbackLang(fallback);
-    setFullContent(entry.content);
-    setIsTyping(true);
-
-    let index = 0;
-    const text = entry.content;
-    setDisplayedContent("");
-
-    typingRef.current = setInterval(() => {
-      index++;
-      if (index <= text.length) {
-        setDisplayedContent(text.slice(0, index));
-      } else {
-        stopTyping();
+    // 1. Try curated topics
+    const curatedTopic = matchCuratedTopic(question);
+    if (curatedTopic) {
+      setMatchedTopic(curatedTopic);
+      setSource("curated");
+      const { entry, fallback } = findContent(curatedTopic, grade, language);
+      if (entry) {
+        setFallbackLang(fallback);
+        setFullContent(entry.content);
+        setIsLoading(false);
+        startTyping(entry.content);
+        return;
       }
-    }, 25);
-  }, [question, grade, language, findContent, stopTyping, stopAudio]);
+    }
+
+    // 2. Try wiki topics -> Wikipedia API
+    const wikiTopic = matchWikiTopic(question, wikiTopics);
+    if (wikiTopic) {
+      setMatchedTopic(wikiTopic);
+      setSource("wikipedia");
+      const summary = await fetchWikipediaSummary(wikiTopic);
+      if (summary) {
+        setFullContent(summary);
+        setIsLoading(false);
+        startTyping(summary);
+        return;
+      }
+    }
+
+    // 3. DuckDuckGo fallback
+    setSource("duckduckgo");
+    const ddgAnswer = await fetchDuckDuckGo(question);
+    if (ddgAnswer) {
+      setMatchedTopic("Web Search");
+      setFullContent(ddgAnswer);
+      setIsLoading(false);
+      startTyping(ddgAnswer);
+      return;
+    }
+
+    // 4. No match
+    setNoMatch(true);
+    setFullContent("");
+    setIsLoading(false);
+  }, [question, grade, language, wikiTopics, findContent, stopTyping, stopAudio, startTyping]);
 
   const playAudio = useCallback(() => {
     const synth = window.speechSynthesis;
@@ -350,6 +455,19 @@ export default function EduRAGPage() {
   }, [stopTyping]);
 
   const mappedGrade = mapGradeToAvailable(grade);
+
+  const sourceBadge = () => {
+    switch (source) {
+      case "curated":
+        return <Badge variant="default" className="text-xs bg-primary">Curated Lesson</Badge>;
+      case "wikipedia":
+        return <Badge variant="secondary" className="text-xs flex items-center gap-1"><Globe className="h-3 w-3" />Wikipedia</Badge>;
+      case "duckduckgo":
+        return <Badge variant="secondary" className="text-xs flex items-center gap-1"><Globe className="h-3 w-3" />DuckDuckGo</Badge>;
+      default:
+        return null;
+    }
+  };
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-5xl">
@@ -427,7 +545,7 @@ export default function EduRAGPage() {
                 className="w-full h-10 rounded-md border border-input bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-ring"
               />
               <p className="text-xs text-muted-foreground">
-                Type any question and we will find the best matching topic from {allTopics.length} subjects.
+                Type any question. We search {allTopics.length} curated topics and {wikiTopics.length.toLocaleString()}+ wiki subjects.
               </p>
             </div>
 
@@ -473,12 +591,12 @@ export default function EduRAGPage() {
             {/* Generate Button */}
             <Button
               onClick={generateContent}
-              disabled={isTyping || dataset.length === 0 || !question.trim()}
+              disabled={isTyping || isLoading || dataset.length === 0 || !question.trim()}
               className="w-full gap-2"
               size="lg"
             >
               <Sparkles className="h-4 w-4" />
-              {isTyping ? "Generating..." : "Generate Lesson"}
+              {isLoading ? "Searching..." : isTyping ? "Generating..." : "Generate Lesson"}
             </Button>
 
             {/* Content Display */}
@@ -488,9 +606,10 @@ export default function EduRAGPage() {
                   <div className="flex items-center gap-2 flex-wrap">
                     {matchedTopic && (
                       <Badge variant="outline" className="text-xs">
-                        {matchedTopic} · Class {mappedGrade}
+                        {matchedTopic} {source === "curated" ? `· Class ${mappedGrade}` : ""}
                       </Badge>
                     )}
+                    {sourceBadge()}
                     {fallbackLang && (
                       <Badge variant="secondary" className="text-xs">
                         Fallback: {languages.find((l) => l.code === fallbackLang)?.name}
@@ -560,6 +679,17 @@ export default function EduRAGPage() {
                     )}
                   </p>
                 </div>
+
+                {source === "wikipedia" && (
+                  <p className="text-xs text-muted-foreground">
+                    Content fetched from Wikipedia. Curated grade-specific content is only available for {allTopics.length} topics.
+                  </p>
+                )}
+                {source === "duckduckgo" && (
+                  <p className="text-xs text-muted-foreground">
+                    Content fetched from DuckDuckGo web search. Curated grade-specific content is only available for {allTopics.length} topics.
+                  </p>
+                )}
               </div>
             )}
 
@@ -574,7 +704,7 @@ export default function EduRAGPage() {
                   Try asking about one of these topics:
                 </p>
                 <div className="flex flex-wrap gap-2 justify-center">
-                  {allTopics.slice(0, 15).map((t) => (
+                  {allTopics.slice(0, 12).map((t) => (
                     <Badge
                       key={t}
                       variant="secondary"
@@ -588,9 +718,9 @@ export default function EduRAGPage() {
                     </Badge>
                   ))}
                 </div>
-                {allTopics.length > 15 && (
+                {wikiTopics.length > 0 && (
                   <p className="text-xs text-muted-foreground">
-                    ...and {allTopics.length - 15} more topics
+                    Or explore {wikiTopics.length.toLocaleString()}+ additional topics from our wiki index.
                   </p>
                 )}
               </div>

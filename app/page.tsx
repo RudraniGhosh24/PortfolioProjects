@@ -75,6 +75,15 @@ const projects = [
     preview: "classifier",
   },
   {
+    title: "Mental State Detector",
+    impact: "Enables real-time emotional wellbeing monitoring through voice biomarker analysis, accessible directly in the browser.",
+    description: "Analyzes pitch, volume, speech rate, spectral centroid, and pitch variation via the Web Audio API to infer mental states. Uses autocorrelation for pitch detection and softmax classification for state inference.",
+    href: "/mental-state-detector",
+    githubCode: "https://github.com/RudraniGhosh24/PortfolioProjects/tree/main/app/mental-state-detector",
+    tags: ["Signal Processing", "Web Audio API", "Real-Time", "Healthcare"],
+    preview: "mental",
+  },
+  {
     title: "Legal Text Summarizer",
     impact: "Reduces hours of legal document review into minutes by automatically extracting key entities and generating extractive summaries.",
     description: "Extracts entities (acts, sections, parties) from legal documents using regex, POS tagging, and word embeddings. Generates concise case summaries.",
@@ -251,6 +260,28 @@ function PreviewLawReformer() {
   );
 }
 
+function PreviewMentalState() {
+  return (
+    <div className="bg-muted/50 rounded-lg p-3 space-y-2 border">
+      <div className="flex items-center justify-between">
+        <span className="text-[10px] font-semibold">Voice Analysis</span>
+        <span className="text-[9px] bg-green-100 text-green-700 px-1.5 py-0.5 rounded">Live</span>
+      </div>
+      <div className="bg-slate-950 rounded border h-16 flex items-center justify-center relative overflow-hidden">
+        <svg className="w-full h-full" viewBox="0 0 200 40" preserveAspectRatio="none">
+          <path d="M0 20 Q10 10, 20 20 T40 20 T60 15 T80 25 T100 20 T120 18 T140 22 T160 20 T180 15 T200 20" fill="none" stroke="rgb(99, 102, 241)" strokeWidth="1.5" />
+        </svg>
+        <div className="absolute top-0.5 right-0.5 text-[7px] text-violet-400 font-mono">Stressed 68%</div>
+      </div>
+      <div className="flex items-center gap-1.5">
+        <span className="text-[9px] bg-primary/10 text-primary px-1.5 py-0.5 rounded">Pitch</span>
+        <span className="text-[9px] bg-muted px-1.5 py-0.5 rounded">Tempo</span>
+        <span className="text-[9px] bg-muted px-1.5 py-0.5 rounded">Timbre</span>
+      </div>
+    </div>
+  );
+}
+
 const previewMap: Record<string, React.ReactNode> = {
   lawreformer: <PreviewLawReformer />,
   emotion: <PreviewEmotion />,
@@ -258,6 +289,7 @@ const previewMap: Record<string, React.ReactNode> = {
   chat: <PreviewChat />,
   classifier: <PreviewClassifier />,
   summarizer: <PreviewSummarizer />,
+  mental: <PreviewMentalState />,
 };
 
 export default function Home() {

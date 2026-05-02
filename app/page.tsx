@@ -25,6 +25,16 @@ import { Separator } from "@/components/ui/separator";
 
 const projects = [
   {
+    title: "LawReformer",
+    impact: "Democratizes legal access for underserved populations through multilingual, audio-supported AI legal assistance and codified law mapping.",
+    description: "AI-powered legal-tech platform with clause analysis, statutory deadline calculators, scenario simulation, and offense classification under Indian law. Supports 6 Indian languages with TTS narration.",
+    href: "/lawreformer",
+    githubCode: "https://github.com/RudraniGhosh24/PortfolioProjects/tree/main/app/lawreformer",
+    githubData: "https://github.com/RudraniGhosh24/PortfolioProjects/tree/main/public/images",
+    tags: ["Legal AI", "NLP", "Multilingual", "Access to Justice", "RAG"],
+    preview: "lawreformer",
+  },
+  {
     title: "Real-Time Emotion Detector",
     impact: "Enables real-time facial emotion recognition accessible through any browser, demonstrating practical applications of computer vision and embedded AI.",
     description: "Detects 7 emotions (happy, sad, angry, surprised, neutral, fearful, disgusted) in real time using deep learning. Originally built on Raspberry Pi with voice command activation for BCA thesis.",
@@ -218,7 +228,31 @@ function PreviewEmotion() {
   );
 }
 
+function PreviewLawReformer() {
+  return (
+    <div className="bg-muted/50 rounded-lg p-3 space-y-2 border">
+      <div className="flex items-center justify-between">
+        <span className="text-[10px] font-semibold">Legal Query</span>
+        <span className="text-[9px] bg-primary/10 text-primary px-1.5 py-0.5 rounded">AI</span>
+      </div>
+      <div className="bg-background rounded border p-2 space-y-1.5">
+        <div className="h-1.5 w-3/4 bg-muted rounded" />
+        <div className="h-1.5 w-1/2 bg-muted rounded" />
+        <div className="flex flex-wrap gap-1 pt-1">
+          <span className="text-[8px] bg-green-100 text-green-700 px-1 py-0.5 rounded">BNSS 331</span>
+          <span className="text-[8px] bg-blue-100 text-blue-700 px-1 py-0.5 rounded">Bailable</span>
+        </div>
+      </div>
+      <div className="flex items-center gap-1.5">
+        <span className="text-[9px] bg-primary/10 text-primary px-1.5 py-0.5 rounded">6 languages</span>
+        <span className="text-[9px] bg-muted px-1.5 py-0.5 rounded">Audio</span>
+      </div>
+    </div>
+  );
+}
+
 const previewMap: Record<string, React.ReactNode> = {
+  lawreformer: <PreviewLawReformer />,
   emotion: <PreviewEmotion />,
   edurag: <PreviewEduRAG />,
   chat: <PreviewChat />,

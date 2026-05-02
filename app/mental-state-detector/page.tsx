@@ -77,6 +77,13 @@ const MENTAL_STATES: Record<string, MentalState> = {
     icon: <Brain className="h-5 w-5" />,
     description: "High pitch variation, fast tempo, variable volume",
   },
+  crying: {
+    label: "Crying",
+    confidence: 0,
+    color: "bg-sky-600",
+    icon: <Waves className="h-5 w-5" />,
+    description: "Pulsing volume, pitch breaks, high vocal tension",
+  },
 };
 
 function computeRMS(timeData: Float32Array): number {
@@ -157,7 +164,7 @@ function analyzeVoice(features: AudioFeatures, history: AudioFeatures[]): Analys
 
   // --- 1. Base mental states ---
   const scores: Record<string, number> = {
-    calm: 0, anxious: 0, stressed: 0, sad: 0, angry: 0, excited: 0,
+    calm: 0, anxious: 0, stressed: 0, sad: 0, angry: 0, excited: 0, crying: 0,
   };
 
   scores.calm = (1 - Math.abs(volNorm - 1)) * 2 + (1 - Math.abs(pitchNorm - 1)) * 2 + (1 - Math.abs(tempoNorm - 1)) * 2 - pitchVariation * 10;
@@ -174,7 +181,7 @@ function analyzeVoice(features: AudioFeatures, history: AudioFeatures[]): Analys
 
   // --- 2. Mood score (composite weighted state) ---
   const moodPositive = (states.find((s) => s.label === "Calm")?.confidence || 0) + (states.find((s) => s.label === "Excited")?.confidence || 0);
-  const moodNegative = (states.find((s) => s.label === "Sad")?.confidence || 0) + (states.find((s) => s.label === "Stressed")?.confidence || 0) + (states.find((s) => s.label === "Anxious")?.confidence || 0);
+  const moodNegative = (states.find((s) => s.label === "Sad")?.confidence || 0) + (states.find((s) => s.label === "Stressed")?.confidence || 0) + (states.find((s) => s.label === "Anxious")?.confidence || 0) + (states.find((s) => s.label === "Crying")?.confidence || 0) * 1.5;
   const moodScore = Math.max(0, Math.min(100, Math.round(50 + (moodPositive - moodNegative) * 0.5)));
   const moodLabel = moodScore > 70 ? "Positive" : moodScore > 40 ? "Neutral" : "Negative";
 
@@ -186,12 +193,35 @@ function analyzeVoice(features: AudioFeatures, history: AudioFeatures[]): Analys
   const avgRecentTempo = recent.length > 0 ? recent.reduce((s, h) => s + h.tempo, 0) / recent.length : tempo;
   const avgRecentVariation = recent.length > 0 ? recent.reduce((s, h) => s + h.pitchVariation, 0) / recent.length : pitchVariation;
 
+  // Compute volume pulsation (sobbing indicator)
+  const volumeVar = recent.length > 1
+    ? Math.sqrt(recent.reduce((s, h) => s + Math.pow(h.volume - avgRecentVolume, 2), 0) / recent.length)
+    : 0;
+
+  // Crying: pulsing volume + pitch breaks + high spectral centroid + irregular tempo
+  // Compute after recent/tempoIrregularity are available
+  const tempoIrregularity = recent.length > 1
+    ? Math.sqrt(recent.slice(1).reduce((s, h, i) => s + Math.pow(h.tempo - recent[i].tempo, 2), 0) / (recent.length - 1))
+    : 0;
+
+  scores.crying =
+    (volume > 0.2 ? 1.5 : 0) +
+    (volumeVar > 0.08 ? volumeVar * 20 : 0) +
+    (pitchVariation > 0.06 ? pitchVariation * 25 : 0) +
+    (spectralCentroid > 1800 ? 2 : 0) +
+    (tempoIrregularity > 0.04 ? tempoIrregularity * 15 : 0);
+
+  // Re-softmax with crying included
+  const probsWithCry = softmax(keys.map((k) => scores[k]));
+  const statesWithCry = keys.map((k, i) => ({ ...MENTAL_STATES[k], confidence: Math.round(probsWithCry[i] * 100) }));
+  const dominantWithCry = statesWithCry.reduce((a, b) => (a.confidence > b.confidence ? a : b));
+
   const depressionRisk = Math.max(0, Math.min(100, Math.round(
     (avgRecentPitch < 120 ? 20 : 0) +
     (avgRecentVolume < 0.2 ? 20 : 0) +
     (avgRecentTempo < 0.3 ? 15 : 0) +
     (avgRecentVariation < 0.03 ? 25 : 0) +
-    (states.find((s) => s.label === "Sad")?.confidence || 0) * 0.2
+    (statesWithCry.find((s) => s.label === "Sad")?.confidence || 0) * 0.2
   )));
 
   // --- 4. Mental health index (stability + energy) ---
@@ -201,9 +231,6 @@ function analyzeVoice(features: AudioFeatures, history: AudioFeatures[]): Analys
 
   // --- 5. Trust score (truthfulness) ---
   // Deception indicators: pitch spikes, tempo irregularity, volume inconsistency, micro-tremors
-  const tempoIrregularity = recent.length > 1
-    ? Math.sqrt(recent.slice(1).reduce((s, h, i) => s + Math.pow(h.tempo - recent[i].tempo, 2), 0) / (recent.length - 1))
-    : 0;
   const volumeSpikes = recent.length > 1
     ? recent.slice(1).filter((h, i) => Math.abs(h.volume - recent[i].volume) > 0.15).length / recent.length
     : 0;
@@ -230,8 +257,8 @@ function analyzeVoice(features: AudioFeatures, history: AudioFeatures[]): Analys
   )));
 
   return {
-    states,
-    dominant,
+    states: statesWithCry,
+    dominant: dominantWithCry,
     mood: { label: moodLabel, score: moodScore },
     depressionRisk,
     mentalHealthIndex,

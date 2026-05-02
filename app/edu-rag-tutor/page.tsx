@@ -1,12 +1,60 @@
 "use client";
 
+import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowLeft, ExternalLink, BookOpen, Cpu, Languages, Video, Database, Brain } from "lucide-react";
+import {
+  ArrowLeft,
+  ExternalLink,
+  BookOpen,
+  Cpu,
+  Languages,
+  Video,
+  Database,
+  Brain,
+  Play,
+  Pause,
+  Square,
+  Volume2,
+  Sparkles,
+  GraduationCap,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
+
+interface ContentEntry {
+  topic: string;
+  grade: number;
+  lang: string;
+  content: string;
+}
+
+const topics = [
+  "Photosynthesis",
+  "Gravity",
+  "The Solar System",
+  "The Human Heart",
+  "Fractions",
+];
+
+const languages = [
+  { code: "en", name: "English" },
+  { code: "hi", name: "Hindi" },
+  { code: "bn", name: "Bengali" },
+  { code: "ta", name: "Tamil" },
+  { code: "te", name: "Telugu" },
+  { code: "kn", name: "Kannada" },
+  { code: "pa", name: "Punjabi" },
+];
+
+function mapGradeToAvailable(grade: number): number {
+  if (grade <= 2) return 1;
+  if (grade <= 6) return 4;
+  if (grade <= 10) return 8;
+  return 12;
+}
 
 const metrics = [
   { label: "Perplexity", value: "9.72", description: "Fluent, coherent generation" },
@@ -34,6 +82,193 @@ const techStack = [
 ];
 
 export default function EduRAGPage() {
+  const [dataset, setDataset] = useState<ContentEntry[]>([]);
+  const [topic, setTopic] = useState("Photosynthesis");
+  const [grade, setGrade] = useState(8);
+  const [language, setLanguage] = useState("en");
+  const [displayedContent, setDisplayedContent] = useState("");
+  const [fullContent, setFullContent] = useState("");
+  const [isTyping, setIsTyping] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
+  const [fallbackLang, setFallbackLang] = useState<string | null>(null);
+  const [voicesLoaded, setVoicesLoaded] = useState(false);
+
+  const typingRef = useRef<NodeJS.Timeout | null>(null);
+  const utteranceRef = useRef<SpeechSynthesisUtterance | null>(null);
+
+  // Load dataset
+  useEffect(() => {
+    fetch("/data/edu-rag-content.json")
+      .then((res) => res.json())
+      .then((data: ContentEntry[]) => setDataset(data))
+      .catch(() => setDataset([]));
+  }, []);
+
+  // Load speech synthesis voices
+  useEffect(() => {
+    const synth = window.speechSynthesis;
+    if (!synth) return;
+
+    const loadVoices = () => {
+      setVoicesLoaded(true);
+    };
+
+    if (synth.getVoices().length > 0) {
+      loadVoices();
+    } else {
+      synth.onvoiceschanged = loadVoices;
+    }
+
+    return () => {
+      synth.cancel();
+    };
+  }, []);
+
+  const findContent = useCallback(
+    (selectedTopic: string, selectedGrade: number, selectedLang: string) => {
+      const mappedGrade = mapGradeToAvailable(selectedGrade);
+      let entry = dataset.find(
+        (d) => d.topic === selectedTopic && d.grade === mappedGrade && d.lang === selectedLang
+      );
+      let fallback: string | null = null;
+      if (!entry && selectedLang !== "en") {
+        entry = dataset.find(
+          (d) => d.topic === selectedTopic && d.grade === mappedGrade && d.lang === "en"
+        );
+        if (entry) fallback = "en";
+      }
+      return { entry, fallback };
+    },
+    [dataset]
+  );
+
+  const stopTyping = useCallback(() => {
+    if (typingRef.current) {
+      clearInterval(typingRef.current);
+      typingRef.current = null;
+    }
+    setIsTyping(false);
+  }, []);
+
+  const stopAudio = useCallback(() => {
+    window.speechSynthesis?.cancel();
+    setIsPlaying(false);
+    setIsPaused(false);
+  }, []);
+
+  const generateContent = useCallback(() => {
+    stopTyping();
+    stopAudio();
+    setDisplayedContent("");
+    setFallbackLang(null);
+
+    const { entry, fallback } = findContent(topic, grade, language);
+    if (!entry) {
+      setFullContent("Content not available for this combination. Try a different topic or language.");
+      setDisplayedContent("Content not available for this combination. Try a different topic or language.");
+      return;
+    }
+
+    setFallbackLang(fallback);
+    setFullContent(entry.content);
+    setIsTyping(true);
+
+    let index = 0;
+    const text = entry.content;
+    setDisplayedContent("");
+
+    typingRef.current = setInterval(() => {
+      index++;
+      if (index <= text.length) {
+        setDisplayedContent(text.slice(0, index));
+      } else {
+        stopTyping();
+      }
+    }, 25);
+  }, [topic, grade, language, findContent, stopTyping, stopAudio]);
+
+  const playAudio = useCallback(() => {
+    const synth = window.speechSynthesis;
+    if (!synth || !fullContent) return;
+
+    if (isPaused && utteranceRef.current) {
+      synth.resume();
+      setIsPaused(false);
+      setIsPlaying(true);
+      return;
+    }
+
+    synth.cancel();
+
+    const utterance = new SpeechSynthesisUtterance(fullContent);
+    utteranceRef.current = utterance;
+
+    // Select voice based on language
+    const voices = synth.getVoices();
+    const langCode = fallbackLang || language;
+    const langPrefix =
+      langCode === "en" ? "en" :
+      langCode === "hi" ? "hi" :
+      langCode === "bn" ? "bn" :
+      langCode === "ta" ? "ta" :
+      langCode === "te" ? "te" :
+      langCode === "kn" ? "kn" :
+      langCode === "pa" ? "pa" : "en";
+
+    const voice = voices.find((v) => v.lang.startsWith(langPrefix)) ||
+      voices.find((v) => v.lang.startsWith(langPrefix + "-")) ||
+      voices.find((v) => v.lang.startsWith("en"));
+
+    if (voice) {
+      utterance.voice = voice;
+      utterance.lang = voice.lang;
+    } else {
+      utterance.lang = langPrefix + "-IN";
+    }
+
+    utterance.rate = 0.95;
+    utterance.pitch = 1.0;
+
+    utterance.onend = () => {
+      setIsPlaying(false);
+      setIsPaused(false);
+    };
+
+    utterance.onerror = () => {
+      setIsPlaying(false);
+      setIsPaused(false);
+    };
+
+    synth.speak(utterance);
+    setIsPlaying(true);
+    setIsPaused(false);
+  }, [fullContent, language, fallbackLang, isPaused]);
+
+  const pauseAudio = useCallback(() => {
+    window.speechSynthesis?.pause();
+    setIsPaused(true);
+    setIsPlaying(false);
+  }, []);
+
+  const stopAll = useCallback(() => {
+    stopTyping();
+    stopAudio();
+    setDisplayedContent(fullContent);
+  }, [stopTyping, stopAudio, fullContent]);
+
+  // Cleanup on unmount
+  useEffect(() => {
+    return () => {
+      stopTyping();
+      window.speechSynthesis?.cancel();
+    };
+  }, [stopTyping]);
+
+  const mappedGrade = mapGradeToAvailable(grade);
+  const { entry: previewEntry } = findContent(topic, grade, language);
+  const hasContent = !!previewEntry;
+
   return (
     <div className="container mx-auto px-4 py-8 max-w-5xl">
       <div className="mb-6">
@@ -67,7 +302,7 @@ export default function EduRAGPage() {
 
         <div className="flex flex-wrap gap-3 mb-10">
           <a
-            href="https://github.com/RudraniGhosh24"
+            href="https://github.com/RudraniGhosh24/edu-rag-tutor"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -78,6 +313,176 @@ export default function EduRAGPage() {
           </a>
         </div>
       </motion.div>
+
+      {/* Interactive Tool */}
+      <motion.section
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+        className="mb-12"
+      >
+        <div className="flex items-center gap-2 mb-6">
+          <Sparkles className="h-5 w-5 text-primary" />
+          <h2 className="text-2xl font-bold tracking-tight">Try the EduRAG Tutor</h2>
+        </div>
+
+        <Card className="border-2 border-primary/10">
+          <CardContent className="p-6 space-y-6">
+            {/* Controls */}
+            <div className="grid gap-4 md:grid-cols-3">
+              <div className="space-y-2">
+                <label className="text-sm font-medium flex items-center gap-2">
+                  <BookOpen className="h-4 w-4 text-muted-foreground" />
+                  Topic
+                </label>
+                <select
+                  value={topic}
+                  onChange={(e) => setTopic(e.target.value)}
+                  className="w-full h-10 rounded-md border border-input bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-ring"
+                >
+                  {topics.map((t) => (
+                    <option key={t} value={t}>{t}</option>
+                  ))}
+                </select>
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-sm font-medium flex items-center gap-2">
+                  <GraduationCap className="h-4 w-4 text-muted-foreground" />
+                  Grade Level: {grade}
+                </label>
+                <input
+                  type="range"
+                  min={1}
+                  max={12}
+                  value={grade}
+                  onChange={(e) => setGrade(parseInt(e.target.value))}
+                  className="w-full h-2 bg-muted rounded-lg appearance-none cursor-pointer accent-primary"
+                />
+                <div className="flex justify-between text-xs text-muted-foreground">
+                  <span>Class 1</span>
+                  <span>Mapped: Class {mappedGrade}</span>
+                  <span>Class 12</span>
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-sm font-medium flex items-center gap-2">
+                  <Languages className="h-4 w-4 text-muted-foreground" />
+                  Language
+                </label>
+                <select
+                  value={language}
+                  onChange={(e) => setLanguage(e.target.value)}
+                  className="w-full h-10 rounded-md border border-input bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-ring"
+                >
+                  {languages.map((l) => (
+                    <option key={l.code} value={l.code}>{l.name}</option>
+                  ))}
+                </select>
+              </div>
+            </div>
+
+            {/* Generate Button */}
+            <Button
+              onClick={generateContent}
+              disabled={isTyping || dataset.length === 0}
+              className="w-full gap-2"
+              size="lg"
+            >
+              <Sparkles className="h-4 w-4" />
+              {isTyping ? "Generating..." : "Generate Lesson"}
+            </Button>
+
+            {/* Content Display */}
+            {(displayedContent || fullContent) && (
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <Badge variant="outline" className="text-xs">
+                      {topic} · Class {mappedGrade}
+                    </Badge>
+                    {fallbackLang && (
+                      <Badge variant="secondary" className="text-xs">
+                        Fallback: {languages.find((l) => l.code === fallbackLang)?.name}
+                      </Badge>
+                    )}
+                  </div>
+
+                  {/* Audio Controls */}
+                  <div className="flex items-center gap-2">
+                    {voicesLoaded && window.speechSynthesis && (
+                      <>
+                        {!isPlaying && !isPaused && (
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            onClick={playAudio}
+                            disabled={!displayedContent && !fullContent}
+                            className="gap-2"
+                          >
+                            <Volume2 className="h-4 w-4" />
+                            <Play className="h-3 w-3" />
+                            Narrate
+                          </Button>
+                        )}
+                        {isPlaying && (
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            onClick={pauseAudio}
+                            className="gap-2"
+                          >
+                            <Pause className="h-4 w-4" />
+                            Pause
+                          </Button>
+                        )}
+                        {isPaused && (
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            onClick={playAudio}
+                            className="gap-2"
+                          >
+                            <Play className="h-4 w-4" />
+                            Resume
+                          </Button>
+                        )}
+                        {(isPlaying || isPaused) && (
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            onClick={stopAll}
+                            className="gap-2"
+                          >
+                            <Square className="h-4 w-4" />
+                            Stop
+                          </Button>
+                        )}
+                      </>
+                    )}
+                  </div>
+                </div>
+
+                <div className="relative min-h-[120px] rounded-lg bg-muted/50 p-5">
+                  <p className="text-base leading-relaxed whitespace-pre-wrap">
+                    {displayedContent}
+                    {isTyping && (
+                      <span className="inline-block w-0.5 h-5 bg-primary ml-0.5 animate-pulse align-text-bottom" />
+                    )}
+                  </p>
+                </div>
+
+                {!hasContent && displayedContent && (
+                  <p className="text-sm text-muted-foreground">
+                    Note: Full dataset covers Classes 1, 4, 8, and 12. Your selection is mapped to the nearest available grade.
+                  </p>
+                )}
+              </div>
+            )}
+          </CardContent>
+        </Card>
+      </motion.section>
 
       {/* Architecture */}
       <section className="mb-12">

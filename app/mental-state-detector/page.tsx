@@ -4,14 +4,16 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Mic, MicOff, Activity, Brain, Volume2, Waves, Zap } from "lucide-react";
+import { Mic, MicOff, Activity, Brain, Volume2, Waves, Zap, Heart, ShieldAlert, Eye } from "lucide-react";
+
+const VOLUME_THRESHOLD = 0.15; // Only detect when volume > 15%
 
 interface AudioFeatures {
-  volume: number;        // 0-1 RMS amplitude
-  pitch: number;         // Fundamental frequency in Hz
-  tempo: number;         // Speech rate proxy (zero-crossing rate normalized)
-  spectralCentroid: number; // Brightness of voice
-  pitchVariation: number; // Standard deviation of pitch
+  volume: number;
+  pitch: number;
+  tempo: number;
+  spectralCentroid: number;
+  pitchVariation: number;
 }
 
 interface MentalState {
@@ -20,6 +22,16 @@ interface MentalState {
   color: string;
   icon: React.ReactNode;
   description: string;
+}
+
+interface AnalysisResult {
+  states: MentalState[];
+  dominant: MentalState;
+  mood: { label: string; score: number };
+  depressionRisk: number; // 0-100
+  mentalHealthIndex: number; // 0-100
+  trustScore: number; // 0-100 (high = truthful)
+  slynessScore: number; // 0-100
 }
 
 const MENTAL_STATES: Record<string, MentalState> = {
@@ -131,10 +143,10 @@ function softmax(values: number[]): number[] {
   return exps.map((e) => e / sum);
 }
 
-function inferMentalState(features: AudioFeatures, history: AudioFeatures[]): MentalState[] {
+function analyzeVoice(features: AudioFeatures, history: AudioFeatures[]): AnalysisResult {
   const { volume, pitch, tempo, spectralCentroid, pitchVariation } = features;
 
-  // Normalize features against running history for relative judgement
+  // Normalize against running history
   const avgVolume = history.length > 0 ? history.reduce((s, h) => s + h.volume, 0) / history.length : volume;
   const avgPitch = history.length > 0 ? history.reduce((s, h) => s + h.pitch, 0) / history.length : pitch;
   const avgTempo = history.length > 0 ? history.reduce((s, h) => s + h.tempo, 0) / history.length : tempo;
@@ -143,61 +155,89 @@ function inferMentalState(features: AudioFeatures, history: AudioFeatures[]): Me
   const pitchNorm = avgPitch > 0 ? pitch / avgPitch : pitch;
   const tempoNorm = avgTempo > 0 ? tempo / avgTempo : tempo;
 
-  // Scores for each state (higher = more likely)
+  // --- 1. Base mental states ---
   const scores: Record<string, number> = {
-    calm: 0,
-    anxious: 0,
-    stressed: 0,
-    sad: 0,
-    angry: 0,
-    excited: 0,
+    calm: 0, anxious: 0, stressed: 0, sad: 0, angry: 0, excited: 0,
   };
 
-  // Calm: moderate everything, low variation
-  scores.calm =
-    (1 - Math.abs(volNorm - 1)) * 2 +
-    (1 - Math.abs(pitchNorm - 1)) * 2 +
-    (1 - Math.abs(tempoNorm - 1)) * 2 -
-    pitchVariation * 10;
-
-  // Anxious: high pitch, elevated volume, fast tempo
-  scores.anxious =
-    Math.max(0, pitchNorm - 1) * 3 +
-    Math.max(0, volNorm - 1) * 2 +
-    Math.max(0, tempoNorm - 1) * 2;
-
-  // Stressed: high volume, irregular, high spectral centroid
-  scores.stressed =
-    Math.max(0, volNorm - 1.1) * 3 +
-    pitchVariation * 8 +
-    (spectralCentroid > 2000 ? 1 : 0);
-
-  // Sad: low pitch, low volume, slow tempo
-  scores.sad =
-    Math.max(0, 1 - pitchNorm) * 3 +
-    Math.max(0, 1 - volNorm) * 3 +
-    Math.max(0, 1 - tempoNorm) * 2;
-
-  // Angry: very high volume, rough (low spectral centroid relative to pitch)
-  scores.angry =
-    (volNorm > 1.3 ? volNorm * 3 : 0) +
-    (pitchVariation > 0.15 ? 2 : 0) +
-    (spectralCentroid < 1500 && volume > 0.1 ? 1.5 : 0);
-
-  // Excited: high variation, fast tempo, variable volume
-  scores.excited =
-    pitchVariation * 10 +
-    Math.max(0, tempoNorm - 1) * 2 +
-    Math.abs(volNorm - 1) * 2;
+  scores.calm = (1 - Math.abs(volNorm - 1)) * 2 + (1 - Math.abs(pitchNorm - 1)) * 2 + (1 - Math.abs(tempoNorm - 1)) * 2 - pitchVariation * 10;
+  scores.anxious = Math.max(0, pitchNorm - 1) * 3 + Math.max(0, volNorm - 1) * 2 + Math.max(0, tempoNorm - 1) * 2;
+  scores.stressed = Math.max(0, volNorm - 1.1) * 3 + pitchVariation * 8 + (spectralCentroid > 2000 ? 1 : 0);
+  scores.sad = Math.max(0, 1 - pitchNorm) * 3 + Math.max(0, 1 - volNorm) * 3 + Math.max(0, 1 - tempoNorm) * 2;
+  scores.angry = (volNorm > 1.3 ? volNorm * 3 : 0) + (pitchVariation > 0.15 ? 2 : 0) + (spectralCentroid < 1500 && volume > 0.1 ? 1.5 : 0);
+  scores.excited = pitchVariation * 10 + Math.max(0, tempoNorm - 1) * 2 + Math.abs(volNorm - 1) * 2;
 
   const keys = Object.keys(scores);
-  const vals = keys.map((k) => scores[k]);
-  const probs = softmax(vals);
+  const probs = softmax(keys.map((k) => scores[k]));
+  const states = keys.map((k, i) => ({ ...MENTAL_STATES[k], confidence: Math.round(probs[i] * 100) }));
+  const dominant = states.reduce((a, b) => (a.confidence > b.confidence ? a : b));
 
-  return keys.map((k, i) => ({
-    ...MENTAL_STATES[k],
-    confidence: Math.round(probs[i] * 100),
-  }));
+  // --- 2. Mood score (composite weighted state) ---
+  const moodPositive = (states.find((s) => s.label === "Calm")?.confidence || 0) + (states.find((s) => s.label === "Excited")?.confidence || 0);
+  const moodNegative = (states.find((s) => s.label === "Sad")?.confidence || 0) + (states.find((s) => s.label === "Stressed")?.confidence || 0) + (states.find((s) => s.label === "Anxious")?.confidence || 0);
+  const moodScore = Math.max(0, Math.min(100, Math.round(50 + (moodPositive - moodNegative) * 0.5)));
+  const moodLabel = moodScore > 70 ? "Positive" : moodScore > 40 ? "Neutral" : "Negative";
+
+  // --- 3. Depression risk (sustained low energy) ---
+  // Low pitch + low volume + slow tempo + very low variation = flat affect
+  const recent = history.slice(-30);
+  const avgRecentPitch = recent.length > 0 ? recent.reduce((s, h) => s + h.pitch, 0) / recent.length : pitch;
+  const avgRecentVolume = recent.length > 0 ? recent.reduce((s, h) => s + h.volume, 0) / recent.length : volume;
+  const avgRecentTempo = recent.length > 0 ? recent.reduce((s, h) => s + h.tempo, 0) / recent.length : tempo;
+  const avgRecentVariation = recent.length > 0 ? recent.reduce((s, h) => s + h.pitchVariation, 0) / recent.length : pitchVariation;
+
+  const depressionRisk = Math.max(0, Math.min(100, Math.round(
+    (avgRecentPitch < 120 ? 20 : 0) +
+    (avgRecentVolume < 0.2 ? 20 : 0) +
+    (avgRecentTempo < 0.3 ? 15 : 0) +
+    (avgRecentVariation < 0.03 ? 25 : 0) +
+    (states.find((s) => s.label === "Sad")?.confidence || 0) * 0.2
+  )));
+
+  // --- 4. Mental health index (stability + energy) ---
+  const stabilityScore = Math.max(0, 100 - pitchVariation * 300);
+  const energyScore = Math.max(0, Math.min(100, (volume * 200) + (tempo * 100)));
+  const mentalHealthIndex = Math.round((stabilityScore * 0.4 + energyScore * 0.3 + (100 - depressionRisk) * 0.3));
+
+  // --- 5. Trust score (truthfulness) ---
+  // Deception indicators: pitch spikes, tempo irregularity, volume inconsistency, micro-tremors
+  const tempoIrregularity = recent.length > 1
+    ? Math.sqrt(recent.slice(1).reduce((s, h, i) => s + Math.pow(h.tempo - recent[i].tempo, 2), 0) / (recent.length - 1))
+    : 0;
+  const volumeSpikes = recent.length > 1
+    ? recent.slice(1).filter((h, i) => Math.abs(h.volume - recent[i].volume) > 0.15).length / recent.length
+    : 0;
+  const pitchSpikes = recent.length > 1
+    ? recent.slice(1).filter((h, i) => Math.abs(h.pitch - recent[i].pitch) > 30).length / recent.length
+    : 0;
+
+  const deceptionIndicators =
+    (pitchSpikes > 0.15 ? 25 : pitchSpikes * 100) +
+    (volumeSpikes > 0.15 ? 20 : volumeSpikes * 80) +
+    (tempoIrregularity > 0.1 ? 20 : tempoIrregularity * 150) +
+    (pitchVariation > 0.2 ? 20 : pitchVariation * 80);
+
+  const trustScore = Math.max(0, Math.min(100, Math.round(100 - deceptionIndicators)));
+
+  // --- 6. Slyness score ---
+  // Controlled smoothness with occasional calculated spikes, low overall variation but strategic pauses
+  const slynessScore = Math.max(0, Math.min(100, Math.round(
+    (pitchVariation < 0.08 && pitchVariation > 0.02 ? 25 : 0) +
+    (tempoIrregularity > 0.03 && tempoIrregularity < 0.12 ? 20 : 0) +
+    (volume > 0.2 && volume < 0.6 ? 15 : 0) +
+    (spectralCentroid > 1500 && spectralCentroid < 2800 ? 15 : 0) +
+    (trustScore < 70 && trustScore > 35 ? 25 : 0)
+  )));
+
+  return {
+    states,
+    dominant,
+    mood: { label: moodLabel, score: moodScore },
+    depressionRisk,
+    mentalHealthIndex,
+    trustScore,
+    slynessScore,
+  };
 }
 
 export default function MentalStateDetectorPage() {
@@ -212,6 +252,12 @@ export default function MentalStateDetectorPage() {
   });
   const [states, setStates] = useState<MentalState[]>([]);
   const [dominantState, setDominantState] = useState<MentalState | null>(null);
+  const [mood, setMood] = useState<{ label: string; score: number } | null>(null);
+  const [depressionRisk, setDepressionRisk] = useState<number>(0);
+  const [mentalHealthIndex, setMentalHealthIndex] = useState<number>(0);
+  const [trustScore, setTrustScore] = useState<number>(0);
+  const [slynessScore, setSlynessScore] = useState<number>(0);
+  const [belowThreshold, setBelowThreshold] = useState(false);
 
   const audioContextRef = useRef<AudioContext | null>(null);
   const analyserRef = useRef<AnalyserNode | null>(null);
@@ -233,6 +279,12 @@ export default function MentalStateDetectorPage() {
     streamRef.current = null;
     setIsListening(false);
     setDominantState(null);
+    setMood(null);
+    setDepressionRisk(0);
+    setMentalHealthIndex(0);
+    setTrustScore(0);
+    setSlynessScore(0);
+    setBelowThreshold(false);
     historyRef.current = [];
   }, []);
 
@@ -264,7 +316,7 @@ export default function MentalStateDetectorPage() {
         analyserRef.current.getFloatTimeDomainData(timeData);
         analyserRef.current.getByteFrequencyData(freqData);
 
-        const volume = Math.min(computeRMS(timeData) * 4, 1); // scale up for visibility
+        const volume = Math.min(computeRMS(timeData) * 4, 1);
         const pitch = computePitchAutocorrelation(timeData, audioContext.sampleRate);
         const tempo = Math.min(computeZCR(timeData) * 2, 1);
         const spectralCentroid = computeSpectralCentroid(freqData, audioContext.sampleRate);
@@ -289,17 +341,7 @@ export default function MentalStateDetectorPage() {
 
         setFeatures(current);
 
-        const history = historyRef.current;
-        const states = inferMentalState(current, history);
-        setStates(states);
-        const dominant = states.reduce((a, b) => (a.confidence > b.confidence ? a : b));
-        setDominantState(dominant);
-
-        history.push(current);
-        if (history.length > 120) history.shift();
-        historyRef.current = history;
-
-        // Draw waveform
+        // Draw waveform regardless of volume
         const canvas = canvasRef.current;
         if (canvas) {
           const ctx = canvas.getContext("2d");
@@ -307,7 +349,7 @@ export default function MentalStateDetectorPage() {
             ctx.fillStyle = "rgb(15, 23, 42)";
             ctx.fillRect(0, 0, canvas.width, canvas.height);
             ctx.lineWidth = 2;
-            ctx.strokeStyle = dominant.confidence > 30 ? "rgb(99, 102, 241)" : "rgb(148, 163, 184)";
+            ctx.strokeStyle = volume > VOLUME_THRESHOLD ? "rgb(99, 102, 241)" : "rgb(148, 163, 184)";
             ctx.beginPath();
             const sliceWidth = canvas.width / timeData.length;
             let x = 0;
@@ -321,6 +363,28 @@ export default function MentalStateDetectorPage() {
             ctx.stroke();
           }
         }
+
+        // Only run mental state analysis when volume is above threshold
+        if (volume < VOLUME_THRESHOLD) {
+          setBelowThreshold(true);
+          rafRef.current = requestAnimationFrame(analyse);
+          return;
+        }
+        setBelowThreshold(false);
+
+        const history = historyRef.current;
+        const result = analyzeVoice(current, history);
+        setStates(result.states);
+        setDominantState(result.dominant);
+        setMood(result.mood);
+        setDepressionRisk(result.depressionRisk);
+        setMentalHealthIndex(result.mentalHealthIndex);
+        setTrustScore(result.trustScore);
+        setSlynessScore(result.slynessScore);
+
+        history.push(current);
+        if (history.length > 120) history.shift();
+        historyRef.current = history;
 
         rafRef.current = requestAnimationFrame(analyse);
       };
@@ -391,7 +455,23 @@ export default function MentalStateDetectorPage() {
         </CardContent>
       </Card>
 
-      {isListening && dominantState && (
+      {isListening && belowThreshold && (
+        <Card className="mb-6 border-amber-500/50">
+          <CardHeader>
+            <CardTitle className="text-lg flex items-center gap-2 text-amber-600">
+              <Volume2 className="h-5 w-5" />
+              Speak Louder
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-muted-foreground text-sm">
+              Volume is too low for reliable detection ({Math.round(features.volume * 100)}%). Please speak closer to the microphone or raise your voice. Analysis pauses below 15% volume to avoid false readings from background noise.
+            </p>
+          </CardContent>
+        </Card>
+      )}
+
+      {isListening && dominantState && !belowThreshold && (
         <Card className={`mb-6 border-2 ${dominantState.confidence > 40 ? "border-primary/50" : ""}`}>
           <CardHeader>
             <CardTitle className="text-lg flex items-center gap-2">
@@ -404,6 +484,139 @@ export default function MentalStateDetectorPage() {
             <p className="text-muted-foreground text-sm">{dominantState.description}</p>
           </CardContent>
         </Card>
+      )}
+
+      {isListening && !belowThreshold && (
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 mb-6">
+          {/* Mood */}
+          <Card>
+            <CardHeader className="pb-2">
+              <CardTitle className="text-sm flex items-center gap-2">
+                <Heart className="h-4 w-4 text-rose-500" />
+                Mood Detection
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="text-2xl font-bold">{mood?.label || "—"}</div>
+              <div className="text-xs text-muted-foreground mt-1">Score: {mood?.score ?? 0}/100</div>
+              <div className="w-full bg-secondary h-2 rounded-full mt-2 overflow-hidden">
+                <div
+                  className={`h-full rounded-full transition-all ${mood?.label === "Positive" ? "bg-emerald-500" : mood?.label === "Negative" ? "bg-rose-500" : "bg-amber-500"}`}
+                  style={{ width: `${mood?.score ?? 0}%` }}
+                />
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Depression Risk */}
+          <Card>
+            <CardHeader className="pb-2">
+              <CardTitle className="text-sm flex items-center gap-2">
+                <Brain className="h-4 w-4 text-indigo-500" />
+                Depression Check
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="text-2xl font-bold">{depressionRisk}%</div>
+              <div className="text-xs text-muted-foreground mt-1">
+                {depressionRisk < 25 ? "Low risk" : depressionRisk < 50 ? "Moderate" : depressionRisk < 75 ? "Elevated" : "High risk — consult professional"}
+              </div>
+              <div className="w-full bg-secondary h-2 rounded-full mt-2 overflow-hidden">
+                <div
+                  className={`h-full rounded-full transition-all ${depressionRisk < 25 ? "bg-emerald-500" : depressionRisk < 50 ? "bg-amber-500" : depressionRisk < 75 ? "bg-orange-500" : "bg-red-500"}`}
+                  style={{ width: `${depressionRisk}%` }}
+                />
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Mental Health Index */}
+          <Card>
+            <CardHeader className="pb-2">
+              <CardTitle className="text-sm flex items-center gap-2">
+                <Activity className="h-4 w-4 text-teal-500" />
+                Mental Health Index
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="text-2xl font-bold">{mentalHealthIndex}/100</div>
+              <div className="text-xs text-muted-foreground mt-1">
+                {mentalHealthIndex > 70 ? "Healthy" : mentalHealthIndex > 45 ? "Fair" : "Needs attention"}
+              </div>
+              <div className="w-full bg-secondary h-2 rounded-full mt-2 overflow-hidden">
+                <div
+                  className={`h-full rounded-full transition-all ${mentalHealthIndex > 70 ? "bg-emerald-500" : mentalHealthIndex > 45 ? "bg-amber-500" : "bg-red-500"}`}
+                  style={{ width: `${mentalHealthIndex}%` }}
+                />
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Trust Score */}
+          <Card>
+            <CardHeader className="pb-2">
+              <CardTitle className="text-sm flex items-center gap-2">
+                <ShieldAlert className="h-4 w-4 text-blue-500" />
+                Trust / Truthfulness
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="text-2xl font-bold">{trustScore}%</div>
+              <div className="text-xs text-muted-foreground mt-1">
+                {trustScore > 75 ? "Likely truthful" : trustScore > 50 ? "Uncertain" : trustScore > 25 ? "Some deception cues" : "Deception likely"}
+              </div>
+              <div className="w-full bg-secondary h-2 rounded-full mt-2 overflow-hidden">
+                <div
+                  className={`h-full rounded-full transition-all ${trustScore > 75 ? "bg-emerald-500" : trustScore > 50 ? "bg-amber-500" : trustScore > 25 ? "bg-orange-500" : "bg-red-500"}`}
+                  style={{ width: `${trustScore}%` }}
+                />
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Slyness */}
+          <Card>
+            <CardHeader className="pb-2">
+              <CardTitle className="text-sm flex items-center gap-2">
+                <Eye className="h-4 w-4 text-violet-500" />
+                Slyness
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="text-2xl font-bold">{slynessScore}%</div>
+              <div className="text-xs text-muted-foreground mt-1">
+                {slynessScore < 25 ? "Straightforward" : slynessScore < 50 ? "Somewhat guarded" : slynessScore < 75 ? "Calculating" : "Highly manipulative tone"}
+              </div>
+              <div className="w-full bg-secondary h-2 rounded-full mt-2 overflow-hidden">
+                <div
+                  className={`h-full rounded-full transition-all ${slynessScore < 25 ? "bg-emerald-500" : slynessScore < 50 ? "bg-amber-500" : slynessScore < 75 ? "bg-orange-500" : "bg-red-500"}`}
+                  style={{ width: `${slynessScore}%` }}
+                />
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* All States */}
+          <Card>
+            <CardHeader className="pb-2">
+              <CardTitle className="text-sm flex items-center gap-2">
+                <Activity className="h-4 w-4" />
+                All Mental States
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-2">
+              {states
+                .sort((a, b) => b.confidence - a.confidence)
+                .map((s) => (
+                  <div key={s.label} className="flex items-center gap-2">
+                    <div className={`w-2 h-2 rounded-full ${s.color}`} />
+                    <span className="text-sm flex-1">{s.label}</span>
+                    <span className="text-sm font-medium">{s.confidence}%</span>
+                  </div>
+                ))}
+            </CardContent>
+          </Card>
+        </div>
       )}
 
       {isListening && (
@@ -419,10 +632,11 @@ export default function MentalStateDetectorPage() {
               <div className="text-2xl font-bold">{Math.round(features.volume * 100)}%</div>
               <div className="w-full bg-secondary h-2 rounded-full mt-2 overflow-hidden">
                 <div
-                  className="bg-primary h-full rounded-full transition-all"
+                  className={`h-full rounded-full transition-all ${features.volume >= VOLUME_THRESHOLD ? "bg-primary" : "bg-amber-500"}`}
                   style={{ width: `${features.volume * 100}%` }}
                 />
               </div>
+              <div className="text-[10px] text-muted-foreground mt-1">Threshold: {Math.round(VOLUME_THRESHOLD * 100)}%</div>
             </CardContent>
           </Card>
 
@@ -495,26 +709,6 @@ export default function MentalStateDetectorPage() {
                   style={{ width: `${Math.min(features.pitchVariation * 200, 100)}%` }}
                 />
               </div>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader className="pb-2">
-              <CardTitle className="text-sm flex items-center gap-2">
-                <Activity className="h-4 w-4" />
-                All States
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-2">
-              {states
-                .sort((a, b) => b.confidence - a.confidence)
-                .map((s) => (
-                  <div key={s.label} className="flex items-center gap-2">
-                    <div className={`w-2 h-2 rounded-full ${s.color}`} />
-                    <span className="text-sm flex-1">{s.label}</span>
-                    <span className="text-sm font-medium">{s.confidence}%</span>
-                  </div>
-                ))}
             </CardContent>
           </Card>
         </div>

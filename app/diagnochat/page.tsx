@@ -104,16 +104,30 @@ function isNegated(symptom: string, negatedPhrases: string[]): boolean {
   return false;
 }
 
+// Word-boundary safe inclusion check: prevents "ed" matching inside "and"
+function textIncludesWord(text: string, word: string): boolean {
+  if (word.length <= 2) return false; // Ignore very short terms
+  if (word.length <= 4) {
+    // For short terms, require word boundaries
+    const pattern = new RegExp(`\\b${word.toLowerCase().replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`);
+    return pattern.test(text.toLowerCase());
+  }
+  // For longer terms, simple inclusion is safe enough
+  return text.toLowerCase().includes(word.toLowerCase());
+}
+
 function partialMatch(inputTokens: string[], target: string): boolean {
-  // Checks if any input token is a substring of the target or vice versa
+  // Strict partial: input token must be at least 5 chars and at least 60% of target token length
   const targetLower = target.toLowerCase();
   const targetTokens = targetLower.split(/\s+/).filter((t) => t.length > 2);
   for (const itok of inputTokens) {
-    if (itok.length <= 3) continue;
-    // Direct substring match
-    if (targetLower.includes(itok)) return true;
+    if (itok.length < 5) continue; // Too short for safe partial matching
     for (const ttok of targetTokens) {
-      if (ttok.includes(itok) && itok.length >= ttok.length * 0.5) return true;
+      // Input must be a substantial part of the target token (60%+)
+      if (itok.length >= ttok.length * 0.6) {
+        // Check for meaningful overlap (not just 1-2 letter overlaps)
+        if (ttok.includes(itok) || itok.includes(ttok)) return true;
+      }
     }
   }
   return false;
@@ -133,7 +147,7 @@ function extractSymptoms(text: string, data: SymptomData): { direct: Set<string>
   for (const [canonical, syns] of Object.entries(data.synonyms)) {
     if (checkNegated(canonical)) continue;
     for (const syn of syns) {
-      if (textLower.includes(syn.toLowerCase())) {
+      if (textIncludesWord(text, syn)) {
         direct.add(canonical);
         break;
       }
@@ -148,7 +162,7 @@ function extractSymptoms(text: string, data: SymptomData): { direct: Set<string>
   for (const disease of data.diseases) {
     for (const sym of disease.symptoms) {
       if (checkNegated(sym)) continue;
-      if (textLower.includes(sym.toLowerCase())) {
+      if (textIncludesWord(text, sym)) {
         direct.add(sym);
         continue;
       }
@@ -164,58 +178,33 @@ function extractSymptoms(text: string, data: SymptomData): { direct: Set<string>
   }
 
   // ── 3. Category matching ──
-  // Build a flat map of all known symptom strings for category synonym checks
-  const allSymptomStrings = new Set<string>();
-  for (const d of data.diseases) {
-    for (const s of d.symptoms) allSymptomStrings.add(s.toLowerCase());
-  }
-  for (const s of Object.keys(data.synonyms)) allSymptomStrings.add(s.toLowerCase());
-
+  // Only expand categories if the user explicitly mentions the category name
+  // or a very close variant. NO cross-reference expansion from single tokens.
   for (const [category, symptoms] of Object.entries(data.symptomCategories || {})) {
     const catLower = category.toLowerCase();
     let matched = false;
-    // Exact phrase match
-    if (textLower.includes(catLower)) {
+
+    // Exact phrase match with word boundaries
+    if (textIncludesWord(text, category)) {
       matched = true;
     } else {
-      // Fuzzy match on category name tokens
+      // Strong fuzzy match on full category name tokens
       const catTokens = catLower.split(/\s+/).filter((t) => t.length > 2);
-      if (catTokens.length > 0 && fuzzyMatchTokens(tokens, catTokens)) {
+      if (catTokens.length >= 2 && fuzzyMatchTokens(tokens, catTokens)) {
         matched = true;
-      }
-      // Partial match on category words
-      for (const tok of tokens) {
-        if (tok.length > 3 && catLower.includes(tok)) {
-          matched = true;
-          break;
-        }
       }
     }
 
     if (matched) {
+      // Cap expanded symptoms per category to avoid overwhelming predictions
+      let added = 0;
+      const maxExpanded = 6;
       for (const sym of symptoms) {
         if (checkNegated(sym)) continue;
         if (!direct.has(sym)) {
           expanded.add(sym);
-        }
-      }
-    }
-  }
-
-  // ── 4. Cross-reference: if user mentions a symptom that is a category keyword,
-  //    also expand related symptoms (e.g. "stomach" → expand stomach-related)
-  for (const [category, symptoms] of Object.entries(data.symptomCategories || {})) {
-    const catTokens = category.toLowerCase().split(/\s+/).filter((t) => t.length > 2);
-    for (const tok of tokens) {
-      if (tok.length > 4) {
-        for (const ctok of catTokens) {
-          if (ctok.includes(tok) || tok.includes(ctok)) {
-            for (const sym of symptoms) {
-              if (checkNegated(sym)) continue;
-              if (!direct.has(sym)) expanded.add(sym);
-            }
-            break;
-          }
+          added++;
+          if (added >= maxExpanded) break;
         }
       }
     }

@@ -267,6 +267,16 @@
 "infection signs":["fever","chills","fatigue","swollen lymph nodes","night sweats","prolonged fever","frequent infections"],
 "weight issues":["weight loss","weight gain","loss of appetite","increased appetite"],
 "sleep problems":["insomnia","difficulty falling asleep","difficulty staying asleep","early waking","fatigue","sleep problems","night sweats"],
-"blood sugar issues":["excessive thirst","frequent urination","fatigue","blurred vision","slow healing","numbness","excessive hunger"]
+"blood sugar issues":["excessive thirst","frequent urination","fatigue","blurred vision","slow healing","numbness","excessive hunger"],
+"chest issues":["chest pain","chest tightness","shortness of breath","rapid heartbeat","cough","wheezing","sweating","arm pain","heartburn"],
+"pain":["headache","joint pain","muscle pain","back pain","neck pain","abdominal pain","chest pain","bone pain","facial pain","pelvic pain","leg pain","calf pain"],
+"cognitive issues":["confusion","memory loss","poor concentration","difficulty speaking","slurred speech","poor judgment","disorientation","brain fog"],
+"women's health":["irregular periods","heavy periods","painful periods","pelvic pain","vaginal discharge","vaginal bleeding","breast lump","nipple discharge","hot flashes"],
+"men's health":["erectile dysfunction","testicular pain","frequent urination","urgency","weak stream","prostate issues"],
+"fever symptoms":["fever","chills","sweating","night sweats","prolonged fever","unexplained fever","high temperature"],
+"bleeding issues":["blood in urine","blood in stool","bleeding","bruising","nosebleed","cough up blood","excessive bleeding","heavy periods"],
+"appetite issues":["loss of appetite","increased appetite","decreased appetite","weight loss","weight gain","nausea","vomiting"],
+"mobility issues":["difficulty walking","joint pain","muscle weakness","stiffness","balance problems","leg swelling","numbness","limited motion"],
+"swelling issues":["swelling","leg swelling","swollen lymph nodes","swollen tonsils","swollen glands","puffiness","edema","enlarged veins"]
 }
 }

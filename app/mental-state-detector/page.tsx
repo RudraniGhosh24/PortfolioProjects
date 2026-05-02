@@ -264,7 +264,49 @@ export default function MentalStateDetectorPage() {
   const streamRef = useRef<MediaStream | null>(null);
   const rafRef = useRef<number>(0);
   const historyRef = useRef<AudioFeatures[]>([]);
+  const resultsBufferRef = useRef<AnalysisResult[]>([]);
   const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  const SMOOTHING_FRAMES = 120; // ~2 seconds at 60fps
+
+  function smoothResults(buffer: AnalysisResult[]): AnalysisResult {
+    if (buffer.length === 0) {
+      return {
+        states: [],
+        dominant: { ...MENTAL_STATES.calm, confidence: 0 },
+        mood: { label: "Neutral", score: 50 },
+        depressionRisk: 0,
+        mentalHealthIndex: 0,
+        trustScore: 0,
+        slynessScore: 0,
+      };
+    }
+    if (buffer.length === 1) return buffer[0];
+
+    const n = buffer.length;
+
+    // Average state confidences
+    const stateKeys = Object.keys(MENTAL_STATES);
+    const avgStates = stateKeys.map((key) => {
+      const avgConf = buffer.reduce((s, r) => s + (r.states.find((st) => st.label === MENTAL_STATES[key].label)?.confidence || 0), 0) / n;
+      return { ...MENTAL_STATES[key], confidence: Math.round(avgConf) };
+    });
+
+    const dominant = avgStates.reduce((a, b) => (a.confidence > b.confidence ? a : b));
+
+    const avgMoodScore = buffer.reduce((s, r) => s + r.mood.score, 0) / n;
+    const moodLabel = avgMoodScore > 70 ? "Positive" : avgMoodScore > 40 ? "Neutral" : "Negative";
+
+    return {
+      states: avgStates,
+      dominant,
+      mood: { label: moodLabel, score: Math.round(avgMoodScore) },
+      depressionRisk: Math.round(buffer.reduce((s, r) => s + r.depressionRisk, 0) / n),
+      mentalHealthIndex: Math.round(buffer.reduce((s, r) => s + r.mentalHealthIndex, 0) / n),
+      trustScore: Math.round(buffer.reduce((s, r) => s + r.trustScore, 0) / n),
+      slynessScore: Math.round(buffer.reduce((s, r) => s + r.slynessScore, 0) / n),
+    };
+  }
 
   const stopListening = useCallback(() => {
     if (rafRef.current) cancelAnimationFrame(rafRef.current);
@@ -286,6 +328,7 @@ export default function MentalStateDetectorPage() {
     setSlynessScore(0);
     setBelowThreshold(false);
     historyRef.current = [];
+    resultsBufferRef.current = [];
   }, []);
 
   const startListening = useCallback(async () => {
@@ -374,13 +417,21 @@ export default function MentalStateDetectorPage() {
 
         const history = historyRef.current;
         const result = analyzeVoice(current, history);
-        setStates(result.states);
-        setDominantState(result.dominant);
-        setMood(result.mood);
-        setDepressionRisk(result.depressionRisk);
-        setMentalHealthIndex(result.mentalHealthIndex);
-        setTrustScore(result.trustScore);
-        setSlynessScore(result.slynessScore);
+
+        // Buffer results for smoothing over ~2 seconds
+        const buf = resultsBufferRef.current;
+        buf.push(result);
+        if (buf.length > SMOOTHING_FRAMES) buf.shift();
+        resultsBufferRef.current = buf;
+
+        const smoothed = smoothResults(buf);
+        setStates(smoothed.states);
+        setDominantState(smoothed.dominant);
+        setMood(smoothed.mood);
+        setDepressionRisk(smoothed.depressionRisk);
+        setMentalHealthIndex(smoothed.mentalHealthIndex);
+        setTrustScore(smoothed.trustScore);
+        setSlynessScore(smoothed.slynessScore);
 
         history.push(current);
         if (history.length > 120) history.shift();

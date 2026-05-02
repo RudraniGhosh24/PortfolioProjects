@@ -18,6 +18,8 @@ import {
   Volume2,
   Sparkles,
   GraduationCap,
+  MessageCircle,
+  HelpCircle,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -31,14 +33,6 @@ interface ContentEntry {
   content: string;
 }
 
-const topics = [
-  "Photosynthesis",
-  "Gravity",
-  "The Solar System",
-  "The Human Heart",
-  "Fractions",
-];
-
 const languages = [
   { code: "en", name: "English" },
   { code: "hi", name: "Hindi" },
@@ -49,11 +43,80 @@ const languages = [
   { code: "pa", name: "Punjabi" },
 ];
 
+const topicKeywords: Record<string, string[]> = {
+  "Photosynthesis": ["photosynthesis", "plant", "chlorophyll", "sunlight", "leaf", "green", "food", "glucose", "oxygen"],
+  "Gravity": ["gravity", "gravitation", "fall", "earth", "pull", "force", "weight", "mass", "planet", "newton"],
+  "The Solar System": ["solar", "sun", "planet", "earth", "mars", "jupiter", "saturn", "venus", "mercury", "neptune", "uranus", "orbit", "space", "asteroid", "comet"],
+  "The Human Heart": ["heart", "blood", "pulse", "beat", "cardiac", "circulation", "pump", "artery", "vein", "aorta"],
+  "Fractions": ["fraction", "part", "whole", "numerator", "denominator", "half", "quarter", "decimal", "ratio", "division"],
+  "The Water Cycle": ["water", "cycle", "rain", "evaporation", "condensation", "cloud", "precipitation", "river", "ocean", "steam", "hydrological"],
+  "Electricity": ["electricity", "electric", "current", "voltage", "power", "circuit", "wire", "electron", "battery", "ohm", "ampere", "watt"],
+  "Magnetism": ["magnet", "magnetic", "pole", "north", "south", "attract", "repel", "field", "iron", "ferromagnetic"],
+  "Earthquakes": ["earthquake", "quake", "seismic", "fault", "plate", "tectonic", "richter", "tsunami", "shake", "ground"],
+  "Volcanoes": ["volcano", "lava", "magma", "erupt", "crater", "ash", "molten", "mountain", "pyroclastic"],
+  "Climate Change": ["climate", "change", "global", "warming", "greenhouse", "carbon", "pollution", "temperature", "ice", "melt", "fossil"],
+  "Ecosystems and Food Chains": ["ecosystem", "food", "chain", "predator", "prey", "producer", "consumer", "energy", "web", "trophic", "decomposer"],
+  "The Human Brain": ["brain", "neuron", "nerve", "mind", "think", "memory", "cortex", "cerebrum", "cerebellum", "intelligence"],
+  "Digestive System": ["digest", "stomach", "intestine", "food", "nutrient", "enzyme", "absorb", "gut", "liver", "esophagus"],
+  "Respiratory System": ["respiratory", "breath", "lung", "oxygen", "air", "inhale", "alveoli", "diaphragm", "gas", "trachea"],
+  "Cells": ["cell", "nucleus", "membrane", "mitochondria", "cytoplasm", "organelle", "tissue", "eukaryote", "dna", "chromosome"],
+  "Probability": ["probability", "chance", "likely", "odds", "random", "event", "outcome", "dice", "coin", "statistic", "distribution"],
+  "Algebra Basics": ["algebra", "equation", "variable", "solve", "expression", "linear", "quadratic", "polynomial", "matrix"],
+  "Geometry": ["geometry", "shape", "angle", "triangle", "circle", "line", "point", "parallel", "perpendicular", "area", "volume", "polygon"],
+  "Pythagorean Theorem": ["pythagorean", "theorem", "hypotenuse", "right", "triangle", "distance", "formula", "trigonometry"],
+  "Atoms and Molecules": ["atom", "molecule", "proton", "neutron", "electron", "nucleus", "bond", "element", "compound", "particle"],
+  "Periodic Table": ["periodic", "table", "element", "metal", "nonmetal", "atomic", "number", "group", "period", "chemical"],
+  "Acids and Bases": ["acid", "base", "ph", "alkali", "neutral", "sour", "litmus", "hydrogen", "ion", "buffer"],
+  "Light and Reflection": ["light", "reflection", "refraction", "mirror", "lens", "ray", "prism", "spectrum", "color", "optics", "photon"],
+  "Sound Waves": ["sound", "wave", "frequency", "pitch", "amplitude", "loud", "vibration", "acoustic", "echo", "doppler", "music"],
+  "Newton's Laws of Motion": ["newton", "law", "motion", "force", "inertia", "acceleration", "action", "reaction", "mass", "velocity"],
+  "Energy and Work": ["energy", "work", "power", "kinetic", "potential", "heat", "mechanical", "conservation", "joule", "watt", "thermodynamics"],
+  "States of Matter": ["matter", "solid", "liquid", "gas", "plasma", "state", "phase", "melt", "freeze", "boil", "evaporate", "condense"],
+  "The Moon and Tides": ["moon", "tide", "lunar", "ocean", "high", "low", "gravity", "phase", "eclipse", "orbit", "satellite"],
+  "World War II": ["world", "war", "ww2", "wwii", "axis", "allies", "hitler", "germany", "japan", "nazi", "holocaust", "atomic", "history"],
+};
+
 function mapGradeToAvailable(grade: number): number {
   if (grade <= 2) return 1;
   if (grade <= 6) return 4;
   if (grade <= 10) return 8;
   return 12;
+}
+
+function matchTopic(query: string): string | null {
+  const normalized = query.toLowerCase().replace(/[^\w\s]/g, " ").trim();
+  const words = normalized.split(/\s+/).filter((w) => w.length > 2);
+  if (words.length === 0) return null;
+
+  let bestTopic: string | null = null;
+  let bestScore = 0;
+
+  for (const [topic, keywords] of Object.entries(topicKeywords)) {
+    let score = 0;
+    const topicWords = topic.toLowerCase().split(/\s+/);
+    for (const word of words) {
+      // Topic name match (higher weight)
+      for (const tw of topicWords) {
+        if (tw.length > 2 && (tw.includes(word) || word.includes(tw))) {
+          score += 3;
+          break;
+        }
+      }
+      // Keyword match
+      for (const kw of keywords) {
+        if (kw.includes(word) || word.includes(kw)) {
+          score += 1;
+          break;
+        }
+      }
+    }
+    if (score > bestScore) {
+      bestScore = score;
+      bestTopic = topic;
+    }
+  }
+
+  return bestScore > 0 ? bestTopic : null;
 }
 
 const metrics = [
@@ -83,7 +146,7 @@ const techStack = [
 
 export default function EduRAGPage() {
   const [dataset, setDataset] = useState<ContentEntry[]>([]);
-  const [topic, setTopic] = useState("Photosynthesis");
+  const [question, setQuestion] = useState("");
   const [grade, setGrade] = useState(8);
   const [language, setLanguage] = useState("en");
   const [displayedContent, setDisplayedContent] = useState("");
@@ -93,15 +156,23 @@ export default function EduRAGPage() {
   const [isPaused, setIsPaused] = useState(false);
   const [fallbackLang, setFallbackLang] = useState<string | null>(null);
   const [voicesLoaded, setVoicesLoaded] = useState(false);
+  const [matchedTopic, setMatchedTopic] = useState<string | null>(null);
+  const [noMatch, setNoMatch] = useState(false);
 
   const typingRef = useRef<NodeJS.Timeout | null>(null);
   const utteranceRef = useRef<SpeechSynthesisUtterance | null>(null);
 
-  // Load dataset
+  const allTopics = Array.from(new Set(dataset.map((d) => d.topic))).sort();
+
+  // Load datasets
   useEffect(() => {
-    fetch("/data/edu-rag-content.json")
-      .then((res) => res.json())
-      .then((data: ContentEntry[]) => setDataset(data))
+    Promise.all([
+      fetch("/data/edu-rag-content.json").then((r) => r.json()),
+      fetch("/data/edu-rag-topics-expanded.json").then((r) => r.json()),
+    ])
+      .then(([base, expanded]) => {
+        setDataset([...base, ...expanded]);
+      })
       .catch(() => setDataset([]));
   }, []);
 
@@ -162,11 +233,28 @@ export default function EduRAGPage() {
     stopAudio();
     setDisplayedContent("");
     setFallbackLang(null);
+    setMatchedTopic(null);
+    setNoMatch(false);
 
+    if (!question.trim()) {
+      setFullContent("Please type a question first!");
+      setDisplayedContent("Please type a question first!");
+      return;
+    }
+
+    const topic = matchTopic(question);
+    if (!topic) {
+      setNoMatch(true);
+      setFullContent("");
+      return;
+    }
+
+    setMatchedTopic(topic);
     const { entry, fallback } = findContent(topic, grade, language);
+
     if (!entry) {
-      setFullContent("Content not available for this combination. Try a different topic or language.");
-      setDisplayedContent("Content not available for this combination. Try a different topic or language.");
+      setFullContent("Content not available for this combination. Try a different grade or language.");
+      setDisplayedContent("Content not available for this combination. Try a different grade or language.");
       return;
     }
 
@@ -186,7 +274,7 @@ export default function EduRAGPage() {
         stopTyping();
       }
     }, 25);
-  }, [topic, grade, language, findContent, stopTyping, stopAudio]);
+  }, [question, grade, language, findContent, stopTyping, stopAudio]);
 
   const playAudio = useCallback(() => {
     const synth = window.speechSynthesis;
@@ -204,8 +292,6 @@ export default function EduRAGPage() {
     const utterance = new SpeechSynthesisUtterance(fullContent);
     utteranceRef.current = utterance;
 
-    // Select voice based on language
-    const voices = synth.getVoices();
     const langCode = fallbackLang || language;
     const langPrefix =
       langCode === "en" ? "en" :
@@ -216,8 +302,8 @@ export default function EduRAGPage() {
       langCode === "kn" ? "kn" :
       langCode === "pa" ? "pa" : "en";
 
+    const voices = synth.getVoices();
     const voice = voices.find((v) => v.lang.startsWith(langPrefix)) ||
-      voices.find((v) => v.lang.startsWith(langPrefix + "-")) ||
       voices.find((v) => v.lang.startsWith("en"));
 
     if (voice) {
@@ -234,7 +320,6 @@ export default function EduRAGPage() {
       setIsPlaying(false);
       setIsPaused(false);
     };
-
     utterance.onerror = () => {
       setIsPlaying(false);
       setIsPaused(false);
@@ -257,7 +342,6 @@ export default function EduRAGPage() {
     setDisplayedContent(fullContent);
   }, [stopTyping, stopAudio, fullContent]);
 
-  // Cleanup on unmount
   useEffect(() => {
     return () => {
       stopTyping();
@@ -266,8 +350,6 @@ export default function EduRAGPage() {
   }, [stopTyping]);
 
   const mappedGrade = mapGradeToAvailable(grade);
-  const { entry: previewEntry } = findContent(topic, grade, language);
-  const hasContent = !!previewEntry;
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-5xl">
@@ -328,24 +410,29 @@ export default function EduRAGPage() {
 
         <Card className="border-2 border-primary/10">
           <CardContent className="p-6 space-y-6">
-            {/* Controls */}
-            <div className="grid gap-4 md:grid-cols-3">
-              <div className="space-y-2">
-                <label className="text-sm font-medium flex items-center gap-2">
-                  <BookOpen className="h-4 w-4 text-muted-foreground" />
-                  Topic
-                </label>
-                <select
-                  value={topic}
-                  onChange={(e) => setTopic(e.target.value)}
-                  className="w-full h-10 rounded-md border border-input bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-ring"
-                >
-                  {topics.map((t) => (
-                    <option key={t} value={t}>{t}</option>
-                  ))}
-                </select>
-              </div>
+            {/* Question Input */}
+            <div className="space-y-2">
+              <label className="text-sm font-medium flex items-center gap-2">
+                <MessageCircle className="h-4 w-4 text-muted-foreground" />
+                Ask a Question
+              </label>
+              <input
+                type="text"
+                value={question}
+                onChange={(e) => setQuestion(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") generateContent();
+                }}
+                placeholder="e.g., What is photosynthesis? How does gravity work? Explain cells..."
+                className="w-full h-10 rounded-md border border-input bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-ring"
+              />
+              <p className="text-xs text-muted-foreground">
+                Type any question and we will find the best matching topic from {allTopics.length} subjects.
+              </p>
+            </div>
 
+            {/* Grade + Language */}
+            <div className="grid gap-4 md:grid-cols-2">
               <div className="space-y-2">
                 <label className="text-sm font-medium flex items-center gap-2">
                   <GraduationCap className="h-4 w-4 text-muted-foreground" />
@@ -386,7 +473,7 @@ export default function EduRAGPage() {
             {/* Generate Button */}
             <Button
               onClick={generateContent}
-              disabled={isTyping || dataset.length === 0}
+              disabled={isTyping || dataset.length === 0 || !question.trim()}
               className="w-full gap-2"
               size="lg"
             >
@@ -397,11 +484,13 @@ export default function EduRAGPage() {
             {/* Content Display */}
             {(displayedContent || fullContent) && (
               <div className="space-y-4">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <Badge variant="outline" className="text-xs">
-                      {topic} · Class {mappedGrade}
-                    </Badge>
+                <div className="flex items-center justify-between flex-wrap gap-2">
+                  <div className="flex items-center gap-2 flex-wrap">
+                    {matchedTopic && (
+                      <Badge variant="outline" className="text-xs">
+                        {matchedTopic} · Class {mappedGrade}
+                      </Badge>
+                    )}
                     {fallbackLang && (
                       <Badge variant="secondary" className="text-xs">
                         Fallback: {languages.find((l) => l.code === fallbackLang)?.name}
@@ -409,7 +498,6 @@ export default function EduRAGPage() {
                     )}
                   </div>
 
-                  {/* Audio Controls */}
                   <div className="flex items-center gap-2">
                     {voicesLoaded && window.speechSynthesis && (
                       <>
@@ -472,10 +560,37 @@ export default function EduRAGPage() {
                     )}
                   </p>
                 </div>
+              </div>
+            )}
 
-                {!hasContent && displayedContent && (
-                  <p className="text-sm text-muted-foreground">
-                    Note: Full dataset covers Classes 1, 4, 8, and 12. Your selection is mapped to the nearest available grade.
+            {/* No Match */}
+            {noMatch && (
+              <div className="text-center p-6 space-y-4">
+                <HelpCircle className="h-10 w-10 text-muted-foreground mx-auto" />
+                <p className="text-muted-foreground">
+                  We could not find a match for that question.
+                </p>
+                <p className="text-sm text-muted-foreground">
+                  Try asking about one of these topics:
+                </p>
+                <div className="flex flex-wrap gap-2 justify-center">
+                  {allTopics.slice(0, 15).map((t) => (
+                    <Badge
+                      key={t}
+                      variant="secondary"
+                      className="cursor-pointer hover:bg-primary/20 transition-colors"
+                      onClick={() => {
+                        setQuestion(`What is ${t.toLowerCase()}?`);
+                        setNoMatch(false);
+                      }}
+                    >
+                      {t}
+                    </Badge>
+                  ))}
+                </div>
+                {allTopics.length > 15 && (
+                  <p className="text-xs text-muted-foreground">
+                    ...and {allTopics.length - 15} more topics
                   </p>
                 )}
               </div>

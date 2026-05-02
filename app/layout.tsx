@@ -19,6 +19,9 @@ export const metadata: Metadata = {
   description: "Portfolio of Rudrani Ghosh — Data Scientist, Programmer, and Lawyer building AI-powered tools at the intersection of law, healthcare, and data science. Explore interactive research demos.",
   keywords: ["Rudrani Ghosh", "Legal AI", "Healthcare ML", "Data Science", "NLP", "Machine Learning", "Portfolio"],
   authors: [{ name: "Rudrani Ghosh" }],
+  icons: {
+    icon: "/favicon.svg",
+  },
   openGraph: {
     title: "Rudrani Ghosh | Legal AI & Healthcare ML Researcher",
     description: "Data Scientist · Programmer · Lawyer. Building AI-powered tools for legal reasoning, healthcare diagnosis, and NLP.",

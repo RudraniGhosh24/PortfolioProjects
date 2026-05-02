@@ -117,18 +117,62 @@ function textIncludesWord(text: string, word: string): boolean {
 }
 
 function partialMatch(inputTokens: string[], target: string): boolean {
-  // Strict partial: input token must be at least 5 chars and at least 60% of target token length
+  // Strict partial: input token must be at least 5 chars and at least 60% of target token length.
+  // Skip exact token matches (e.g., "fever" should not partially match "high fever").
   const targetLower = target.toLowerCase();
   const targetTokens = targetLower.split(/\s+/).filter((t) => t.length > 2);
   for (const itok of inputTokens) {
     if (itok.length < 5) continue; // Too short for safe partial matching
     for (const ttok of targetTokens) {
+      if (itok === ttok) continue; // Exact word match — not a partial
       // Input must be a substantial part of the target token (60%+)
       if (itok.length >= ttok.length * 0.6) {
-        // Check for meaningful overlap (not just 1-2 letter overlaps)
         if (ttok.includes(itok) || itok.includes(ttok)) return true;
       }
     }
+  }
+  return false;
+}
+
+// Allow up to 1 gap word between symptom tokens (e.g., "gum is bleeding" → "bleeding gums")
+function fuzzyMatchTokensWithGap(inputWords: string[], targetWords: string[]): boolean {
+  if (targetWords.length === 0) return false;
+  for (let i = 0; i <= inputWords.length - targetWords.length; i++) {
+    let ok = true;
+    let gaps = 0;
+    let targetIdx = 0;
+    for (let j = 0; j < targetWords.length && i + j + gaps < inputWords.length; j++) {
+      const w1 = inputWords[i + j + gaps];
+      const w2 = targetWords[targetIdx];
+      if (w1 === w2) {
+        targetIdx++;
+        continue;
+      }
+      if (w2.length <= 3) {
+        ok = false;
+        break;
+      }
+      const maxDist = w2.length <= 5 ? 1 : 2;
+      if (levenshtein(w1, w2) > maxDist) {
+        // Try skipping one input word (gap tolerance)
+        if (gaps < 1 && i + j + gaps + 1 < inputWords.length) {
+          gaps++;
+          const w1skip = inputWords[i + j + gaps];
+          if (w1skip === w2) {
+            targetIdx++;
+            continue;
+          }
+          if (levenshtein(w1skip, w2) <= maxDist) {
+            targetIdx++;
+            continue;
+          }
+        }
+        ok = false;
+        break;
+      }
+      targetIdx++;
+    }
+    if (ok && targetIdx === targetWords.length) return true;
   }
   return false;
 }
@@ -151,7 +195,12 @@ function extractSymptoms(text: string, data: SymptomData): { direct: Set<string>
         direct.add(canonical);
         break;
       }
-      if (fuzzyMatchTokens(tokens, syn.toLowerCase().split(/\s+/))) {
+      const synTokens = syn.toLowerCase().split(/\s+/).filter((t) => t.length > 0);
+      if (fuzzyMatchTokens(tokens, synTokens)) {
+        direct.add(canonical);
+        break;
+      }
+      if (fuzzyMatchTokensWithGap(tokens, synTokens)) {
         direct.add(canonical);
         break;
       }
@@ -166,7 +215,12 @@ function extractSymptoms(text: string, data: SymptomData): { direct: Set<string>
         direct.add(sym);
         continue;
       }
-      if (fuzzyMatchTokens(tokens, sym.toLowerCase().split(/\s+/))) {
+      const symTokens = sym.toLowerCase().split(/\s+/).filter((t) => t.length > 0);
+      if (fuzzyMatchTokens(tokens, symTokens)) {
+        direct.add(sym);
+        continue;
+      }
+      if (fuzzyMatchTokensWithGap(tokens, symTokens)) {
         direct.add(sym);
         continue;
       }

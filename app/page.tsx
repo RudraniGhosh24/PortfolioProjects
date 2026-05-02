@@ -299,7 +299,13 @@ export default function Home() {
                         <Badge key={tag} variant="secondary">{tag}</Badge>
                       ))}
                     </div>
-                    <div className="flex flex-wrap gap-3">
+                    <div className="flex flex-wrap gap-3 items-center">
+                      <Link href={project.href}>
+                        <Button size="sm" className="gap-1.5">
+                          Try Demo
+                          <ArrowRight className="h-3.5 w-3.5" />
+                        </Button>
+                      </Link>
                       <a
                         href={project.githubCode}
                         target="_blank"
@@ -318,13 +324,6 @@ export default function Home() {
                         <Database className="h-3.5 w-3.5" />
                         Dataset
                       </a>
-                      <Link
-                        href={project.href}
-                        className="inline-flex items-center gap-1.5 text-xs font-medium text-primary hover:underline"
-                      >
-                        Try Demo
-                        <ArrowRight className="h-3.5 w-3.5" />
-                      </Link>
                     </div>
                   </CardContent>
                 </Card>

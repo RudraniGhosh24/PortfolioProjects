@@ -683,7 +683,7 @@ function computeRefinedScore(
               <CardHeader>
                 <CardTitle className="text-lg flex items-center gap-2">
                   <BookOpen className="h-5 w-5" />
-                  {idx === 0 ? "Best Match" : `Alternative ${idx}`}
+                  {idx === 0 ? "Best Match" : `Applicable Section ${idx}`}
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">

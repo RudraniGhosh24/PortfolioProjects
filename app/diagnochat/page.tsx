@@ -16,12 +16,13 @@ interface Disease {
 interface SymptomData {
   diseases: Disease[];
   synonyms: Record<string, string[]>;
+  symptomCategories: Record<string, string[]>;
 }
 
 interface Message {
   role: "user" | "bot";
   text: string;
-  diseases?: Array<{ name: string; probability: number; matched: string[] }>;
+  diseases?: Array<{ name: string; probability: number; matched: string[]; matchedDirect: string[] }>;
 }
 
 function tokenize(text: string): string[] {
@@ -74,54 +75,178 @@ function fuzzyMatchTokens(inputWords: string[], targetWords: string[]): boolean 
   return false;
 }
 
-function extractSymptoms(text: string, data: SymptomData): Set<string> {
-  const found = new Set<string>();
+const NEGATION_PATTERNS = [
+  /\b(no|not|don't|dont|doesn't|doesnt|didn't|didnt|without|absence of|lack of)\s+([a-z\s]+)/gi,
+  /\b(no|not|never)\s+([a-z\s]+)/gi,
+];
+
+function extractNegatedPhrases(text: string): string[] {
+  const negated: string[] = [];
+  for (const pattern of NEGATION_PATTERNS) {
+    let match;
+    while ((match = pattern.exec(text)) !== null) {
+      negated.push(match[2].trim().toLowerCase());
+    }
+  }
+  return negated;
+}
+
+function isNegated(symptom: string, negatedPhrases: string[]): boolean {
+  const symLower = symptom.toLowerCase();
+  const symTokens = symLower.split(/\s+/);
+  for (const phrase of negatedPhrases) {
+    if (phrase.includes(symLower)) return true;
+    // Check if any symptom word appears in the negated phrase
+    for (const tok of symTokens) {
+      if (tok.length > 3 && phrase.includes(tok)) return true;
+    }
+  }
+  return false;
+}
+
+function partialMatch(inputTokens: string[], target: string): boolean {
+  // Checks if any input token is a substring of the target or vice versa
+  const targetLower = target.toLowerCase();
+  const targetTokens = targetLower.split(/\s+/).filter((t) => t.length > 2);
+  for (const itok of inputTokens) {
+    if (itok.length <= 3) continue;
+    // Direct substring match
+    if (targetLower.includes(itok)) return true;
+    for (const ttok of targetTokens) {
+      if (ttok.includes(itok) && itok.length >= ttok.length * 0.5) return true;
+    }
+  }
+  return false;
+}
+
+function extractSymptoms(text: string, data: SymptomData): { direct: Set<string>; expanded: Set<string> } {
+  const direct = new Set<string>();
+  const expanded = new Set<string>();
   const tokens = tokenize(text);
   const textLower = text.toLowerCase();
+  const negatedPhrases = extractNegatedPhrases(text);
 
+  // Helper to check if a symptom is negated
+  const checkNegated = (sym: string) => isNegated(sym, negatedPhrases);
+
+  // ── 1. Direct synonym matching ──
   for (const [canonical, syns] of Object.entries(data.synonyms)) {
+    if (checkNegated(canonical)) continue;
     for (const syn of syns) {
       if (textLower.includes(syn.toLowerCase())) {
-        found.add(canonical);
+        direct.add(canonical);
         break;
       }
       if (fuzzyMatchTokens(tokens, syn.toLowerCase().split(/\s+/))) {
-        found.add(canonical);
+        direct.add(canonical);
         break;
       }
     }
   }
 
+  // ── 2. Direct disease-symptom matching ──
   for (const disease of data.diseases) {
     for (const sym of disease.symptoms) {
+      if (checkNegated(sym)) continue;
       if (textLower.includes(sym.toLowerCase())) {
-        found.add(sym);
+        direct.add(sym);
         continue;
       }
       if (fuzzyMatchTokens(tokens, sym.toLowerCase().split(/\s+/))) {
-        found.add(sym);
+        direct.add(sym);
+        continue;
+      }
+      // Partial / substring matching (e.g., "digest" → "indigestion")
+      if (partialMatch(tokens, sym)) {
+        direct.add(sym);
       }
     }
   }
 
-  return found;
+  // ── 3. Category matching ──
+  // Build a flat map of all known symptom strings for category synonym checks
+  const allSymptomStrings = new Set<string>();
+  for (const d of data.diseases) {
+    for (const s of d.symptoms) allSymptomStrings.add(s.toLowerCase());
+  }
+  for (const s of Object.keys(data.synonyms)) allSymptomStrings.add(s.toLowerCase());
+
+  for (const [category, symptoms] of Object.entries(data.symptomCategories || {})) {
+    const catLower = category.toLowerCase();
+    let matched = false;
+    // Exact phrase match
+    if (textLower.includes(catLower)) {
+      matched = true;
+    } else {
+      // Fuzzy match on category name tokens
+      const catTokens = catLower.split(/\s+/).filter((t) => t.length > 2);
+      if (catTokens.length > 0 && fuzzyMatchTokens(tokens, catTokens)) {
+        matched = true;
+      }
+      // Partial match on category words
+      for (const tok of tokens) {
+        if (tok.length > 3 && catLower.includes(tok)) {
+          matched = true;
+          break;
+        }
+      }
+    }
+
+    if (matched) {
+      for (const sym of symptoms) {
+        if (checkNegated(sym)) continue;
+        if (!direct.has(sym)) {
+          expanded.add(sym);
+        }
+      }
+    }
+  }
+
+  // ── 4. Cross-reference: if user mentions a symptom that is a category keyword,
+  //    also expand related symptoms (e.g. "stomach" → expand stomach-related)
+  for (const [category, symptoms] of Object.entries(data.symptomCategories || {})) {
+    const catTokens = category.toLowerCase().split(/\s+/).filter((t) => t.length > 2);
+    for (const tok of tokens) {
+      if (tok.length > 4) {
+        for (const ctok of catTokens) {
+          if (ctok.includes(tok) || tok.includes(ctok)) {
+            for (const sym of symptoms) {
+              if (checkNegated(sym)) continue;
+              if (!direct.has(sym)) expanded.add(sym);
+            }
+            break;
+          }
+        }
+      }
+    }
+  }
+
+  return { direct, expanded };
 }
 
 function predictDiseases(
-  symptoms: Set<string>,
+  direct: Set<string>,
+  expanded: Set<string>,
   data: SymptomData
-): Array<{ name: string; probability: number; matched: string[] }> {
-  const results: Array<{ name: string; probability: number; matched: string[] }> = [];
+): Array<{ name: string; probability: number; matched: string[]; matchedDirect: string[] }> {
+  const results: Array<{ name: string; probability: number; matched: string[]; matchedDirect: string[] }> = [];
+  const allSymptoms = new Set([...direct, ...expanded]);
 
   for (const disease of data.diseases) {
-    const matched = disease.symptoms.filter((s) => symptoms.has(s));
+    const matchedDirect = disease.symptoms.filter((s) => direct.has(s));
+    const matchedExpanded = disease.symptoms.filter((s) => expanded.has(s) && !direct.has(s));
+    const matched = [...matchedDirect, ...matchedExpanded];
+
     if (matched.length === 0) continue;
 
-    // Coverage: fraction of the disease's symptoms that are present
-    const coverage = matched.length / disease.symptoms.length;
+    // Weight direct matches higher than expanded category matches
+    const effectiveMatches = matchedDirect.length + matchedExpanded.length * 0.6;
+
+    // Coverage: fraction of the disease's symptoms that are effectively present
+    const coverage = effectiveMatches / disease.symptoms.length;
     // Precision: fraction of input symptoms that match this disease
-    const precision = matched.length / symptoms.size;
-    // Combined score (penalizes diseases with many unmatched symptoms)
+    const precision = effectiveMatches / allSymptoms.size;
+    // Combined score
     const score = coverage * precision;
 
     // Scale to a sensible percentage range
@@ -131,6 +256,7 @@ function predictDiseases(
       name: disease.name,
       probability,
       matched,
+      matchedDirect,
     });
   }
 
@@ -171,14 +297,16 @@ export default function DiagnoChatPage() {
     setMessages((prev) => [...prev, userMsg]);
 
     setTimeout(() => {
-      const symptoms = extractSymptoms(userText, data);
-      const predictions = predictDiseases(symptoms, data);
+      const { direct, expanded } = extractSymptoms(userText, data);
+      const predictions = predictDiseases(direct, expanded, data);
 
       let botText = "";
       if (predictions.length === 0) {
-        botText = "I could not identify any matching symptoms from your description. Please try using more common terms like fever, cough, headache, etc.";
+        botText = "I could not identify any matching symptoms from your description. Please try using more common terms like fever, cough, headache, digestive issues, etc.";
       } else {
-        botText = `Based on your symptoms (${Array.from(symptoms).join(", ")}), here are the most likely conditions:`;
+        const allSymptoms = [...direct];
+        if (expanded.size > 0) allSymptoms.push(`+${expanded.size} related`);
+        botText = `Based on your symptoms (${allSymptoms.join(", ")}), here are the most likely conditions:`;
       }
 
       const botMsg: Message = {
@@ -238,6 +366,11 @@ export default function DiagnoChatPage() {
                             </div>
                             <p className="text-xs text-muted-foreground mt-1">
                               Matched: {d.matched.join(", ")}
+                              {d.matchedDirect.length < d.matched.length && (
+                                <span className="text-[10px] text-amber-600 ml-1">
+                                  ({d.matched.length - d.matchedDirect.length} inferred)
+                                </span>
+                              )}
                             </p>
                           </div>
                         ))}

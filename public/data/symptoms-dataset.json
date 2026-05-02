@@ -246,5 +246,27 @@
 "prolonged fever":["fever lasting weeks","long fever","persistent fever"],
 "night pain":["pain at night","worse at night","nocturnal pain"],
 "unexplained fever":["fever of unknown origin","random fever","mystery fever"]
+},
+"symptomCategories":{
+"digestive issues":["nausea","vomiting","diarrhea","abdominal pain","constipation","bloating","heartburn","indigestion","loss of appetite","blood in stool","dark urine","jaundice"],
+"stomach problems":["nausea","vomiting","diarrhea","abdominal pain","constipation","bloating","heartburn","indigestion","loss of appetite"],
+"breathing problems":["shortness of breath","cough","wheezing","chest tightness","rapid breathing","difficulty breathing","blue lips","cough up blood"],
+"respiratory issues":["shortness of breath","cough","wheezing","chest tightness","rapid breathing","difficulty breathing","runny nose","nasal congestion","sore throat"],
+"skin problems":["rash","itching","redness","swelling","dry skin","blisters","hives","red patches","silvery scales","acne","skin discoloration","moles changing"],
+"heart problems":["chest pain","rapid heartbeat","shortness of breath","fatigue","sweating","arm pain","palpitations","fainting","high blood pressure"],
+"head issues":["headache","dizziness","confusion","memory loss","difficulty speaking","vision loss","seizures","facial droop","slurred speech"],
+"neurological issues":["headache","dizziness","confusion","memory loss","difficulty speaking","vision loss","seizures","facial droop","slurred speech","numbness","tingling","tremor","balance problems","difficulty walking"],
+"urinary problems":["painful urination","frequent urination","blood in urine","urgency","cloudy urine","dark urine","pelvic pain"],
+"mental health issues":["depression","anxiety","mood swings","panic","poor concentration","insomnia","social withdrawal","loss of interest","hallucinations","delusions"],
+"joint problems":["joint pain","swelling","morning stiffness","limited motion","bone pain","muscle weakness"],
+"eye problems":["blurred vision","eye pain","red eyes","watery eyes","dry eyes","double vision","floaters","sensitivity to light","loss of vision"],
+"ear problems":["ear pain","hearing loss","ringing in ears","clogged ear","loss of balance"],
+"dental problems":["tooth pain","gum bleeding","bad breath","loose teeth","jaw pain","sore gums"],
+"throat problems":["sore throat","difficulty swallowing","hoarseness","dry mouth","excessive salivation"],
+"allergy symptoms":["sneezing","runny nose","itchy eyes","watery eyes","nasal congestion","postnasal drip","hives"],
+"infection signs":["fever","chills","fatigue","swollen lymph nodes","night sweats","prolonged fever","frequent infections"],
+"weight issues":["weight loss","weight gain","loss of appetite","increased appetite"],
+"sleep problems":["insomnia","difficulty falling asleep","difficulty staying asleep","early waking","fatigue","sleep problems","night sweats"],
+"blood sugar issues":["excessive thirst","frequent urination","fatigue","blurred vision","slow healing","numbness","excessive hunger"]
 }
 }

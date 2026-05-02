@@ -118,8 +118,10 @@ const SYNONYMS: Record<string, string[]> = {
   followed: ["stalking", "harassment"],
   follow: ["stalking", "harassment"],
   stalking: ["stalking", "harassment"],
+  sexually: ["sexual", "assault", "rape", "intercourse", "modesty"],
+  assaulted: ["assault", "hurt", "grievous", "sexual"],
 
-  // Kidnapping / Abduction
+  // Kidnapping / Abduction / Confinement
   kidnap: ["kidnapping", "abduction", "wrongful", "confinement"],
   kidnapped: ["kidnapping", "abduction", "wrongful", "confinement"],
   abduct: ["abduction", "kidnapping", "wrongful", "confinement"],
@@ -127,6 +129,9 @@ const SYNONYMS: Record<string, string[]> = {
   captured: ["kidnapping", "abduction", "wrongful"],
   trapped: ["wrongful", "confinement", "kidnapping"],
   tied: ["wrongful", "confinement", "restraint"],
+  locked: ["wrongful", "confinement", "restraint", "kidnapping"],
+  confinement: ["wrongful", "confinement", "restraint"],
+  confined: ["wrongful", "confinement", "restraint"],
 
   // Cheating / Fraud / Forgery
   cheat: ["cheating", "fraud", "dishonestly", "deception", "personation"],
@@ -460,64 +465,53 @@ function computeRefinedScore(
   // 4. Expanded token overlap count (for minimum match gating)
   const expandedMatches = queryExpanded.filter((t) => docTokens.includes(t) || docText.includes(t));
 
-  // 5. Category mismatch penalty
+  // 5. Category detection for query and provision
   const querySet = new Set(queryTokens);
-  const isTheftQuery = ["steal", "stole", "stolen", "stealing", "robbed", "rob", "theft", "money", "wallet", "cash", "property", "belongings", "jewellery", "jewelry", "bike", "car", "phone", "wallet"].some((t) => querySet.has(t));
+  const rawLower = queryRaw.toLowerCase();
+
+  // Multi-signal query flags
+  const isTheftQuery = ["steal", "stole", "stolen", "stealing", "robbed", "rob", "theft", "money", "wallet", "cash", "property", "belongings", "jewellery", "jewelry", "bike", "car", "phone"].some((t) => querySet.has(t));
   const isReceivingQuery = ["receive", "receiving", "buy", "bought", "purchase", "purchased", "sell", "sold"].some((t) => querySet.has(t));
+  const isKidnappingQuery = ["kidnap", "kidnapped", "abduct", "abducted", "captured", "trapped", "tied"].some((t) => querySet.has(t));
+  const isMurderQuery = ["killed", "kill", "murder", "murdered", "dead", "death", "died", "strangled", "poisoned", "stabbed", "shoot", "shot"].some((t) => querySet.has(t));
+  const isSexualQuery = ["rape", "raped", "molest", "molested", "harass", "harassed", "touched", "undress", "naked", "stalking", "sexually"].some((t) => querySet.has(t)) || (rawLower.includes("sexual") && rawLower.includes("assault"));
+  const isConfinementQuery = ["locked", "confinement", "confined", "trapped", "tied", "restrained"].some((t) => querySet.has(t));
+  const isHurtQuery = ["hurt", "beating", "beat", "hit", "punched", "kicked", "slap", "attacked", "attack", "injured", "injure", "wound", "wounded"].some((t) => querySet.has(t));
+  const isTrespassQuery = ["broke", "break", "broken", "enter", "entered", "intrude", "house", "home", "building", "door", "window", "lock", "gate"].some((t) => querySet.has(t));
+
+  // Provision category flags
+  const isTheftProvision = docText.includes("theft") || docText.includes("robbery") || docText.includes("extortion") || docText.includes("dacoity") || docText.includes("snatching") || docText.includes("mischief");
   const isKidnappingProvision = docText.includes("kidnapping") || docText.includes("abducting") || docText.includes("abduction");
   const isMurderProvision = docText.includes("murder") || docText.includes("culpable homicide");
   const isSexualProvision = docText.includes("rape") || docText.includes("sexual") || docText.includes("modesty");
+  const isConfinementProvision = docText.includes("wrongful confinement") || docText.includes("wrongfully confining") || docText.includes("wrongful restrain");
+  const isHurtProvision = docText.includes("hurt") || docText.includes("grievous") || docText.includes("assault");
+  const isTrespassProvision = docText.includes("trespass") || docText.includes("house-breaking") || docText.includes("lurking");
   const isReceivingProvision = docText.includes("receiving") || docText.includes("receipt") || (docText.includes("stolen") && docText.includes("property") && !docText.includes("theft") && !docText.includes("robbery"));
 
-  if (isTheftQuery) {
-    // Boost theft-related provisions
-    if (docText.includes("theft") || docText.includes("robbery") || docText.includes("extortion") || docText.includes("dacoity") || docText.includes("snatching") || docText.includes("mischief")) {
-      score += 0.15;
-    }
-    // Penalize receiving-stolen-property when query describes active theft
-    if (isReceivingProvision && !isReceivingQuery) {
-      score *= 0.2;
-    }
-    // Penalize unrelated categories
-    if (isKidnappingProvision && directMatches.length < 2) {
-      score *= 0.25;
-    }
-    if (isMurderProvision && directMatches.length < 2) {
-      score *= 0.3;
-    }
-    if (isSexualProvision && directMatches.length < 2) {
-      score *= 0.25;
-    }
+  // Boost matching categories (additive, not multiplicative penalty on others)
+  if (isTheftQuery && isTheftProvision) score += 0.18;
+  if (isKidnappingQuery && isKidnappingProvision) score += 0.18;
+  if (isMurderQuery && isMurderProvision) score += 0.18;
+  if (isSexualQuery && isSexualProvision) score += 0.18;
+  if (isConfinementQuery && isConfinementProvision) score += 0.18;
+  if (isHurtQuery && isHurtProvision) score += 0.12;
+  if (isTrespassQuery && isTrespassProvision) score += 0.15;
+
+  // Penalize receiving-stolen-property when query describes active theft
+  if (isTheftQuery && isReceivingProvision && !isReceivingQuery) {
+    score *= 0.3;
   }
 
-  // 6. Kidnapping query handling
-  const isKidnappingQuery = ["kidnap", "kidnapped", "abduct", "abducted", "captured", "trapped", "tied"].some((t) => querySet.has(t));
-  if (isKidnappingQuery) {
-    if (isKidnappingProvision) {
-      score += 0.15;
-    } else if (directMatches.length < 2) {
-      score *= 0.4;
-    }
-  }
-
-  // 7. Murder query handling
-  const isMurderQuery = ["killed", "kill", "murder", "murdered", "dead", "death", "died", "strangled", "poisoned", "stabbed", "shoot", "shot"].some((t) => querySet.has(t));
-  if (isMurderQuery) {
-    if (isMurderProvision) {
-      score += 0.15;
-    } else if (directMatches.length < 2) {
-      score *= 0.4;
-    }
-  }
-
-  // 8. Sexual offense query handling
-  const isSexualQuery = ["rape", "raped", "molest", "molested", "harass", "harassed", "touched", "undress", "naked", "stalking"].some((t) => querySet.has(t));
-  if (isSexualQuery) {
-    if (isSexualProvision) {
-      score += 0.15;
-    } else if (directMatches.length < 2) {
-      score *= 0.3;
-    }
+  // Light cross-category penalty ONLY when query is clearly single-category and provision is clearly unrelated
+  const singleCategoryQuery = [isTheftQuery, isKidnappingQuery, isMurderQuery, isSexualQuery, isConfinementQuery].filter(Boolean).length === 1;
+  if (singleCategoryQuery) {
+    if (isTheftQuery && isSexualProvision && directMatches.length < 1) score *= 0.5;
+    if (isTheftQuery && isMurderProvision && directMatches.length < 1) score *= 0.5;
+    if (isKidnappingQuery && isSexualProvision && directMatches.length < 1) score *= 0.5;
+    if (isMurderQuery && isTheftProvision && directMatches.length < 1) score *= 0.5;
+    if (isSexualQuery && isTheftProvision && directMatches.length < 1) score *= 0.5;
+    if (isSexualQuery && isMurderProvision && directMatches.length < 1) score *= 0.5;
   }
 
   // 9. Minimum match gate: reject if fewer than 2 expanded tokens match
@@ -549,7 +543,8 @@ function computeRefinedScore(
       const userExpanded = expandTokens(userTokens);
       const userVec = computeQueryVector(userExpanded, idf);
 
-      const scored = vectors
+      // Score all provisions
+      const allScored = vectors
         .map((vec, i) => ({
           index: i,
           cosine: cosineSimilarity(userVec, vec),
@@ -558,17 +553,65 @@ function computeRefinedScore(
         .map((s) => ({
           index: s.index,
           score: computeRefinedScore(rawQuery, userTokens, userExpanded, data.provisions[s.index], s.cosine),
+          provision: data.provisions[s.index],
         }))
         .filter((s) => s.score > 0.02)
-        .sort((a, b) => b.score - a.score)
-        .slice(0, 5);
+        .sort((a, b) => b.score - a.score);
 
-      setResults(
-        scored.map((s) => ({
-          provision: data.provisions[s.index],
-          score: s.score,
-        }))
-      );
+      // Detect which categories are present in the query
+      const querySet = new Set(userTokens);
+      const rawLower = rawQuery.toLowerCase();
+      const detectedCategories: string[] = [];
+      if (["steal", "stole", "stolen", "stealing", "robbed", "rob", "theft", "money", "wallet", "cash", "property", "belongings", "jewellery", "jewelry", "bike", "car", "phone"].some((t) => querySet.has(t))) detectedCategories.push("theft");
+      if (["kidnap", "kidnapped", "abduct", "abducted", "captured", "trapped", "tied"].some((t) => querySet.has(t))) detectedCategories.push("kidnapping");
+      if (["killed", "kill", "murder", "murdered", "dead", "death", "died", "strangled", "poisoned", "stabbed", "shoot", "shot"].some((t) => querySet.has(t))) detectedCategories.push("murder");
+      if (["rape", "raped", "molest", "molested", "harass", "harassed", "touched", "undress", "naked", "stalking", "sexually"].some((t) => querySet.has(t)) || (rawLower.includes("sexual") && rawLower.includes("assault"))) detectedCategories.push("sexual");
+      if (["locked", "confinement", "confined", "trapped", "tied", "restrained"].some((t) => querySet.has(t))) detectedCategories.push("confinement");
+      if (["hurt", "beating", "beat", "hit", "punched", "kicked", "slap", "attacked", "attack", "injured", "injure", "wound", "wounded"].some((t) => querySet.has(t))) detectedCategories.push("hurt");
+      if (["broke", "break", "broken", "enter", "entered", "intrude", "house", "home", "building", "door", "window", "lock", "gate"].some((t) => querySet.has(t))) detectedCategories.push("trespass");
+
+      // Helper to categorize a provision
+      function provisionCategory(p: Provision): string {
+        const d = `${p.offense} ${p.punishment}`.toLowerCase();
+        if (d.includes("rape") || d.includes("sexual") || d.includes("modesty")) return "sexual";
+        if (d.includes("wrongful confinement") || d.includes("wrongfully confining") || d.includes("wrongful restrain")) return "confinement";
+        if (d.includes("kidnapping") || d.includes("abducting") || d.includes("abduction")) return "kidnapping";
+        if (d.includes("murder") || d.includes("culpable homicide")) return "murder";
+        if (d.includes("theft") || d.includes("robbery") || d.includes("extortion") || d.includes("dacoity") || d.includes("snatching")) return "theft";
+        if (d.includes("hurt") || d.includes("grievous") || (d.includes("assault") && !d.includes("sexual"))) return "hurt";
+        if (d.includes("trespass") || d.includes("house-breaking") || d.includes("lurking")) return "trespass";
+        return "other";
+      }
+
+      const picked = new Set<number>();
+      const finalResults: Array<{ provision: Provision; score: number }> = [];
+
+      // Pick top 2 from each detected category
+      for (const cat of detectedCategories) {
+        let count = 0;
+        for (const s of allScored) {
+          if (picked.has(s.index)) continue;
+          if (provisionCategory(s.provision) === cat) {
+            finalResults.push({ provision: s.provision, score: s.score });
+            picked.add(s.index);
+            count++;
+            if (count >= 2) break;
+          }
+        }
+      }
+
+      // Fill remaining slots with highest overall scores (up to 10 total)
+      for (const s of allScored) {
+        if (picked.has(s.index)) continue;
+        finalResults.push({ provision: s.provision, score: s.score });
+        picked.add(s.index);
+        if (finalResults.length >= 10) break;
+      }
+
+      // Sort by score descending
+      finalResults.sort((a, b) => b.score - a.score);
+
+      setResults(finalResults);
       setLoading(false);
     }, 500);
   };
